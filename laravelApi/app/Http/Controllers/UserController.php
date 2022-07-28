@@ -19,6 +19,21 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
 
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'name' => 'required|string',
+                'email' => 'email|required|unique:users',
+                'password' => 'required|min:8',
+                'phone' => 'required|min:10|max:10',
+                'image' => 'max:5048|required',
+            ]
+        );
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()->all()]);
+        }
+
         // $newImageName = time() . '-' . $request->name . '.' . $request->image->extension();
         // $request->image->move(public_path('img'), $newImageName);
 
