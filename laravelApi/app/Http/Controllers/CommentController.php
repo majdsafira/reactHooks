@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateCommentRequest;
 
 class CommentController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -28,11 +29,11 @@ class CommentController extends Controller
     {
         $request->validate([
             'user_id' => 'required',
-            'comment ',
+            'comment',
             'post_id',
             ]);
-            Comment::create($request->all());
-            return response('created', 201);
+            return Comment::create($request->all());
+            // return response('created', 201);
     }
 
     /**
