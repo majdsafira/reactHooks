@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\CommentController;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
-use App\Models\User;
+use App\Http\Controllers\CommentController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -23,6 +24,7 @@ use App\Models\User;
 
 Route::apiResource('post', PostController::class);
 Route::apiResource('comment', CommentController::class);
+Route::apiResource('ads', AdController::class);
 
 
 
