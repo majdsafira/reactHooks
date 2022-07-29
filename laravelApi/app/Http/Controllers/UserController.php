@@ -54,7 +54,7 @@ class UserController extends Controller
                 'email' => 'email|required|unique:users',
                 'password' => 'required|min:8',
                 'phone' => 'required|min:10|max:10',
-                'image' => 'max:5048|required',
+                'image' => 'required|max:5048',
             ]
         );
 
