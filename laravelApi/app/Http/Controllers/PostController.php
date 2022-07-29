@@ -55,7 +55,6 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        // dd(Post::find($post->id));
         return Post::where('id',$post->id)->get();
     }
 
