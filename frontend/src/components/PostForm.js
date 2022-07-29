@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function PostForm() {
 
@@ -24,19 +25,20 @@ function PostForm() {
     const [formData, setFormData] = useState({
         user_id : '',
         description: '', 
+        image:''
     })
     const [postConformation, setPostConformation] = useState('')
 
     const handleChange = (event) => {
-        const { name, value } = event.target
+        const { name, value, type, files } = event.target
         setFormData((oldData) => {
             return {
                 ...oldData,
-                [name]: value,
+                [name]: type === 'file' ? files[0].name : value,
             }
         })
     }
-
+    console.log(formData)
     const handleClick = (event) => {
         event.preventDefault()
         const requestOptions = {
@@ -57,6 +59,24 @@ console.log(postConformation)
 
 
   return (
+    <React.Fragment>
+
+<section className="inner-intro bg-1 bg-overlay-black-70">
+  <div className="container">
+     <div className="row text-center intro-title">
+           <div className="col-md-6 text-md-start d-inline-block">
+             <h1 className="text-white">Contact us </h1>
+           </div>
+           <div className="col-md-6 text-md-end float-end">
+             <ul className="page-breadcrumb">
+                <li><Link to="/"><i className="fa fa-home"></i> Home</Link> <i className="fa fa-angle-double-right"></i></li>
+                <li><span>Create a post</span> </li>
+             </ul>
+           </div>
+     </div>
+  </div>
+</section>
+    
     <section className="contact-2 page-section-ptb white-bg">
       <div className="container">
         <div className="row">
@@ -76,7 +96,6 @@ console.log(postConformation)
                   className="form-horizontal"
                   id="contactform"
                   method="post"
-                  action="http://themes.potenzaglobalsolutions.com/html/cardealer/php/contact-form.php"
                 >
                   <h5>
                     We have completed over a 1000+ projects for five hundred
@@ -91,7 +110,7 @@ console.log(postConformation)
                   <div
                     id="formmessage"
                     className="form-notice"
-                    style={{display:"none;"}}
+                    style={{display:"none"}}
                   >
                     Success/Error Message Goes Here
                   </div>
@@ -108,8 +127,18 @@ console.log(postConformation)
                         onChange={handleChange}
                       />
                     </div>
+                    <div className="mb-3">
+                      <input
+                        type='file'
+                        id="contactform_message"
+                        className="form-control input-message"
+                        name="image"
+                        value={formData.image}
+                        onChange={handleChange}
+                      />
+                    </div>
                     <div className="d-grid">
-                      <input type="hidden" name="action" value="sendEmail" />
+                      {/* <input type="hidden" name="action" value="sendEmail" /> */}
                       <button
                         id="submit"
                         name="submit"
@@ -189,6 +218,7 @@ console.log(postConformation)
         </div>
       </div>
     </section>
+    </React.Fragment>
   );
 }
 
