@@ -28,6 +28,7 @@ class AdController extends Controller
     public function store(StoreAdRequest $request)
     {
         $request->validate([
+            'user_id'=> 'required',
             'make' => 'required',
             'model ',
             'registration_date',

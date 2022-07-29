@@ -29,19 +29,8 @@ class PostController extends Controller
     public function store(StorePostRequest $request)
     {
         $request->validate([
-            'make' => 'required',
-            'model ',
-            'registration_date',
-            'milage',
-            'condition',
-            'image',
-            'exterior_color',
-            'interior_color',
-            'transmission',
-            'engine',
-            'drive_train',
-            'color',
-            'description',
+            'user_id' => 'required',
+            'description' => 'required',
             ]);
             Post::create($request->all());
             return response('created', 201);
