@@ -17,7 +17,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return Post::all();
+        return Post::paginate(5);
     }
 
     /**
@@ -73,5 +73,10 @@ class PostController extends Controller
     {
         Post::destroy($post->id);
         return response('deleted', 204);
+    }
+
+
+    public function Allposts(){
+        return Post::count();
     }
 }
