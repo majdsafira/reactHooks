@@ -1,27 +1,101 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function PostForm() {
+
+    let user_id = 1
+    // if (localStorage.getItem('isloggedIn')) {
+    //     user_id = localStorage.getItem('isloggedIn')
+    // }
+
+    useEffect(() => {
+        async function getUser(id){
+            const res = await fetch(`http://127.0.0.1:8000/api/getuser/${id}`)
+            const user = await res.json()
+            setFormData((oldData => {
+                return {
+                    ...oldData,
+                    user_id: user.id
+                }
+            }))
+        }
+        getUser(user_id)
+    },[])
+
+    const [formData, setFormData] = useState({
+        user_id : '',
+        description: '', 
+        image:''
+    })
+    const [postConformation, setPostConformation] = useState('')
+
+    const handleChange = (event) => {
+        const { name, value, type, files } = event.target
+        setFormData((oldData) => {
+            return {
+                ...oldData,
+                [name]: type === 'file' ? files[0].name : value,
+            }
+        })
+    }
+    console.log(formData)
+    const handleClick = (event) => {
+        event.preventDefault()
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({...formData})
+        };
+        async function addPost(){
+            const res  = await fetch('http://127.0.0.1:8000/api/post', requestOptions)
+            const data = await res
+            data && setPostConformation(true)
+        }
+        
+        addPost()
+            
+        }
+console.log(postConformation)
+
+
   return (
-    <section class="contact-2 page-section-ptb white-bg">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 justify-content-center">
-            <div class="section-title">
+    <React.Fragment>
+
+<section className="inner-intro bg-1 bg-overlay-black-70">
+  <div className="container">
+     <div className="row text-center intro-title">
+           <div className="col-md-6 text-md-start d-inline-block">
+             <h1 className="text-white">Contact us </h1>
+           </div>
+           <div className="col-md-6 text-md-end float-end">
+             <ul className="page-breadcrumb">
+                <li><Link to="/"><i className="fa fa-home"></i> Home</Link> <i className="fa fa-angle-double-right"></i></li>
+                <li><span>Create a post</span> </li>
+             </ul>
+           </div>
+     </div>
+  </div>
+</section>
+    
+    <section className="contact-2 page-section-ptb white-bg">
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12 justify-content-center">
+            <div className="section-title">
               <span>We’d Love to Hear From You</span>
               <h2>LET'S GET IN TOUCH!</h2>
-              <div class="separator"></div>
+              <div className="separator"></div>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-8 col-sm-12 mb-lg-0 mb-1">
-            <div class="gray-form row">
-              <div class="col-md-12">
+        <div className="row">
+          <div className="col-lg-8 col-sm-12 mb-lg-0 mb-1">
+            <div className="gray-form row">
+              <div className="col-md-12">
                 <form
-                  class="form-horizontal"
+                  className="form-horizontal"
                   id="contactform"
                   method="post"
-                  action="http://themes.potenzaglobalsolutions.com/html/cardealer/php/contact-form.php"
                 >
                   <h5>
                     We have completed over a 1000+ projects for five hundred
@@ -35,63 +109,50 @@ function PostForm() {
                   </p>
                   <div
                     id="formmessage"
-                    class="form-notice"
-                    style={{display:"none;"}}
+                    className="form-notice"
+                    style={{display:"none"}}
                   >
                     Success/Error Message Goes Here
                   </div>
-                  <div class="contact-form">
-                    <div class="mb-3">
-                      <input
-                        id="contactform_name"
-                        type="text"
-                        placeholder="Name*"
-                        class="form-control"
-                        name="name"
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <input
-                        id="contactform_email"
-                        type="email"
-                        placeholder="Email*"
-                        class="form-control"
-                        name="email"
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <input
-                        id="contactform_phone"
-                        type="text"
-                        placeholder="Phone*"
-                        class="form-control"
-                        name="phone"
-                      />
-                    </div>
-                    <div class="mb-3">
+                  <div className="contact-form">
+                    
+                    <div className="mb-3">
                       <textarea
                         id="contactform_message"
-                        class="form-control input-message"
-                        placeholder="Comment*"
+                        className="form-control input-message"
+                        placeholder="Post description*"
                         rows="7"
-                        name="message"
-                      ></textarea>
+                        name="description"
+                        value={formData.description}
+                        onChange={handleChange}
+                      />
                     </div>
-                    <div class="d-grid">
-                      <input type="hidden" name="action" value="sendEmail" />
+                    <div className="mb-3">
+                      <input
+                        type='file'
+                        id="contactform_message"
+                        className="form-control input-message"
+                        name="image"
+                        value={formData.image}
+                        onChange={handleChange}
+                      />
+                    </div>
+                    <div className="d-grid">
+                      {/* <input type="hidden" name="action" value="sendEmail" /> */}
                       <button
                         id="submit"
                         name="submit"
                         type="submit"
                         value="Send"
-                        class="button red btn-block"
+                        className="button red btn-block"
+                        onClick={handleClick}
                       >
                         {" "}
-                        Send your message{" "}
-                        <i
-                          class="fa fa-spinner fa-spin fa-fw btn-loader"
+                        submit{" "}
+                        {/* <i
+                          className="fa fa-spinner fa-spin fa-fw btn-loader"
                           style={{display:"none;"}}
-                        ></i>
+                        ></i> */}
                       </button>
                     </div>
                   </div>
@@ -99,39 +160,39 @@ function PostForm() {
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-sm-12">
-            <div class="feature-box-3 grey-border">
-              <div class="icon">
-                <i class="fa fa-map-marker"></i>
+          <div className="col-lg-4 col-sm-12">
+            <div className="feature-box-3 grey-border">
+              <div className="icon">
+                <i className="fa fa-map-marker"></i>
               </div>
-              <div class="content">
+              <div className="content">
                 <h5>Address </h5>
                 <p>220E Front St. Burlington NC 215 </p>
               </div>
             </div>
-            <div class="feature-box-3 grey-border">
-              <div class="icon">
-                <i class="fa fa-phone"></i>
+            <div className="feature-box-3 grey-border">
+              <div className="icon">
+                <i className="fa fa-phone"></i>
               </div>
-              <div class="content">
+              <div className="content">
                 <h5>Phone </h5>
                 <p>(007) 123 456 7890 </p>
               </div>
             </div>
-            <div class="feature-box-3 grey-border mb-0">
-              <div class="icon">
-                <i class="fa fa-envelope-o"></i>
+            <div className="feature-box-3 grey-border mb-0">
+              <div className="icon">
+                <i className="fa fa-envelope-o"></i>
               </div>
-              <div class="content">
+              <div className="content">
                 <h5>Email </h5>
                 <p> support@website.com </p>
               </div>
             </div>
-            <div class="opening-hours gray-bg">
+            <div className="opening-hours gray-bg">
               <h6>opening hours</h6>
-              <ul class="list-style-none">
+              <ul className="list-style-none">
                 <li>
-                  <strong>Sunday</strong> <span class="text-red"> closed</span>
+                  <strong>Sunday</strong> <span className="text-red"> closed</span>
                 </li>
                 <li>
                   <strong>Monday</strong> <span> 9:00 AM to 9:00 PM</span>
@@ -157,6 +218,7 @@ function PostForm() {
         </div>
       </div>
     </section>
+    </React.Fragment>
   );
 }
 

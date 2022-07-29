@@ -15,18 +15,9 @@ class AdController extends Controller
      */
     public function index()
     {
-        //
+        return Ad::all();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -36,7 +27,24 @@ class AdController extends Controller
      */
     public function store(StoreAdRequest $request)
     {
-        //
+        $request->validate([
+            'user_id'=> 'required',
+            'make' => 'required',
+            'model ',
+            'registration_date',
+            'milage',
+            'condition',
+            'image',
+            'exterior_color',
+            'interior_color',
+            'transmission',
+            'engine',
+            'drive_train',
+            'color',
+            'description',
+            ]);
+            Ad::create($request->all());
+            return response('created', 201);
     }
 
     /**
@@ -47,18 +55,7 @@ class AdController extends Controller
      */
     public function show(Ad $ad)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Ad  $ad
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Ad $ad)
-    {
-        //
+        return Ad::where('id',$ad->id)->get();
     }
 
     /**
@@ -70,7 +67,9 @@ class AdController extends Controller
      */
     public function update(UpdateAdRequest $request, Ad $ad)
     {
-        //
+        $package = Ad::find($ad->id);
+        $package->update($request->all());
+        return response('updated', 201);
     }
 
     /**
@@ -81,6 +80,7 @@ class AdController extends Controller
      */
     public function destroy(Ad $ad)
     {
-        //
+        Ad::destroy($ad->id);
+        return response('deleted', 204);
     }
 }

@@ -28,22 +28,13 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        $request->validate([
-            'make' => 'required',
-            'model ',
-            'registration_date',
-            'milage',
-            'condition',
-            'image',
-            'exterior_color',
-            'interior_color',
-            'transmission',
-            'engine',
-            'drive_train',
-            'color',
-            'description',
+        $data = $request->validate([
+            'user_id' => 'required',
+            'description' => 'required',
+            'image' => '',
             ]);
-            Post::create($request->all());
+
+            Post::create($data);
             return response('created', 201);
     }
 
@@ -55,7 +46,6 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        // dd(Post::find($post->id));
         return Post::where('id',$post->id)->get();
     }
 
