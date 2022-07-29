@@ -7,8 +7,7 @@ const Navbar =()=>{
       sessionStorage.clear();
       window.location.href = "http://localhost:3000/";
     };
-
-    
+   
     return(
 
 <header id="header" className="defualt">
@@ -52,7 +51,7 @@ const Navbar =()=>{
             </li>
         </ul>
         <ul className="menu-links">
-            <li className="active"><a href=""> Home <i className="fa fa-angle-down fa-indicator"></i></a>
+            <li className="active"><a href="/"> Home <i className="fa fa-angle-down fa-indicator"></i></a>
                 
                 <ul className="drop-down-multilevel">
                     <li className="active"><a href="index-2.html">Home 1</a></li>
@@ -71,7 +70,7 @@ const Navbar =()=>{
                     <li><a href="index-landing-page.html">landing page</a></li>
                 </ul>
             </li>
-            <li><a href="">Pages <i className="fa fa-angle-down fa-indicator"></i></a>
+            <li><a href="/">Pages <i className="fa fa-angle-down fa-indicator"></i></a>
                 <div className="drop-down menu-bg grid-col-12">
                     <div className="grid-row">
                         <div className="grid-col-3">
@@ -114,10 +113,10 @@ const Navbar =()=>{
                     </div>
                 </div>
             </li>
-            <li><a href="">blog <i className="fa fa-angle-down fa-indicator"></i></a>
+            <li><a href="/">blog <i className="fa fa-angle-down fa-indicator"></i></a>
                
                 <ul className="drop-down-multilevel">
-                    <li><a href="">blog classNameic <i className="fa fa-angle-right fa-indicator"></i> </a>
+                    <li><a href="/">blog classNameic <i className="fa fa-angle-right fa-indicator"></i> </a>
                     
                         <ul className="drop-down-multilevel">
                            <li><a href="blog-left-sidebar.html">left sidebar</a></li>
@@ -125,7 +124,7 @@ const Navbar =()=>{
                            <li><a href="blog-fullwidth.html">fullwidth</a></li>
                         </ul>
                     </li>
-                    <li><a href="">Masonry  <i className="fa fa-angle-right fa-indicator"></i> </a>
+                    <li><a href="/">Masonry  <i className="fa fa-angle-right fa-indicator"></i> </a>
                    
                         <ul className="drop-down-multilevel">
                             <li><a href="blog-masonry-2-collums.html"> 2 column </a> </li>
@@ -135,7 +134,7 @@ const Navbar =()=>{
                            <li><a href="blog-masonry-right-sidebar.html">right sidebar</a></li>
                         </ul>
                     </li>
-                    <li><a href="">blog single <i className="fa fa-angle-right fa-indicator"></i> </a>
+                    <li><a href="/">blog single <i className="fa fa-angle-right fa-indicator"></i> </a>
                      
                         <ul className="drop-down-multilevel">
                             <li><a href="blog-single-01.html">blog single 01 </a> </li>
@@ -144,21 +143,21 @@ const Navbar =()=>{
                     </li>
                 </ul>
             </li>
-            <li><a href="">Car listing  <i className="fa fa-angle-down fa-indicator"></i></a>
+            <li><a href="/">Car listing  <i className="fa fa-angle-down fa-indicator"></i></a>
               
                 <ul className="drop-down-multilevel">
                     <li><a href="listing-01.html">listing 01</a></li>
                     <li><a href="listing-02.html">listing 02</a></li>
                 </ul>
             </li>
-            <li><a href="">Car details  <i className="fa fa-angle-down fa-indicator"></i></a>
+            <li><a href="/">Car details  <i className="fa fa-angle-down fa-indicator"></i></a>
               
                 <ul className="drop-down-multilevel">
                     <li><a href="details-01.html">details 01</a></li>
                     <li><a href="details-02.html">details 02</a></li>
                 </ul>
             </li>
-            <li><a href=""> Contact <i className="fa fa-angle-down fa-indicator"></i></a>
+            <li><a href="/"> Contact <i className="fa fa-angle-down fa-indicator"></i></a>
                 
                 <ul className="drop-down-multilevel right-menu">
                    <li><a href="contact-01.html">contact 01</a></li>
@@ -168,10 +167,11 @@ const Navbar =()=>{
             <li>
              {user_id ==null?(
         <>
-      
+      <ul>
         <li className="nav-item"><NavLink className="nav-link" to="/login">Login</NavLink></li>
      
         <li className="nav-item"><NavLink className="nav-link" to="/register">Signup</NavLink></li>
+        </ul>
         </>
     ):(
         <>
@@ -182,7 +182,7 @@ const Navbar =()=>{
 
     
             
-              <div className="search-top"> <a className="search-btn not_click d-none d-lg-block" href=";">Search Button</a>
+              <div className="search-top"> <a className="search-btn not_click d-none d-lg-block" href="/;">Search Button</a>
                 <div className="search-box not-click">
                   <div className="row">
                     <div className="col-xl-2 col-md-4 col-sm-6">
