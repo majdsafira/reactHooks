@@ -7,6 +7,8 @@ use App\Http\Controllers\AdController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentController;
+use App\Models\Post;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -23,6 +25,7 @@ use App\Http\Controllers\CommentController;
 // });
 
 Route::apiResource('post', PostController::class);
+Route::get('Allposts', [PostController::class, 'Allposts']);
 Route::apiResource('comment', CommentController::class);
 Route::apiResource('ads', AdController::class);
 

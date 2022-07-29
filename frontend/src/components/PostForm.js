@@ -25,20 +25,19 @@ function PostForm() {
     const [formData, setFormData] = useState({
         user_id : '',
         description: '', 
-        image:''
     })
     const [postConformation, setPostConformation] = useState('')
 
     const handleChange = (event) => {
-        const { name, value, type, files } = event.target
+        const { name, value } = event.target
         setFormData((oldData) => {
             return {
                 ...oldData,
-                [name]: type === 'file' ? files[0].name : value,
+                [name]: value,
             }
         })
     }
-    console.log(formData)
+
     const handleClick = (event) => {
         event.preventDefault()
         const requestOptions = {
@@ -65,7 +64,7 @@ console.log(postConformation)
   <div className="container">
      <div className="row text-center intro-title">
            <div className="col-md-6 text-md-start d-inline-block">
-             <h1 className="text-white">Contact us </h1>
+             <h1 className="text-white">Create a post </h1>
            </div>
            <div className="col-md-6 text-md-end float-end">
              <ul className="page-breadcrumb">
@@ -83,7 +82,6 @@ console.log(postConformation)
           <div className="col-md-12 justify-content-center">
             <div className="section-title">
               <span>We’d Love to Hear From You</span>
-              <h2>LET'S GET IN TOUCH!</h2>
               <div className="separator"></div>
             </div>
           </div>
@@ -96,16 +94,13 @@ console.log(postConformation)
                   className="form-horizontal"
                   id="contactform"
                   method="post"
+                  action="http://themes.potenzaglobalsolutions.com/html/cardealer/php/contact-form.php"
                 >
                   <h5>
-                    We have completed over a 1000+ projects for five hundred
-                    clients. Give us your next project.
+                    Have any questions?
                   </h5>
                   <p>
-                    It would be great to hear from you! If you got any
-                    questions, please do not hesitate to send us a message. We
-                    are looking forward to hearing from you! We reply within 24
-                    hours !
+                    Please share it with our comunity!
                   </p>
                   <div
                     id="formmessage"
@@ -127,18 +122,8 @@ console.log(postConformation)
                         onChange={handleChange}
                       />
                     </div>
-                    <div className="mb-3">
-                      <input
-                        type='file'
-                        id="contactform_message"
-                        className="form-control input-message"
-                        name="image"
-                        value={formData.image}
-                        onChange={handleChange}
-                      />
-                    </div>
                     <div className="d-grid">
-                      {/* <input type="hidden" name="action" value="sendEmail" /> */}
+                      <input type="hidden" name="action" value="sendEmail" />
                       <button
                         id="submit"
                         name="submit"
