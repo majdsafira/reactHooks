@@ -1,11 +1,6 @@
 import { NavLink } from "react-router-dom";
 const Navbar =()=>{
-    const user_id = sessionStorage.getItem('user_id');
-
-    const handleClick =()=>{
-        sessionStorage.clear();
-        window.location.href = 'http://localhost:3000/'
-    }
+    
     return(
 
 <header id="header" className="defualt">
@@ -163,6 +158,7 @@ const Navbar =()=>{
                 </ul>
             </li>
             <li>
+            
               <div className="search-top"> <a className="search-btn not_click d-none d-lg-block" href="javascript:void(0);">Search Button</a>
                 <div className="search-box not-click">
                   <div className="row">
@@ -231,6 +227,7 @@ const Navbar =()=>{
                          </div>
                         </div>
                        <div className="col-xl-2 col-md-4 col-sm-6">
+
                         <div className="text-center">
                           <button className="button red" type="button">Search</button>
                       </div>
