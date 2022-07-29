@@ -34,9 +34,6 @@ class UserController extends Controller
             return response()->json(['errors' => $validator->errors()->all()]);
         }
 
-        // $newImageName = time() . '-' . $request->name . '.' . $request->image->extension();
-        // $request->image->move(public_path('img'), $newImageName);
-
         $user = User::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
@@ -65,9 +62,6 @@ class UserController extends Controller
             return response()->json(['errors' => $validator->errors()->all()]);
         }
 
-
-        // $newImageName = time() . '-' . $request->name . '.' . $request->image->extension();
-        // $request->image->move(public_path('img'), $newImageName);
 
         $user = new User();
         $user->name = $request->name;
@@ -109,5 +103,11 @@ class UserController extends Controller
     {
         $user = User::find($id);
         return $user;
+    }
+
+    public function getAllUsers()
+    {
+        $users = User::all();
+        return $users;
     }
 }
