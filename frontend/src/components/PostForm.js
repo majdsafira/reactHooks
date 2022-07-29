@@ -25,6 +25,7 @@ function PostForm() {
     const [formData, setFormData] = useState({
         user_id : '',
         description: '', 
+        title: ''
     })
     const [postConformation, setPostConformation] = useState('')
 
@@ -47,14 +48,15 @@ function PostForm() {
         };
         async function addPost(){
             const res  = await fetch('http://127.0.0.1:8000/api/post', requestOptions)
-            const data = await res
+            const data = await res.json()
             data && setPostConformation(true)
+            console.log(data)
         }
         
         addPost()
             
         }
-console.log(postConformation)
+// console.log(formData)
 
 
   return (
@@ -112,6 +114,14 @@ console.log(postConformation)
                   <div className="contact-form">
                     
                     <div className="mb-3">
+                        <input
+                          id="contactform_message"
+                          className="form-control input-message mb-3"
+                          placeholder="Post title*"
+                          name="title"
+                          value={formData.title}
+                          onChange={handleChange}
+                        />
                       <textarea
                         id="contactform_message"
                         className="form-control input-message"
