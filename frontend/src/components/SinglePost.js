@@ -4,19 +4,72 @@ import { Link } from 'react-router-dom'
 
 function SinglePost() {
 
+    const [page, setPage] = useState(1)
+    const [count, setCount] = useState(0)
     const [post, setPost] = useState([{title:'', description:'',}])
+    const [comments, setComments] = useState([{ comment:'',}])
+
+
+    const handleClick = (event) => {
+      setPage(event.target.innerHTML)
+    }
 
     let postId = useParams()
-    // console.log(postId.id)
+
+    // fetching a single post 
     useEffect(() => {
         async function getPost(){
             const res = await fetch(`http://127.0.0.1:8000/api/post/${postId.id}`)
             const data = await res.json()
             setPost(data)
-            console.log(data)
+            // console.log(data)
         }
         getPost()
     },[postId.id])
+
+    // fetching comments paginated 5 comments per page
+    useEffect(() => {
+        async function getComments(page){
+            const res = await fetch(`http://localhost:8000/api/allComments/${postId.id}?page=${page}`)
+            const comments = await res.json()
+            setComments(comments.data)
+            // console.log(data)
+        }
+        getComments(page)
+    },[postId.id, page])
+    // console.log(comments)
+
+
+    // fetching the count of all the comments for a single post 
+    useEffect(() => {
+      async function getAllComments(){
+          const res = await fetch('http://localhost:8000/api/getAllComments/' + postId.id )
+          const count = await res.json()
+          setCount(count)
+      }
+      getAllComments()
+  },[postId.id])
+  // console.log(count) 
+
+
+    // setting a dynamic pagination
+    const pagination = []
+
+    for (let i = 1; i <= Math.ceil(count/5); i++) {
+      pagination.push(<li key={i}><a href="javascript:void(0)" key={i} onClick={handleClick}>{i}</a></li>)
+    }
+
+    //mapping over comments 
+    const allComments = comments.map(comment => {
+      return (
+        <div class="tab-pane show" id="vehicle-overview" role="tabpanel" aria-labelledby="vehicle-overview-tab">
+          <h6>{comment.name}</h6>
+          <p>{comment.comment}</p>
+          <hr className="gray"/>
+        </div>
+      )
+    })
+
   return (
     <React.Fragment>
         <section class="inner-intro bg-1 bg-overlay-black-70">
@@ -53,7 +106,7 @@ function SinglePost() {
           <div class="entry-meta">
             <ul>
               <li><a href="/"><i class="fa fa-user"></i> By Cardealer </a> /</li>
-              <li><a href="/"><i class="fa fa-comments-o"></i> 5 Comments</a> /</li>
+              <li><a href="/"><i class="fa fa-comments-o"></i> {count} Comments</a> /</li>
               <li><a href="/"><i class="fa fa-folder-open"></i> News 2021</a> /</li>
               <li><a href="/"><i class="fa fa-heart-o"></i>10</a></li>
             </ul>
@@ -61,10 +114,10 @@ function SinglePost() {
           <div id="tabs">
           <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item icon-diamond" role="presentation">
-              <button class="nav-link active" id="general-information-tab" data-bs-toggle="tab" data-bs-target="#general-information" type="button" role="tab" aria-controls="general-information" aria-selected="true">General Information</button>
+              <button class="nav-link active" id="general-information-tab" data-bs-toggle="tab" data-bs-target="#general-information" type="button" role="tab" aria-controls="general-information" aria-selected="true">post Information</button>
             </li>
             <li class="nav-item icon-list" role="presentation">
-              <button class="nav-link" id="features-options-tab" data-bs-toggle="tab" data-bs-target="#features-options" type="button" role="tab" aria-controls="features-options" aria-selected="false">Features & Options</button>
+              <button class="nav-link" id="features-options-tab" data-bs-toggle="tab" data-bs-target="#features-options" type="button" role="tab" aria-controls="features-options" aria-selected="false">Comments ({count})</button>
             </li>
             <li class="nav-item icon-equalizer" role="presentation">
               <button class="nav-link " id="vehicle-overview-tab" data-bs-toggle="tab" data-bs-target="#vehicle-overview" type="button" role="tab" aria-controls="vehicle-overview" aria-selected="false">Vehicle Overview</button>
@@ -76,35 +129,14 @@ function SinglePost() {
               <p>{post[0].description}</p>
             </div>
             <div class="tab-pane fade" id="features-options" role="tabpanel" aria-labelledby="features-options-tab">
-              <h6>consectetur adipisicing elit</h6>
-              <table class="table table-bordered">
-                <tbody>
-                  <tr>
-                    <th scope="row"> Air conditioning</th>
-                    <td>Mark</td>
-                  </tr>
-                  <tr>
-                    <th scope="row"> Alloy Wheels</th>
-                    <td>Jacob</td>
-                  </tr>
-                  <tr>
-                    <th scope="row"> Anti-Lock Brakes (ABS)</th>
-                    <td>Larry</td>
-                  </tr>
-                  <tr>
-                    <th scope="row"> Anti-Theft</th>
-                    <td>Larry</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Anti-Starter</th>
-                    <td>Larry</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Alloy Wheels</th>
-                    <td>Larry</td>
-                  </tr>
-                </tbody>
-              </table>
+
+              {allComments}
+
+              <div className="pagination-nav  d-flex justify-content-center">
+                <ul className="pagination">
+                  {pagination}
+                </ul>
+              </div>
             </div>
             <div class="tab-pane fade" id="vehicle-overview" role="tabpanel" aria-labelledby="vehicle-overview-tab">
               <h6>consectetur adipisicing elit</h6>
@@ -121,19 +153,6 @@ function SinglePost() {
             </div>
           </div>
         </div>
-          <div class="entry-share clearfix">
-             <a class="button red float-start" href="/"> Read More </a>
-             <div class="share float-end"><a href="/"> <i class="fa fa-share-alt"></i> </a>
-                  <div class="blog-social">
-                   <ul class="list-style-none">
-                    <li> <a href="/"><i class="fa fa-facebook"></i></a> </li>
-                    <li> <a href="/"><i class="fa fa-twitter"></i></a> </li>
-                    <li> <a href="/"><i class="fa fa-instagram"></i></a> </li>
-                    <li> <a href="/"><i class="fa fa-pinterest-p"></i></a> </li>
-                   </ul>
-                   </div>
-                 </div>
-             </div>
           </div>
         <div class="blog-form">
           <div class="gray-form row">
