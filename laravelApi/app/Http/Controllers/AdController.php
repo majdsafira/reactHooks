@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
-use App\Http\Requests\StorePostRequest;
-use App\Http\Requests\UpdatePostRequest;
+use App\Models\Ad;
+use App\Http\Requests\StoreAdRequest;
+use App\Http\Requests\UpdateAdRequest;
 
-use function GuzzleHttp\Promise\all;
-
-class PostController extends Controller
+class AdController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,22 +15,22 @@ class PostController extends Controller
      */
     public function index()
     {
-        return Post::paginate(5);
+        return Ad::all();
     }
+
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorePostRequest  $request
+     * @param  \App\Http\Requests\StoreAdRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePostRequest $request)
+    public function store(StoreAdRequest $request)
     {
-<<<<<<< HEAD
         $request->validate([
+            'user_id'=> 'required',
             'make' => 'required',
-            "user_id",
-            'model',
+            'model ',
             'registration_date',
             'milage',
             'condition',
@@ -44,40 +42,32 @@ class PostController extends Controller
             'drive_train',
             'color',
             'description',
-=======
-        $data = $request->validate([
-            'user_id' => 'required',
-            'description' => 'required',
-            'title' => 'required',
-            'image' => '',
->>>>>>> 1c73118d9630515faec4605aaf6932bc8c166773
             ]);
-
-            Post::create($data);
+            Ad::create($request->all());
             return response('created', 201);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Ad  $ad
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Ad $ad)
     {
-        return Post::where('id',$post->id)->get();
+        return Ad::where('id',$ad->id)->get();
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatePostRequest  $request
-     * @param  \App\Models\Post  $post
+     * @param  \App\Http\Requests\UpdateAdRequest  $request
+     * @param  \App\Models\Ad  $ad
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePostRequest $request, Post $post)
+    public function update(UpdateAdRequest $request, Ad $ad)
     {
-        $package = Post::find($post->id);
+        $package = Ad::find($ad->id);
         $package->update($request->all());
         return response('updated', 201);
     }
@@ -85,17 +75,12 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Ad  $ad
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Ad $ad)
     {
-        Post::destroy($post->id);
+        Ad::destroy($ad->id);
         return response('deleted', 204);
-    }
-
-
-    public function Allposts(){
-        return Post::count();
     }
 }

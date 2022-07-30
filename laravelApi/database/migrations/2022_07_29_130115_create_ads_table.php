@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePostsTable extends Migration
+class CreateAdsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('ads', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-<<<<<<< HEAD
             $table->string('make');
             $table->string('model');
             $table->string('registration_date');
@@ -26,14 +25,10 @@ class CreatePostsTable extends Migration
             $table->string('interior_color');
             $table->string('transmission');
             $table->string('engine');
-            // $table->string('drive_train');
+            $table->string('drive_train');
             $table->longText('image');
-            // $table->string('color');
-=======
-            $table->string('title');
->>>>>>> 1c73118d9630515faec4605aaf6932bc8c166773
+            $table->string('color');
             $table->longText('description')->nullable();
-            $table->longText('image')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
@@ -46,6 +41,6 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('ads');
     }
 }

@@ -5,13 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Ad extends Model
 {
     protected $fillable =[
-<<<<<<< HEAD
+        'user_id', 
         'make',
-        'model',
-        'user_id',
+        'model ',
         'registration_date',
         'milage',
         'condition',
@@ -22,11 +21,9 @@ class Post extends Model
         'engine',
         'drive_train',
         'color',
-=======
-        'user_id',
->>>>>>> 1c73118d9630515faec4605aaf6932bc8c166773
         'description',
-        'title',
     ];
+    // protected $table = ['ads'];
+
     use HasFactory;
 }
