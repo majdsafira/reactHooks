@@ -23,6 +23,22 @@ const Contact = () => {
   };
   return (
    <>
+    <section class="inner-intro bg-1 bg-overlay-black-70">
+  <div class="container">
+     <div class="row text-center intro-title">
+           <div class="col-md-6 text-md-start d-inline-block">
+             <h1 class="text-white">Contact us </h1>
+           </div>
+           <div class="col-md-6 text-md-end float-end">
+             <ul class="page-breadcrumb">
+                <li><a href="/"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-double-right"></i></li>
+                <li><a href="#">Contact </a> <i class="fa fa-angle-double-right"></i></li>
+               
+             </ul>
+           </div>
+     </div>
+  </div>
+</section>
    <section class="contact-2 page-section-ptb white-bg">
   <div class="container">
     <div class="row">
@@ -110,8 +126,7 @@ const Contact = () => {
 
  <section class="contact-map">
   <div class="container-fluid">
-  <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d54149.64658256261!2d35.89311894459144!3d31.978447292291666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1siframe%20jordan!5e0!3m2!1sen!2sjo!4v1657188428237!5m2!1sen!2sjo" width="600" height="450"  loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-  </div>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53808.191993442735!2d35.81239013695196!3d32.55252499617903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151c76916dac0453%3A0x5416e113d81f7d82!2sIrbid!5e0!3m2!1sen!2sjo!4v1659199284132!5m2!1sen!2sjo" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>  </div>
  </section>
 
    
