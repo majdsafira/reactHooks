@@ -30,7 +30,8 @@ class AdController extends Controller
         $request->validate([
             'user_id'=> 'required',
             'make' => 'required',
-            'model ',
+            'price' => 'required',
+            'model',
             'registration_date',
             'milage',
             'condition',

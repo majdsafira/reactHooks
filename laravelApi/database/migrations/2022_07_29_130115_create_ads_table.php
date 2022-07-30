@@ -17,6 +17,7 @@ class CreateAdsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('make');
+            $table->string('price');
             $table->string('model');
             $table->string('registration_date');
             $table->string('milage');
