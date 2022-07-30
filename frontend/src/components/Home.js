@@ -352,8 +352,8 @@ function Home() {
            <img className="img-fluid" src="images/car/01.jpg" alt=""/>
            <div className="car-overlay-banner">
             <ul>
-              <li><a href="#"><i className="fa fa-link"></i></a></li>
-              <li><a href="#"><i className="fa fa-dashboard"></i></a></li>
+              <li><a href="/"><i className="fa fa-link"></i></a></li>
+              <li><a href="/"><i className="fa fa-dashboard"></i></a></li>
              </ul>
            </div>
          </div>
@@ -372,7 +372,7 @@ function Home() {
             <i className="fa fa-star orange-color"></i>
             <i className="fa fa-star-o orange-color"></i>
            </div>
-           <a href="#">Acura Rsx</a>
+           <a href="/">Acura Rsx</a>
            <div className="separator"></div>
            <div className="price">
              <span className="old-price">$35,568</span>
@@ -387,8 +387,8 @@ function Home() {
            <img className="img-fluid" src="images/car/02.jpg" alt=""/>
            <div className="car-overlay-banner">
             <ul>
-              <li><a href="#"><i className="fa fa-link"></i></a></li>
-              <li><a href="#"><i className="fa fa-dashboard"></i></a></li>
+              <li><a href="/"><i className="fa fa-link"></i></a></li>
+              <li><a href="/"><i className="fa fa-dashboard"></i></a></li>
              </ul>
            </div>
          </div>
@@ -407,7 +407,7 @@ function Home() {
             <i className="fa fa-star orange-color"></i>
             <i className="fa fa-star-o orange-color"></i>
            </div>
-           <a href="#">Lexus GS 450h</a>
+           <a href="/">Lexus GS 450h</a>
            <div className="separator"></div>
            <div className="price">
              <span className="old-price">$35,568</span>
@@ -422,8 +422,8 @@ function Home() {
            <img className="img-fluid" src="images/car/03.jpg" alt=""/>
            <div className="car-overlay-banner">
             <ul>
-              <li><a href="#"><i className="fa fa-link"></i></a></li>
-              <li><a href="#"><i className="fa fa-dashboard"></i></a></li>
+              <li><a href="/"><i className="fa fa-link"></i></a></li>
+              <li><a href="/"><i className="fa fa-dashboard"></i></a></li>
              </ul>
            </div>
          </div>
@@ -442,7 +442,7 @@ function Home() {
             <i className="fa fa-star orange-color"></i>
             <i className="fa fa-star-o orange-color"></i>
            </div>
-           <a href="#">GTA 5 Lowriders DLC</a>
+           <a href="/">GTA 5 Lowriders DLC</a>
            <div className="separator"></div>
            <div className="price">
              <span className="old-price">$35,568</span>
@@ -457,8 +457,8 @@ function Home() {
            <img className="img-fluid" src="images/car/04.jpg" alt=""/>
            <div className="car-overlay-banner">
             <ul>
-              <li><a href="#"><i className="fa fa-link"></i></a></li>
-              <li><a href="#"><i className="fa fa-dashboard"></i></a></li>
+              <li><a href="/"><i className="fa fa-link"></i></a></li>
+              <li><a href="/"><i className="fa fa-dashboard"></i></a></li>
              </ul>
            </div>
          </div>
@@ -477,7 +477,7 @@ function Home() {
             <i className="fa fa-star orange-color"></i>
             <i className="fa fa-star-o orange-color"></i>
            </div>
-           <a href="#">Toyota avalon hybrid </a>
+           <a href="/">Toyota avalon hybrid </a>
            <div className="separator"></div>
            <div className="price">
              <span className="old-price">$35,568</span>
@@ -492,8 +492,8 @@ function Home() {
            <img className="img-fluid" src="images/car/05.jpg" alt=""/>
            <div className="car-overlay-banner">
             <ul>
-              <li><a href="#"><i className="fa fa-link"></i></a></li>
-              <li><a href="#"><i className="fa fa-dashboard"></i></a></li>
+              <li><a href="/"><i className="fa fa-link"></i></a></li>
+              <li><a href="/"><i className="fa fa-dashboard"></i></a></li>
              </ul>
            </div>
          </div>
@@ -512,7 +512,7 @@ function Home() {
             <i className="fa fa-star orange-color"></i>
             <i className="fa fa-star-o orange-color"></i>
            </div>
-           <a href="#">Hyundai santa fe sport </a>
+           <a href="/">Hyundai santa fe sport </a>
            <div className="separator"></div>
            <div className="price">
              <span className="old-price">$35,568</span>
@@ -539,7 +539,7 @@ function Home() {
           <strong className="text-red">$450 </strong>
           <span>per month </span>
           <p>Limited time Offer!</p>
-          <a href="#"> read more </a>
+          <a href="/"> read more </a>
         </div>
       </div>
     </div>
@@ -567,11 +567,11 @@ function Home() {
         </div>
         <div className="col-md-6">
           <div className="blog-content">
-            <a className="link" href="#">Porsche 911 is text of the printin   a galley of type and bled it to make a type specimen book. </a>
+            <a className="link" href="/">Porsche 911 is text of the printin   a galley of type and bled it to make a type specimen book. </a>
             <span className="uppercase">November 29, 2021  | <strong className="text-red">post by john doe </strong></span>
             <p>Sed do eiusmod tempor lorem ipsum dolor sit amet, consectetur adipisicing elit, incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
             <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa </p>
-            <a className="button border" href="#">Read more</a>
+            <a className="button border" href="/">Read more</a>
            </div>
         </div>
       </div>
@@ -594,7 +594,7 @@ function Home() {
        <div className="col-lg-10 col-md-12">
          <div className="video-info text-center">
            <img className="img-fluid center-block" src="images/car/24.jpg" alt=""/>
-           <a className="popup-youtube" href="https://www.youtube.com/watch?v=Xd0Ok-MkqoE"> <i className="fa fa-play"></i> </a>
+           <a className="popup-youtube" href="/ttps://www.youtube.com/watch?v=Xd0Ok-MkqoE"> <i className="fa fa-play"></i> </a>
          </div>
        </div>
      </div>
