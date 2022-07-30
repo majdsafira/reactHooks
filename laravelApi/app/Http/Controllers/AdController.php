@@ -39,8 +39,6 @@ class AdController extends Controller
             'interior_color',
             'transmission',
             'engine',
-            'drive_train',
-            'color',
             'description',
             ]);
             Ad::create($request->all());

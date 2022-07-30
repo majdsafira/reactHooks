@@ -7,7 +7,7 @@ import React, { useState, useEffect } from "react";
 
 
 function Addcar() {
-    const url = "http://localhost:8000/api/post";
+    const url = "http://localhost:8000/api/ads";
     const [data, setData] = useState({
         Make: "",
         Model: "",

@@ -10,8 +10,8 @@ import Navbar from "./layout/Nav";
 import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Posts from './components/Posts';
 import SinglePost from './components/SinglePost';
-import UserProfile from "./components/UserProfile";
-import UpdateDataU from "./components/UpdateDataU";
+import Addcar from './components/Addcar';
+
 export const userContext = createContext();
 
 function App() {
@@ -25,6 +25,7 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/add_car" element={<Addcar />} />
             <Route path="/create_a_post" element={<PostForm />} />
             {/* <Route path="/back" element={<UserProfile />} />
             <Route path="/UserProfile" element={<UserProfile />} />

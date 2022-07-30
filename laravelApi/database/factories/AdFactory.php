@@ -24,10 +24,9 @@ class AdFactory extends Factory
             'interior_color' => 'red',
             'transmission' => 'manual',
             'engine' => '1.4L',
-            'drive_train' => 'FWD',
-            'color' => 'white',
+           
             'description'=> $this->faker->text(200),
-            'user_id' =>'1', 
+            'user_id' =>'1',
         ];
     }
 }
