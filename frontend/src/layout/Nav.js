@@ -164,21 +164,24 @@ const Navbar =()=>{
                    <li><a href="contact-02.html">contact 02</a></li>
                 </ul>
             </li>
-            <li>
              {user_id ==null?(
-        <>
-      <ul>
-        <li className="nav-item"><NavLink className="nav-link" to="/login">Login</NavLink></li>
-     
-        <li className="nav-item"><NavLink className="nav-link" to="/register">Signup</NavLink></li>
-        </ul>
-        </>
+            <li><a href="/">Account <i className="fa fa-angle-down fa-indicator"></i></a>
+                <ul className="drop-down-multilevel right-menu">
+                    <li className="nav-item"><NavLink  to="/login">Login</NavLink></li>
+                    <li className="nav-item"><NavLink  to="/register">Signup</NavLink></li>
+                </ul>
+            </li>
     ):(
         <>
-            <li className="nav-item"><NavLink className="nav-link" to="/userprofile">Account</NavLink></li>
-            <li className="nav-item"><NavLink className="nav-link" onClick={handleClick} to="/" >Logout</NavLink></li>
+        <li><a href="/">Account <i className="fa fa-angle-down fa-indicator"></i></a>
+            <ul className="drop-down-multilevel right-menu">
+                <li className="nav-item"><NavLink className="nav-link" to="/userprofile">Account</NavLink></li>
+                <li className="nav-item"><NavLink className="nav-link" onClick={handleClick} to="/" >Logout</NavLink></li>
+            </ul>
+        </li>
         </>
     )}
+            <li>
 
     
             
