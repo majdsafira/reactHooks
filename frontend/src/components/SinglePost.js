@@ -3,18 +3,24 @@ import { useParams } from 'react-router'
 import { Link } from 'react-router-dom'
 
 function SinglePost() {
-
+    const user_id = sessionStorage.getItem('user_id')
+    let postId = useParams()
     const [page, setPage] = useState(1)
     const [count, setCount] = useState(0)
     const [post, setPost] = useState([{title:'', description:'',}])
     const [comments, setComments] = useState([{ comment:'',}])
+    const [formData, setFormData] = useState({
+      user_id : user_id,
+      comment: '',
+      post_id: postId,
+    })
+    const [postConformation, setPostConformation] = useState('')
 
-
+    console.log(user_id)
     const handleClick = (event) => {
       setPage(event.target.innerHTML)
     }
 
-    let postId = useParams()
 
     // fetching a single post 
     useEffect(() => {
@@ -60,9 +66,12 @@ function SinglePost() {
     }
 
     //mapping over comments 
-    const allComments = comments.map(comment => {
+    const allComments = comments.map((comment, index) => {
       return (
-        <div class="tab-pane show" id="vehicle-overview" role="tabpanel" aria-labelledby="vehicle-overview-tab">
+        <div className="tab-pane show" id="vehicle-overview" role="tabpanel" aria-labelledby="vehicle-overview-tab" key={index}>
+          <div className="recent-post-image rounded-circle">
+              <img src={`http://localhost:8000/img/${comment.image}`} alt=""/>
+          </div>
           <h6>{comment.name}</h6>
           <p>{comment.comment}</p>
           <hr className="gray"/>
@@ -70,18 +79,36 @@ function SinglePost() {
       )
     })
 
+
+    const handleSubmit = (event) => {
+      event.preventDefault()
+      const requestOptions = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({...formData})
+      };
+      async function addPost(){
+          const res  = await fetch('http://127.0.0.1:8000/api/comment', requestOptions)
+          const data = await res.json()
+          data && setPostConformation(true)
+          console.log(data)
+      }
+      
+      addPost()
+          
+      }
   return (
     <React.Fragment>
-        <section class="inner-intro bg-1 bg-overlay-black-70">
-  <div class="container">
-     <div class="row text-center intro-title">
-           <div class="col-md-6 text-md-start d-inline-block">
-             <h1 class="text-white">Single post </h1>
+        <section className="inner-intro bg-1 bg-overlay-black-70">
+  <div className="container">
+     <div className="row text-center intro-title">
+           <div className="col-md-6 text-md-start d-inline-block">
+             <h1 className="text-white">Single post </h1>
            </div>
-           <div class="col-md-6 text-md-end float-end">
-             <ul class="page-breadcrumb">
-                <li><Link to="/"><i class="fa fa-home"></i> Home</Link> <i class="fa fa-angle-double-right"></i></li>
-                <li><Link to="/posts">posts</Link> <i class="fa fa-angle-double-right"></i></li>
+           <div className="col-md-6 text-md-end float-end">
+             <ul className="page-breadcrumb">
+                <li><Link to="/"><i className="fa fa-home"></i> Home</Link> <i className="fa fa-angle-double-right"></i></li>
+                <li><Link to="/posts">posts</Link> <i className="fa fa-angle-double-right"></i></li>
                 <li><span>Single post</span> </li>
              </ul>
            </div>
@@ -90,45 +117,45 @@ function SinglePost() {
 </section>
 
 
-<section class="blog blog-single page-section-ptb">
-  <div class="container">
-    <div class="row">
-     <div class="col-md-8">
-        <div class="blog-entry">
-          <div class="blog-entry-image  clearfix">
-             <div class="portfolio-item">
-               <img class="img-fluid" src="images/blog/02.jpg" alt=""/>
+<section className="blog blog-single page-section-ptb">
+  <div className="container">
+    <div className="row">
+     <div className="col-md-8">
+        <div className="blog-entry">
+          <div className="blog-entry-image  clearfix">
+             <div className="portfolio-item">
+               <img className="img-fluid" src="images/blog/02.jpg" alt=""/>
               </div>
             </div>
-          <div class="entry-title">
+          <div className="entry-title">
              <a href="/">{post[0].title}</a>
           </div>
-          <div class="entry-meta">
+          <div className="entry-meta">
             <ul>
-              <li><a href="/"><i class="fa fa-user"></i> By Cardealer </a> /</li>
-              <li><a href="/"><i class="fa fa-comments-o"></i> {count} Comments</a> /</li>
-              <li><a href="/"><i class="fa fa-folder-open"></i> News 2021</a> /</li>
-              <li><a href="/"><i class="fa fa-heart-o"></i>10</a></li>
+              <li><a href="/"><i className="fa fa-user"></i> By Cardealer </a> /</li>
+              <li><a href="/"><i className="fa fa-comments-o"></i> {count} Comments</a> /</li>
+              <li><a href="/"><i className="fa fa-folder-open"></i> News 2021</a> /</li>
+              <li><a href="/"><i className="fa fa-heart-o"></i>10</a></li>
             </ul>
           </div>
           <div id="tabs">
-          <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item icon-diamond" role="presentation">
-              <button class="nav-link active" id="general-information-tab" data-bs-toggle="tab" data-bs-target="#general-information" type="button" role="tab" aria-controls="general-information" aria-selected="true">post Information</button>
+          <ul className="nav nav-tabs" id="myTab" role="tablist">
+            <li className="nav-item icon-diamond" role="presentation">
+              <button className="nav-link active" id="general-information-tab" data-bs-toggle="tab" data-bs-target="#general-information" type="button" role="tab" aria-controls="general-information" aria-selected="true">post Information</button>
             </li>
-            <li class="nav-item icon-list" role="presentation">
-              <button class="nav-link" id="features-options-tab" data-bs-toggle="tab" data-bs-target="#features-options" type="button" role="tab" aria-controls="features-options" aria-selected="false">Comments ({count})</button>
+            <li className="nav-item icon-list" role="presentation">
+              <button className="nav-link" id="features-options-tab" data-bs-toggle="tab" data-bs-target="#features-options" type="button" role="tab" aria-controls="features-options" aria-selected="false">Comments ({count})</button>
             </li>
-            <li class="nav-item icon-equalizer" role="presentation">
-              <button class="nav-link " id="vehicle-overview-tab" data-bs-toggle="tab" data-bs-target="#vehicle-overview" type="button" role="tab" aria-controls="vehicle-overview" aria-selected="false">Vehicle Overview</button>
+            <li className="nav-item icon-equalizer" role="presentation">
+              <button className="nav-link " id="vehicle-overview-tab" data-bs-toggle="tab" data-bs-target="#vehicle-overview" type="button" role="tab" aria-controls="vehicle-overview" aria-selected="false">Vehicle Overview</button>
             </li>
           </ul>
-          <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="general-information" role="tabpanel" aria-labelledby="general-information-tab">
+          <div className="tab-content" id="myTabContent">
+            <div className="tab-pane fade show active" id="general-information" role="tabpanel" aria-labelledby="general-information-tab">
               <h6>{post[0].title}</h6>
               <p>{post[0].description}</p>
             </div>
-            <div class="tab-pane fade" id="features-options" role="tabpanel" aria-labelledby="features-options-tab">
+            <div className="tab-pane fade" id="features-options" role="tabpanel" aria-labelledby="features-options-tab">
 
               {allComments}
 
@@ -138,7 +165,7 @@ function SinglePost() {
                 </ul>
               </div>
             </div>
-            <div class="tab-pane fade" id="vehicle-overview" role="tabpanel" aria-labelledby="vehicle-overview-tab">
+            <div className="tab-pane fade" id="vehicle-overview" role="tabpanel" aria-labelledby="vehicle-overview-tab">
               <h6>consectetur adipisicing elit</h6>
               <p>Temporibus possimus quasi beatae, consectetur adipisicing elit. Obcaecati unde molestias sunt officiis aliquid sapiente, numquam, porro perspiciatis neque voluptatem sint hic quam eveniet ad adipisci laudantium corporis ipsam ea!
               <br /><br />
@@ -154,75 +181,75 @@ function SinglePost() {
           </div>
         </div>
           </div>
-        <div class="blog-form">
-          <div class="gray-form row">
-            <div class="col-md-12">
-             <div class="mb-3">
-               <textarea class="form-control" rows="7" placeholder="Comment"></textarea>
+        <div className="blog-form">
+          <div className="gray-form row">
+            <div className="col-md-12">
+             <div className="mb-3">
+               <textarea className="form-control" rows="7" name='comment' placeholder="Comment"></textarea>
               </div>
             </div>
-             <div class="col-md-12 d-grid ">
-              <a class="button red btn-block" href="/">SUBMIT</a>
+             <div className="col-md-12 d-grid ">
+              <button className="button red btn-block" href="/" onClick={handleSubmit}>SUBMIT</button>
             </div>
           <div>
          </div>
         </div>
        </div>
      </div>
-      <div class="col-md-4">
-        <div class="blog-sidebar">
-          <div class="sidebar-widget">
+      <div className="col-md-4">
+        <div className="blog-sidebar">
+          <div className="sidebar-widget">
             <h6>Search here</h6>
-            <div class="widget-search">
-                <i class="fa fa-search"></i>
-                <input type="search" class="form-control placeholder" placeholder="Search...."/>
+            <div className="widget-search">
+                <i className="fa fa-search"></i>
+                <input type="search" className="form-control placeholder" placeholder="Search...."/>
               </div>
           </div>
-          <div class="sidebar-widget">
+          <div className="sidebar-widget">
             <h6>categories</h6>
-            <div class="widget-link">
+            <div className="widget-link">
                <ul>
-                 <li><a href="/"> <i class="fa fa-angle-right"></i> Test Drives </a></li>
-                 <li><a href="/"> <i class="fa fa-angle-right"></i> Video Reviews </a></li>
-                 <li><a href="/"> <i class="fa fa-angle-right"></i> Analysis & Features</a></li>
-                 <li><a href="/"> <i class="fa fa-angle-right"></i> Pre-purchase Car Inspection </a></li>
-                 <li><a href="/"> <i class="fa fa-angle-right"></i> Analysis & Features</a></li>
+                 <li><a href="/"> <i className="fa fa-angle-right"></i> Test Drives </a></li>
+                 <li><a href="/"> <i className="fa fa-angle-right"></i> Video Reviews </a></li>
+                 <li><a href="/"> <i className="fa fa-angle-right"></i> Analysis & Features</a></li>
+                 <li><a href="/"> <i className="fa fa-angle-right"></i> Pre-purchase Car Inspection </a></li>
+                 <li><a href="/"> <i className="fa fa-angle-right"></i> Analysis & Features</a></li>
                </ul>
               </div>
           </div>
-          <div class="sidebar-widget">
+          <div className="sidebar-widget">
             <h6>Recent Posts</h6>
-            <div class="recent-post">
-             <div class="recent-post-image">
+            <div className="recent-post">
+             <div className="recent-post-image">
               <img src="/images/car/01.jpg" alt=""/>
              </div>
-             <div class="recent-post-info">
+             <div className="recent-post-info">
                <a href="/">Time to change your </a>
-              <span><i class="fa fa-calendar"></i> September 30, 2021</span>
+              <span><i className="fa fa-calendar"></i> September 30, 2021</span>
              </div>
             </div>
-            <div class="recent-post">
-             <div class="recent-post-image">
+            <div className="recent-post">
+             <div className="recent-post-image">
               <img src="images/car/02.jpg" alt=""/>
              </div>
-             <div class="recent-post-info">
+             <div className="recent-post-info">
               <a href="/">The best time to</a>
-              <span><i class="fa fa-calendar"></i> September 30, 2021</span>
+              <span><i className="fa fa-calendar"></i> September 30, 2021</span>
              </div>
             </div>
-            <div class="recent-post">
-             <div class="recent-post-image">
+            <div className="recent-post">
+             <div className="recent-post-image">
               <img src="images/car/03.jpg" alt=""/>
              </div>
-             <div class="recent-post-info">
+             <div className="recent-post-info">
               <a href="/">Replacing a timing</a>
-              <span><i class="fa fa-calendar"></i> September 30, 2021</span>
+              <span><i className="fa fa-calendar"></i> September 30, 2021</span>
              </div>
             </div>
          </div>
-         <div class="sidebar-widget">
+         <div className="sidebar-widget">
            <h6>Tags</h6>
-            <div class="tags">
+            <div className="tags">
              <ul>
               <li><a href="/">Bootstrap</a></li>
               <li><a href="/">HTML5</a></li>
@@ -236,15 +263,15 @@ function SinglePost() {
             </ul>
            </div>
          </div>
-         <div class="sidebar-widget">
+         <div className="sidebar-widget">
             <h6>archives</h6>
-            <div class="widget-link">
+            <div className="widget-link">
                <ul>
-                 <li><a href="/"> <i class="fa fa-angle-right"></i> June <span class="float-end">12</span></a></li>
-                 <li><a href="/"> <i class="fa fa-angle-right"></i> January  <span class="float-end">28</span></a></li>
-                 <li><a href="/"> <i class="fa fa-angle-right"></i> March <span class="float-end">08</span></a></li>
-                 <li><a href="/"> <i class="fa fa-angle-right"></i> November  <span class="float-end">04</span></a></li>
-                 <li><a href="/"> <i class="fa fa-angle-right"></i> December <span class="float-end">13</span></a></li>
+                 <li><a href="/"> <i className="fa fa-angle-right"></i> June <span className="float-end">12</span></a></li>
+                 <li><a href="/"> <i className="fa fa-angle-right"></i> January  <span className="float-end">28</span></a></li>
+                 <li><a href="/"> <i className="fa fa-angle-right"></i> March <span className="float-end">08</span></a></li>
+                 <li><a href="/"> <i className="fa fa-angle-right"></i> November  <span className="float-end">04</span></a></li>
+                 <li><a href="/"> <i className="fa fa-angle-right"></i> December <span className="float-end">13</span></a></li>
                </ul>
               </div>
           </div>

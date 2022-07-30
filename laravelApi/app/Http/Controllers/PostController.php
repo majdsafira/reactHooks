@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Illuminate\Support\Facades\DB;
+use function GuzzleHttp\Promise\all;
+
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
-
-use function GuzzleHttp\Promise\all;
 
 class PostController extends Controller
 {
@@ -80,4 +81,9 @@ class PostController extends Controller
     public function Allposts(){
         return Post::count();
     }
+
+    public function commentsCount(){
+        return Post::join('comments', 'comments.post_id', '=', 'posts.id')->select([DB::raw('count(comments.id) as count')])->groupBy('comments.post_id')->paginate(5);
+    }
+
 }

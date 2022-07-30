@@ -75,7 +75,7 @@ class CommentController extends Controller
 
     public function getComments($post)
     {
-        return Comment::join('users', 'comments.user_id', '=', 'users.id')->where('post_id',$post)->paginate(5);
+        return Comment::join('users', 'comments.user_id', '=', 'users.id')->where('post_id',$post)->orderBy('comments.created_at', 'desc')->paginate(5);
     }
 
     public function getAllComments($post)
