@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react'
 
-function Home() {
+function contact() {
   return (
-    <>
-
-<section class="contact page-section-ptb white-bg">
+   <>
+   
+{/* <section class="contact page-section-ptb white-bg">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -49,8 +49,8 @@ function Home() {
       <div class="row">
        <div class="col-lg-8 col-sm-12">
        <div class="gray-form">
-         <div id="formmessage" class="form-notice" style={{display:"none;"}}>Success/Error Message Goes Here</div>
-           <form class="form-horizontal" id="contactform"  method="post" action="http://themes.potenzaglobalsolutions.com/html/cardealer/php/contact-form.php">
+         <div id="formmessage" class="form-notice" >Success/Error Message Goes Here</div>
+           <form class="form-horizontal" id="contactform" role="form" method="post" action="http://themes.potenzaglobalsolutions.com/html/cardealer/php/contact-form.php">
             <div class="contact-form row">
               <div class="col-lg-4 col-sm-12">
                <div class="mb-3">
@@ -74,7 +74,7 @@ function Home() {
               </div>
               <div class="col-md-12">
                  <input type="hidden" name="action" value="sendEmail"/>
-                 <button id="submit" name="submit" type="submit" value="Send" class="button red">Send your message <i class="fa fa-spinner fa-spin fa-fw btn-loader" style={{display: "none;"}}></i></button>
+                 <button id="submit" name="submit" type="submit" value="Send" class="button red">Send your message <i class="fa fa-spinner fa-spin fa-fw btn-loader" style="display: none;"></i></button>
                </div>
               </div>
           </form>
@@ -137,12 +137,12 @@ function Home() {
 
  <section class="contact-map">
   <div class="container-fluid">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3224.017231421863!2d-79.43780268425046!3d36.09306798010035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88532bae09664ccb%3A0xaa6b8f98d3fb8135!2s220+E+Front+St%2C+Burlington%2C+NC+27215%2C+USA!5e0!3m2!1sen!2sin!4v1475045272926" allowfullscreen></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3224.017231421863!2d-79.43780268425046!3d36.09306798010035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88532bae09664ccb%3A0xaa6b8f98d3fb8135!2s220+E+Front+St%2C+Burlington%2C+NC+27215%2C+USA!5e0!3m2!1sen!2sin!4v1475045272926" allowfullscreen title='mm'/>
   </div>
- </section>
+ </section> */}
 
-    </>
-  );
+   </>
+  )
 }
 
-export default Home;
+export default contact
