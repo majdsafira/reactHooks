@@ -26,9 +26,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/create_a_post" element={<PostForm />} />
-            <Route path="/back" element={<UserProfile />} />
+            {/* <Route path="/back" element={<UserProfile />} />
             <Route path="/UserProfile" element={<UserProfile />} />
-            <Route path="/edit" element={<UpdateDataU />} />
+            <Route path="/edit" element={<UpdateDataU />} /> */}
             <Route path="/posts" element={<Posts />} />
             <Route path="/single_post/:id" element={<SinglePost />} />
             <Route path="/register" element={<Register />} />
