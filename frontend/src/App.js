@@ -1,5 +1,6 @@
 import './App.css';
 import Home from './components/Home';
+import Contact from './components/Contact';
 import PostForm from './components/PostForm';
 import Error from './components/Error';
 import Register from "./components/login/Register";
@@ -35,6 +36,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="*" element={<Error />} />
+            <Route path="/Contact" element={<Contact />} />
           </Routes>
           <Footer />
         </Router>

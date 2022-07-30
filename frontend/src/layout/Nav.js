@@ -86,8 +86,10 @@ const Navbar =()=>{
                             <ul>
                               <li><a href="team-01.html">team 01</a></li>
                               <li><a href="team-02.html">team 02</a></li>
-                              <li><a href="contact-01.html">contact 01</a></li>
-                              <li><a href="contact-02.html">contact 02</a></li>
+                              <li>
+                                <a href="contact-01.html">contact </a>
+                                </li>
+                              
                               <li><a href="faq.html">faq</a></li>
                             </ul>
                         </div>
@@ -157,13 +159,9 @@ const Navbar =()=>{
                     <li><a href="details-02.html">details 02</a></li>
                 </ul>
             </li>
-            <li><a href="/"> Contact <i className="fa fa-angle-down fa-indicator"></i></a>
+            <li className="nav-item"><NavLink  to="/Contact">Contact</NavLink></li>
                 
-                <ul className="drop-down-multilevel right-menu">
-                   <li><a href="contact-01.html">contact 01</a></li>
-                   <li><a href="contact-02.html">contact 02</a></li>
-                </ul>
-            </li>
+               
              {user_id ==null?(
             <li><a href="/">Account <i className="fa fa-angle-down fa-indicator"></i></a>
                 <ul className="drop-down-multilevel right-menu">
