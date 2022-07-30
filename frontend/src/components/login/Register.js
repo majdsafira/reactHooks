@@ -10,16 +10,24 @@ const Register = () => {
     email: "",
     password: "",
     image: "",
-
   });
+  // const [picture, setPicture] = useState([]);
+  const handleImage = (e) => {
+    setUser({ ...user ,image: e.target.files[0] });
+  }
   const [error, setError] = useState([]);
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    const formData = new FormData();
+    formData.append("name", user.name);
+    formData.append("phone", user.phone);
+    formData.append("email", user.email);
+    formData.append("password", user.password);
+    formData.append("image", user.image);
     axios({
       method: "post",
       url: "http://localhost:8000/api/register",
-      data: user,
+      data: formData,
     })
       .then((res) => {
         console.log(res);
@@ -100,12 +108,13 @@ const Register = () => {
                         className="form-control"
                         type="file"
                         name="image"
-                        onChange={(e) =>
-                          setUser((prev) => ({
-                            ...prev,
-                            image: e.target.files[0],
-                          }))
-                        }
+                        // onChange={(e) =>
+                        //   setUser((prev) => ({
+                        //     ...prev,
+                        //     image: e.target.files[0],
+                        //   }))
+                        // }
+                        onChange={handleImage}
                         required
                       />
                     </div>

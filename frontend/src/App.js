@@ -10,7 +10,8 @@ import Navbar from "./layout/Nav";
 import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Posts from './components/Posts';
 import SinglePost from './components/SinglePost';
-
+import UserProfile from "./components/UserProfile";
+import UpdateDataU from "./components/UpdateDataU";
 export const userContext = createContext();
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/create_a_post" element={<PostForm />} />
+            {/* <Route path="/back" element={<UserProfile />} />
+            <Route path="/UserProfile" element={<UserProfile />} />
+            <Route path="/edit" element={<UpdateDataU />} /> */}
             <Route path="/posts" element={<Posts />} />
             <Route path="/single_post/:id" element={<SinglePost />} />
             <Route path="/register" element={<Register />} />
