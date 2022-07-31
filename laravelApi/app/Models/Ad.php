@@ -8,9 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Ad extends Model
 {
     protected $fillable =[
-        'user_id', 
+        'user_id',
         'make',
-        'model ',
+        'price',
+        'model',
         'registration_date',
         'milage',
         'condition',
@@ -19,8 +20,6 @@ class Ad extends Model
         'interior_color',
         'transmission',
         'engine',
-        'drive_train',
-        'color',
         'description',
     ];
     // protected $table = ['ads'];

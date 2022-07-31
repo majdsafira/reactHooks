@@ -30,7 +30,8 @@ class AdController extends Controller
         $request->validate([
             'user_id'=> 'required',
             'make' => 'required',
-            'model ',
+            'price' => 'required',
+            'model',
             'registration_date',
             'milage',
             'condition',
@@ -39,8 +40,6 @@ class AdController extends Controller
             'interior_color',
             'transmission',
             'engine',
-            'drive_train',
-            'color',
             'description',
             ]);
             Ad::create($request->all());

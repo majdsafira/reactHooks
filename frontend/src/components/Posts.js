@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 function Posts() {
     const [page, setPage] = useState(1)
     const [posts, setPosts] = useState([])
+    const [comments, setComments] = useState([{count:0},{count:0},{count:0},{count:0},{count:0}])
     const [count, setCount] = useState(0)
 
     const handleClick = (event) => {
@@ -18,7 +19,16 @@ function Posts() {
         }
         getPosts(page)
     },[page])
-    // console.log(page)
+    
+    useEffect(() => {
+        async function getComments(page){
+            const res = await fetch('http://localhost:8000/api/commentsCount?page=' + page)
+            const comments = await res.json()
+            setComments(comments.data)
+        }
+        getComments(page)
+    },[page])
+    console.log(comments)
     
 
     useEffect(() => {
@@ -32,7 +42,7 @@ function Posts() {
     console.log(count)
 
 
-    const postsArr = posts.map(post => {
+    const postsArr = posts.map((post,index) => {
         return (
             <div key={post.id}>
             <hr className="gray"/>
@@ -48,7 +58,7 @@ function Posts() {
               <div className="entry-meta">
                 <ul>
                   <li><a href="/"><i className="fa fa-user"></i> By Cardealer </a> /</li>
-                  <li><a href="/"><i className="fa fa-comments-o"></i> 5 Comments</a> /</li>
+                  <li><a href="/"><i className="fa fa-comments-o"></i> {comments[index].count ? comments[index].count: 0} Comments</a> /</li>
                   <li><a href="/"><i className="fa fa-folder-open"></i> News 2016</a> /</li>
                   <li><a href="/"><i className="fa fa-heart-o"></i>10</a></li>
                 </ul>
@@ -57,7 +67,7 @@ function Posts() {
                 <p>{post.description}</p>
               </div>
               <div className="entry-share clearfix">
-                <a className="button red float-start" href="/"> Read More </a>
+                <Link className="button red float-start" to={`/single_post/${post.id}`}> View Post </Link>
                 <div className="share float-end"><a href="/"> <i className="fa fa-share-alt"></i> </a>
                   <div className="blog-social">
                     <ul className="list-style-none">

@@ -11,31 +11,6 @@ const Navbar =()=>{
     return(
 
 <header id="header" className="defualt">
-<div className="topbar">
-	<div className="container">
-		<div className="row">
-			<div className="col-lg-6 col-md-12">
-				<div className="topbar-left text-lg-start text-center">
-				   <ul className="list-inline">
-             <li> <i className="fa fa-envelope-o"> </i> support@website.com</li>
-             <li> <i className="fa fa-clock-o"></i> Mon - Sat 8.00 - 18.00. Sunday CLOSED</li>
-           </ul>
-				</div>
-			</div>
-			<div className="col-lg-6 col-md-12">
-				<div className="topbar-right text-lg-end text-center">
-					 <ul className="list-inline">
-             <li> <i className="fa fa-phone"></i> (007) 123 456 7890</li>
-             <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-             <li><a href="#"><i className="fa fa-twitter"></i></a></li>
-             <li><a href="#"><i className="fa fa-instagram"></i></a></li>
-             <li><a href="#"><i className="fa fa-youtube-play"></i></a></li>
-           </ul>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
 
 
 
@@ -86,8 +61,10 @@ const Navbar =()=>{
                             <ul>
                               <li><a href="team-01.html">team 01</a></li>
                               <li><a href="team-02.html">team 02</a></li>
-                              <li><a href="contact-01.html">contact 01</a></li>
-                              <li><a href="contact-02.html">contact 02</a></li>
+                              <li>
+                                <a href="contact-01.html">contact </a>
+                                </li>
+                              
                               <li><a href="faq.html">faq</a></li>
                             </ul>
                         </div>
@@ -157,13 +134,9 @@ const Navbar =()=>{
                     <li><a href="details-02.html">details 02</a></li>
                 </ul>
             </li>
-            <li><a href="/"> Contact <i className="fa fa-angle-down fa-indicator"></i></a>
+            <li className="nav-item"><NavLink  to="/Contact">Contact</NavLink></li>
                 
-                <ul className="drop-down-multilevel right-menu">
-                   <li><a href="contact-01.html">contact 01</a></li>
-                   <li><a href="contact-02.html">contact 02</a></li>
-                </ul>
-            </li>
+               
              {user_id ==null?(
             <li><a href="/">Account <i className="fa fa-angle-down fa-indicator"></i></a>
                 <ul className="drop-down-multilevel right-menu">
