@@ -13,6 +13,7 @@ import Posts from './components/Posts';
 import SinglePost from './components/SinglePost';
 import Addcar from './components/Addcar';
 import Dashboard from './admin/Dashboard';
+
 import Cardetails from './components/Cardetails';
 
 export const userContext = createContext();
@@ -25,7 +26,7 @@ function App() {
     <div className="app">
       
       <userContext.Provider value={{ userData, setUserData }}>
-        <Dashboard />
+   <Dashboard />
         <Router>
           <Navbar />
           <Routes>
@@ -44,6 +45,7 @@ function App() {
             <Route path="*" element={<Error />} />
             <Route path="/Contact" element={<Contact />} />
              <Route path="/Dashboard " element={<Dashboard />} />
+             
           </Routes>
           <Footer />
         </Router>
