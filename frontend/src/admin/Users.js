@@ -1,8 +1,27 @@
 import React from 'react';
 import './style.css';
 
-
+import { useState,useEffect } from "react"
+import { Link, useNavigate } from "react-router-dom";
 const Users = () => {
+  const [data, setData]= useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+        getData()
+    };
+    fetchData();
+  }, []);
+  async function getData(){
+    const api = await fetch("http://127.0.0.1:8000/api/alluser");
+    const allData = await api.json();
+    setData(allData);
+  }
+  const deleteUser=(id)=>{
+    fetch(`http://127.0.0.1:8000/api/deleteUser/${id}`)
+    
+     getData()
+     alert("Delete User successfully")
+  }
   return (
     <>
     <table class="table table-striped">
