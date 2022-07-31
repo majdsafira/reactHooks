@@ -1,34 +1,16 @@
 import { NavLink } from "react-router-dom";
 const Navbar =()=>{
-    
+
+    const user_id = sessionStorage.getItem("user_id");
+
+    const handleClick = () => {
+      sessionStorage.clear();
+      window.location.href = "http://localhost:3000/";
+    };
+   
     return(
 
 <header id="header" className="defualt">
-<div className="topbar">
-	<div className="container">
-		<div className="row">
-			<div className="col-lg-6 col-md-12">
-				<div className="topbar-left text-lg-start text-center">
-				   <ul className="list-inline">
-             <li> <i className="fa fa-envelope-o"> </i> support@website.com</li>
-             <li> <i className="fa fa-clock-o"></i> Mon - Sat 8.00 - 18.00. Sunday CLOSED</li>
-           </ul>
-				</div>
-			</div>
-			<div className="col-lg-6 col-md-12">
-				<div className="topbar-right text-lg-end text-center">
-					 <ul className="list-inline">
-             <li> <i className="fa fa-phone"></i> (007) 123 456 7890</li>
-             <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-             <li><a href="#"><i className="fa fa-twitter"></i></a></li>
-             <li><a href="#"><i className="fa fa-instagram"></i></a></li>
-             <li><a href="#"><i className="fa fa-youtube-play"></i></a></li>
-           </ul>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
 
 
 
@@ -44,7 +26,7 @@ const Navbar =()=>{
             </li>
         </ul>
         <ul className="menu-links">
-            <li className="active"><a href="javascript:void(0)"> Home <i className="fa fa-angle-down fa-indicator"></i></a>
+            <li className="active"><a href="/"> Home <i className="fa fa-angle-down fa-indicator"></i></a>
                 
                 <ul className="drop-down-multilevel">
                     <li className="active"><a href="index-2.html">Home 1</a></li>
@@ -63,7 +45,7 @@ const Navbar =()=>{
                     <li><a href="index-landing-page.html">landing page</a></li>
                 </ul>
             </li>
-            <li><a href="javascript:void(0)">Pages <i className="fa fa-angle-down fa-indicator"></i></a>
+            <li><a href="/">Pages <i className="fa fa-angle-down fa-indicator"></i></a>
                 <div className="drop-down menu-bg grid-col-12">
                     <div className="grid-row">
                         <div className="grid-col-3">
@@ -79,8 +61,10 @@ const Navbar =()=>{
                             <ul>
                               <li><a href="team-01.html">team 01</a></li>
                               <li><a href="team-02.html">team 02</a></li>
-                              <li><a href="contact-01.html">contact 01</a></li>
-                              <li><a href="contact-02.html">contact 02</a></li>
+                              <li>
+                                <a href="contact-01.html">contact </a>
+                                </li>
+                              
                               <li><a href="faq.html">faq</a></li>
                             </ul>
                         </div>
@@ -106,10 +90,10 @@ const Navbar =()=>{
                     </div>
                 </div>
             </li>
-            <li><a href="javascript:void(0)">blog <i className="fa fa-angle-down fa-indicator"></i></a>
+            <li><a href="/">blog <i className="fa fa-angle-down fa-indicator"></i></a>
                
                 <ul className="drop-down-multilevel">
-                    <li><a href="javascript:void(0)">blog classNameic <i className="fa fa-angle-right fa-indicator"></i> </a>
+                    <li><a href="/">blog classNameic <i className="fa fa-angle-right fa-indicator"></i> </a>
                     
                         <ul className="drop-down-multilevel">
                            <li><a href="blog-left-sidebar.html">left sidebar</a></li>
@@ -117,7 +101,7 @@ const Navbar =()=>{
                            <li><a href="blog-fullwidth.html">fullwidth</a></li>
                         </ul>
                     </li>
-                    <li><a href="javascript:void(0)">Masonry  <i className="fa fa-angle-right fa-indicator"></i> </a>
+                    <li><a href="/">Masonry  <i className="fa fa-angle-right fa-indicator"></i> </a>
                    
                         <ul className="drop-down-multilevel">
                             <li><a href="blog-masonry-2-collums.html"> 2 column </a> </li>
@@ -127,7 +111,7 @@ const Navbar =()=>{
                            <li><a href="blog-masonry-right-sidebar.html">right sidebar</a></li>
                         </ul>
                     </li>
-                    <li><a href="javascript:void(0)">blog single <i className="fa fa-angle-right fa-indicator"></i> </a>
+                    <li><a href="/">blog single <i className="fa fa-angle-right fa-indicator"></i> </a>
                      
                         <ul className="drop-down-multilevel">
                             <li><a href="blog-single-01.html">blog single 01 </a> </li>
@@ -136,30 +120,45 @@ const Navbar =()=>{
                     </li>
                 </ul>
             </li>
-            <li><a href="javascript:void(0)">Car listing  <i className="fa fa-angle-down fa-indicator"></i></a>
+            <li><a href="/">Car listing  <i className="fa fa-angle-down fa-indicator"></i></a>
               
                 <ul className="drop-down-multilevel">
                     <li><a href="listing-01.html">listing 01</a></li>
                     <li><a href="listing-02.html">listing 02</a></li>
                 </ul>
             </li>
-            <li><a href="javascript:void(0)">Car details  <i className="fa fa-angle-down fa-indicator"></i></a>
+            <li><a href="/">Car details  <i className="fa fa-angle-down fa-indicator"></i></a>
               
                 <ul className="drop-down-multilevel">
                     <li><a href="details-01.html">details 01</a></li>
                     <li><a href="details-02.html">details 02</a></li>
                 </ul>
             </li>
-            <li><a href="javascript:void(0)"> Contact <i className="fa fa-angle-down fa-indicator"></i></a>
+            <li className="nav-item"><NavLink  to="/Contact">Contact</NavLink></li>
                 
+               
+             {user_id ==null?(
+            <li><a href="/">Account <i className="fa fa-angle-down fa-indicator"></i></a>
                 <ul className="drop-down-multilevel right-menu">
-                   <li><a href="contact-01.html">contact 01</a></li>
-                   <li><a href="contact-02.html">contact 02</a></li>
+                    <li className="nav-item"><NavLink  to="/login">Login</NavLink></li>
+                    <li className="nav-item"><NavLink  to="/register">Signup</NavLink></li>
                 </ul>
             </li>
+    ):(
+        <>
+        <li><a href="/">Account <i className="fa fa-angle-down fa-indicator"></i></a>
+            <ul className="drop-down-multilevel right-menu">
+                <li className="nav-item"><NavLink className="nav-link" to="/userprofile">Account</NavLink></li>
+                <li className="nav-item"><NavLink className="nav-link" onClick={handleClick} to="/" >Logout</NavLink></li>
+            </ul>
+        </li>
+        </>
+    )}
             <li>
+
+    
             
-              <div className="search-top"> <a className="search-btn not_click d-none d-lg-block" href="javascript:void(0);">Search Button</a>
+              <div className="search-top"> <a className="search-btn not_click d-none d-lg-block" href="/;">Search Button</a>
                 <div className="search-box not-click">
                   <div className="row">
                     <div className="col-xl-2 col-md-4 col-sm-6">

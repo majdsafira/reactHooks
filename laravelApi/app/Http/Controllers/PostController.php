@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Illuminate\Support\Facades\DB;
+use function GuzzleHttp\Promise\all;
+
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
-
-use function GuzzleHttp\Promise\all;
 
 class PostController extends Controller
 {
@@ -17,7 +18,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return Post::all();
+        return Post::paginate(5);
     }
 
     /**
@@ -28,22 +29,14 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        $request->validate([
-            'make' => 'required',
-            'model ',
-            'registration_date',
-            'milage',
-            'condition',
-            'image',
-            'exterior_color',
-            'interior_color',
-            'transmission',
-            'engine',
-            'drive_train',
-            'color',
-            'description',
+        $data = $request->validate([
+            'user_id' => 'required',
+            'description' => 'required',
+            'title' => 'required',
+            'image' => '',
             ]);
-            Post::create($request->all());
+
+            Post::create($data);
             return response('created', 201);
     }
 
@@ -83,4 +76,14 @@ class PostController extends Controller
         Post::destroy($post->id);
         return response('deleted', 204);
     }
+
+
+    public function Allposts(){
+        return Post::count();
+    }
+
+    public function commentsCount(){
+        return Post::join('comments', 'comments.post_id', '=', 'posts.id')->select([DB::raw('count(comments.id) as count')])->groupBy('comments.post_id')->paginate(5);
+    }
+
 }

@@ -8,19 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     protected $fillable =[
-        'make',
-        'model ',
-        'registration_date',
-        'milage',
-        'condition',
-        'image',
-        'exterior_color',
-        'interior_color',
-        'transmission',
-        'engine',
-        'drive_train',
-        'color',
+        'user_id',
         'description',
+        'title',
     ];
     use HasFactory;
 }

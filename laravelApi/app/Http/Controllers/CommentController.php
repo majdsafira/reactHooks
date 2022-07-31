@@ -72,4 +72,14 @@ class CommentController extends Controller
         Comment::destroy($comment->id);
         return response('deleted', 204);
     }
+
+    public function getComments($post)
+    {
+        return Comment::join('users', 'comments.user_id', '=', 'users.id')->where('post_id',$post)->orderBy('comments.created_at', 'desc')->paginate(5);
+    }
+
+    public function getAllComments($post)
+    {
+        return Comment::where('post_id',$post)->count();
+    }
 }
