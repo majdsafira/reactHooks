@@ -12,6 +12,7 @@ import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Posts from './components/Posts';
 import SinglePost from './components/SinglePost';
 import Addcar from './components/Addcar';
+import Dashboard from './admin/Dashboard';
 
 export const userContext = createContext();
 
@@ -21,10 +22,13 @@ function App() {
 
   return (
     <div className="app">
+      
       <userContext.Provider value={{ userData, setUserData }}>
+        <Dashboard />
         <Router>
           <Navbar />
           <Routes>
+         
             <Route path="/" element={<Home />} />
             <Route path="/add_car" element={<Addcar />} />
             <Route path="/create_a_post" element={<PostForm />} />
@@ -37,6 +41,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="*" element={<Error />} />
             <Route path="/Contact" element={<Contact />} />
+             <Route path="/Dashboard " element={<Dashboard />} />
           </Routes>
           <Footer />
         </Router>
