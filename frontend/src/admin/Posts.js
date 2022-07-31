@@ -1,8 +1,35 @@
 import React from 'react';
 import './style.css';
-import { useState, useRef } from "react";
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { deletePost, loadPost } from './Redux/Actions';
+import {useEffect } from 'react';
+
+
 const Posts = () => {
-  
+  let dispatch = useDispatch();
+
+    const { posts } = useSelector(state => state.data);
+
+    let nav = useNavigate();
+
+
+    useEffect(() => {
+
+        dispatch(loadPost());
+
+    }, []);
+
+    const handleDelete = (id) => {
+
+        if (window.confirm("Are you sure you want to delete this user?")) {
+            dispatch(deletePost(id));
+        }
+
+
+
+    };
+
   return (
     <>
     {/* http://127.0.0.1:8000/api/Allposts */}
@@ -30,7 +57,7 @@ const Posts = () => {
                           </td>
                           <td><img src='' width={20}/></td>
                           <td><button type="submit" class="btn btn-success">Confirm</button></td>
-                        <td> <button type="button" class="btn btn-danger">Delete</button> </td> 
+                        <td> <button type="button" class="btn btn-danger" onClick={() => {handleDelete(posts.id) }}>Delete</button> </td> 
                         </tr>
                         <tr>
                           <td class="py-1">
