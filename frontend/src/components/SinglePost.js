@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 
 function SinglePost() {
     const user_id = sessionStorage.getItem('user_id')
-    let postId = useParams()
+    console.log(typeof(user_id))
+    const postId = useParams()
     const [page, setPage] = useState(1)
     const [count, setCount] = useState(0)
     const [post, setPost] = useState([{title:'', description:'',}])
@@ -12,15 +13,15 @@ function SinglePost() {
     const [formData, setFormData] = useState({
       user_id : user_id,
       comment: '',
-      post_id: postId,
+      post_id: postId.id,
     })
-    const [postConformation, setPostConformation] = useState('')
-
-    console.log(user_id)
+    const [postConformation, setPostConformation] = useState(false)
+    const [commentConformation, setCommentConformation] = useState('false')
+    console.log(formData)
     const handleClick = (event) => {
       setPage(event.target.innerHTML)
     }
-
+    console.log()
 
     // fetching a single post 
     useEffect(() => {
@@ -57,7 +58,15 @@ function SinglePost() {
   },[postId.id])
   // console.log(count) 
 
-
+    const handleChange = (event) => {
+      const {name, value} = event.target
+      setFormData((oldData) => {
+        return {
+          ...oldData,
+          [name]: value,
+        }
+      })
+    }
     // setting a dynamic pagination
     const pagination = []
 
@@ -90,12 +99,10 @@ function SinglePost() {
       async function addPost(){
           const res  = await fetch('http://127.0.0.1:8000/api/comment', requestOptions)
           const data = await res.json()
-          data && setPostConformation(true)
-          console.log(data)
-      }
-      
-      addPost()
-          
+        }
+        addPost()
+        setCommentConformation('true')
+        console.log(commentConformation)
       }
   return (
     <React.Fragment>
@@ -185,11 +192,11 @@ function SinglePost() {
           <div className="gray-form row">
             <div className="col-md-12">
              <div className="mb-3">
-               <textarea className="form-control" rows="7" name='comment' placeholder="Comment"></textarea>
+               <textarea className="form-control" rows="7" name='comment' placeholder="Comment" onChange={handleChange}/>
               </div>
             </div>
              <div className="col-md-12 d-grid ">
-              <button className="button red btn-block" href="/" onClick={handleSubmit}>SUBMIT</button>
+              <button className="button red btn-block" href="/" onClick={handleSubmit}>{sessionStorage.getItem('user_id') ? 'SUBMIT' : 'LOGIN TO COMMENT'}</button>
             </div>
           <div>
          </div>

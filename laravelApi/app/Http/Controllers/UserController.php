@@ -19,33 +19,34 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
 
-        $validator = Validator::make(
-            $request->all(),
-            [
-                'name' => 'required|string',
-                'email' => 'email|required|unique:users',
-                'password' => 'required|min:8',
-                'phone' => 'required|min:10|max:10',
-                'image' => 'max:5048|required',
-            ]
-        );
+        // $validator = Validator::make(
+        //     $request->all(),
+        //     [
+        //         'name' => 'required|string',
+        //         'email' => 'email|required|unique:users',
+        //         'password' => 'required|min:8',
+        //         'phone' => 'required|min:10|max:10',
+        //         'image' => 'max:5048|required|mimes:jpeg,jpg,png',
+        //     ]
+        // );
 
-        if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()->all()]);
-        }
+        // if ($validator->fails()) {
+        //     return response()->json(['errors' => $validator->errors()->all()]);
+        // }
 
         $user = User::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
         $user->phone = $request->phone;
-        // $user->image = $request->image;
         if($request->hasFile('image')){
+
             $image = $request->file('image');
             $filename = time().'.'.$image->getClientOriginalExtension();
             $destinationPath = public_path('/img');
             $image->move($destinationPath, $filename);
             $user->image = $filename;
         }
+
         $user->password = Hash::make($request->password);
 
         $user->save();
@@ -61,7 +62,7 @@ class UserController extends Controller
                 'email' => 'email|required|unique:users',
                 'password' => 'required|min:8',
                 'phone' => 'required|min:10|max:10',
-                'image' => 'required|max:5048',
+                'image' => 'required|max:5048|mimes:jpeg,jpg,png',
             ]
         );
 
@@ -71,10 +72,17 @@ class UserController extends Controller
 
 
         $user = new User();
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $filename = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/img');
+            $image->move($destinationPath, $filename);
+            $user->image = $filename;
+        }
+
         $user->name = $request->name;
         $user->email = $request->email;
         $user->phone = $request->phone;
-        $user->image = $request->image;
         $user->password = Hash::make($request->input('password'));
         $user->save();
 
