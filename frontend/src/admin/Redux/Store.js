@@ -12,5 +12,5 @@ if (process.env.NODE_ENV === "development"){
 }
 
 
-const store =createStore(rootReducer,applyMiddleware(...middlewares));
-export default store;
+const Store =createStore(rootReducer,applyMiddleware(...middlewares));
+export default Store;
