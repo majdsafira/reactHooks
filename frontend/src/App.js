@@ -13,6 +13,7 @@ import Posts from './components/Posts';
 import SinglePost from './components/SinglePost';
 import Addcar from './components/Addcar';
 import Dashboard from './admin/Dashboard';
+import Cardetails from './components/Cardetails';
 
 export const userContext = createContext();
 
@@ -31,6 +32,7 @@ function App() {
          
             <Route path="/" element={<Home />} />
             <Route path="/add_car" element={<Addcar />} />
+            <Route path="/car_details" element={<Cardetails />} />
             <Route path="/create_a_post" element={<PostForm />} />
             {/* <Route path="/back" element={<UserProfile />} />
             <Route path="/UserProfile" element={<UserProfile />} />

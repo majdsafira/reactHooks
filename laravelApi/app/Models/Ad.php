@@ -10,7 +10,8 @@ class Ad extends Model
     protected $fillable =[
         'user_id',
         'make',
-        'model ',
+        'price',
+        'model',
         'registration_date',
         'milage',
         'condition',

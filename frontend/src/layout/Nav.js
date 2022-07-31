@@ -11,31 +11,6 @@ const Navbar =()=>{
     return(
 
 <header id="header" className="defualt">
-<div className="topbar">
-	<div className="container">
-		<div className="row">
-			<div className="col-lg-6 col-md-12">
-				<div className="topbar-left text-lg-start text-center">
-				   <ul className="list-inline">
-             <li> <i className="fa fa-envelope-o"> </i> support@website.com</li>
-             <li> <i className="fa fa-clock-o"></i> Mon - Sat 8.00 - 18.00. Sunday CLOSED</li>
-           </ul>
-				</div>
-			</div>
-			<div className="col-lg-6 col-md-12">
-				<div className="topbar-right text-lg-end text-center">
-					 <ul className="list-inline">
-             <li> <i className="fa fa-phone"></i> (007) 123 456 7890</li>
-             <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-             <li><a href="#"><i className="fa fa-twitter"></i></a></li>
-             <li><a href="#"><i className="fa fa-instagram"></i></a></li>
-             <li><a href="#"><i className="fa fa-youtube-play"></i></a></li>
-           </ul>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
 
 
 

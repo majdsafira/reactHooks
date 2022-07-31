@@ -1,7 +1,8 @@
 import React from 'react';
 import './style.css';
-
+import { useState, useRef } from "react";
 const Posts = () => {
+  
   return (
     <>
     {/* http://127.0.0.1:8000/api/Allposts */}
@@ -13,7 +14,9 @@ const Posts = () => {
                           <th> User </th>
                           <th> Name </th>
                           <th> Post </th>
-                          <th rowSpan={2}> Action</th>
+                          <th>Post Image</th>
+                          <th> Action</th>
+                          <th> </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -23,12 +26,11 @@ const Posts = () => {
                           </td>
                           <td> Herman Beck </td>
                           <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-success" role="progressbar" style={{width: 25, ariavaluenow:25, ariavaluemin:0, ariavaluemax:100}}></div>
-                            </div>
+                           
                           </td>
+                          <td><img src='' width={20}/></td>
                           <td><button type="submit" class="btn btn-success">Confirm</button></td>
-                          <td> <button type="button" class="btn btn-danger">Delete</button> </td>
+                        <td> <button type="button" class="btn btn-danger">Delete</button> </td> 
                         </tr>
                         <tr>
                           <td class="py-1">
