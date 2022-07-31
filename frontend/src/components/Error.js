@@ -28,7 +28,7 @@ function Error() {
         <div class="error-content text-center">
           <h2>404</h2>
           <img class="img-fluid center-block" src="images/car/23.png" alt=""/>
-          <h3 class="text-red">Ooopps:( </h3>
+          <h3 class="text-red">Ooopps: ( </h3>
           <strong class="text-black"> The Page you were looking for, couldn't be found</strong>
           <p>Can't find what you looking for? Take a moment and do a search below or start from our <a href="#"> Home Page </a></p>
         </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import Posts from './AdminPosts';
 import Comments from './AdminComments';
 import Products from './Products';
-import './dstyle.css';
+import './dgstyle.css';
 import Users from './AdminUsers';
 import AdminPosts from './AdminPosts';
 
