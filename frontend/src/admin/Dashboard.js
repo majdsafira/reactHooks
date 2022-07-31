@@ -1,10 +1,12 @@
 import React from 'react';
-import Posts from './AdminPosts';
-import Comments from './AdminComments';
+import AdminPosts from './AdminPosts';
+import AdminComments from './AdminComments';
 import Products from './Products';
 import './dstyle.css';
-import Users from './AdminUsers';
+import AdminUsers from './AdminUsers';
+import AdminComments from './AdminComments';
 import AdminPosts from './AdminPosts';
+
 
 
 const Dashboard = () => {
@@ -311,7 +313,7 @@ const Dashboard = () => {
                   <div class="card-body">
                     <h4 class="card-title">Users</h4>
             
-                    
+                    <AdminUsers />
                   </div>
                 </div>
               </div>
@@ -328,7 +330,7 @@ const Dashboard = () => {
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Comments</h4>
-                    
+                    <AdminComments />
                   </div>
                 </div>
               </div>
