@@ -30,7 +30,7 @@ function Posts() {
     },[page])
     console.log(comments)
     
-
+    console.log(comments[6])
     useEffect(() => {
         async function getPosts(){
             const res = await fetch('http://127.0.0.1:8000/api/Allposts')
@@ -58,7 +58,7 @@ function Posts() {
               <div className="entry-meta">
                 <ul>
                   <li><a href="/"><i className="fa fa-user"></i> By Cardealer </a> /</li>
-                  <li><a href="/"><i className="fa fa-comments-o"></i> {comments[index].count ? comments[index].count: 0} Comments</a> /</li>
+                  <li><a href="/"><i className="fa fa-comments-o"></i> { typeof comments[index] !== 'undefined' ? comments[index].count: 0} Comments</a> /</li>
                   <li><a href="/"><i className="fa fa-folder-open"></i> News 2016</a> /</li>
                   <li><a href="/"><i className="fa fa-heart-o"></i>10</a></li>
                 </ul>
