@@ -3,7 +3,9 @@ import { useState} from "react";
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom'
 const Register = () => {
+  
   const navigate = useNavigate();
+
   const [user, setUser] = useState({
     name: "",
     phone: "",
@@ -83,7 +85,12 @@ const Register = () => {
               </div>
             </div>
           </div>
-          <form action="#" onSubmit={handleSubmit} className="signin-form" encType="multipart/form-data">
+          <form
+            action="#"
+            onSubmit={handleSubmit}
+            className="signin-form"
+            encType="multipart/form-data"
+          >
             <div className="row justify-content-center">
               <div className="col-lg-8 col-md-12">
                 <div className="gray-form">
@@ -177,9 +184,7 @@ const Register = () => {
                     {" "}
                     Register an account{" "}
                   </a> */}
-                  <button
-                    className="button red"
-                    type="submit">
+                  <button className="button red" type="submit">
                     Register
                   </button>
 
@@ -193,6 +198,7 @@ const Register = () => {
           </form>
         </div>
       </section>
+
     </>
   );
 
