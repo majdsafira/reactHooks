@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.css';
+import './dstyle.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { deletePost, loadPost } from './Redux/Action';
 import { useEffect } from 'react';

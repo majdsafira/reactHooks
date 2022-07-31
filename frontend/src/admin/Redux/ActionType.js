@@ -8,3 +8,6 @@ export const GET_POST ="GET_POST";
 export const DELETE_POST ="DELETE_POST";
 export const CONFIRM_POST ="CONFIRM_POST";
 export const GET_SINGLE_POST ="GET_SINGLE_POST";
+
+export const GET_COMMENT ="GET_POST";
+export const DELETE_COMMENT ="DELETE_POST";

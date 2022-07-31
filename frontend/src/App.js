@@ -13,6 +13,8 @@ import Posts from './components/Posts';
 import SinglePost from './components/SinglePost';
 import Addcar from './components/Addcar';
 import Dashboard from './admin/Dashboard';
+import UserProfile from './components/UserProfile';
+import UpdateDataU from './components/UpdateDataU';
 
 import Cardetails from './components/Cardetails';
 
@@ -26,7 +28,7 @@ function App() {
     <div className="app">
       
       <userContext.Provider value={{ userData, setUserData }}>
-   <Dashboard />
+ 
         <Router>
           <Navbar />
           <Routes>
