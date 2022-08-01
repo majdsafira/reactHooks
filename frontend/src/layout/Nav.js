@@ -26,11 +26,12 @@ const Navbar =()=>{
             </li>
         </ul>
         <ul className="menu-links">
-            <li> <NavLink  to="/">Home</NavLink></li>
+            <li> <a href="/">Home</a></li>
            
             <li> <NavLink  to="/Posts">Posts</NavLink></li>
             <li> <NavLink  to="/">Cars List </NavLink></li>
             <li className="nav-item"><NavLink  to="/Contact">Contact</NavLink></li>
+            <li className="nav-item"><NavLink  to="/About">About</NavLink></li>
                 
                
              {user_id ==null?(
