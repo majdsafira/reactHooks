@@ -24,39 +24,30 @@ class Carlist extends Component {
         console.log(this.state)
         const list = this.state.items.map((car, index) => {
             return(
-                <div class="container" key={index}>
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-4">
-                                        <div class="listing-sidebar">
-    
-                                            <div class="widget-banner">
-                                                <img class="img-fluid center-block" src="images/banner.jpg" alt="" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-9 col-md-8">
-    
+                <div  key={index}>
+                                    
+                                    <div class="col-lg col-md">
+
                                         <div class="row">
-                                            <div class="col-lg-4 col-sm-6">
+                                            <div class="col-lg col-sm">
                                                 <div class="car-item gray-bg text-center">
                                                     <div class="car-image">
-                                                        <img class="img-fluid" src={car.image} alt="" />
+                                                    <img class="img-fluid" src="images/car/02.jpg" alt=""/>
+                                                    
+                                                        {/* <img class="img-fluid" src={car.image} alt="" /> */}
                                                         <div class="car-overlay-banner">
                                                             <ul>
-                                                                <li><a href="#"><i class="fa fa-link"></i></a></li>
-    
+
                                                             </ul>
                                                         </div>
                                                     </div>
-    
                                                     <div class="car-content">
                                                         <div class="star">
-    
+
                                                         </div>
                                                         <a href="#">{car.make}</a>
                                                         <div class="separator"></div>
     
-                                                        <a href={car.id}>{car.make}</a>
     
                                                         <div class="price">
                                                             <span class="new-price">${car.price} </span>
@@ -69,7 +60,6 @@ class Carlist extends Component {
                                     </div>
     
                                 </div>
-                            </div>
             )
         })
         var { isLoaded, items } = this.state;
@@ -112,7 +102,9 @@ class Carlist extends Component {
                                 </div>
                             </div>
                         </div>
+                        <div className='car-list'>
                         {list}
+                        </div>
                     </section>
                 </>
             )

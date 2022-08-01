@@ -352,13 +352,7 @@ function Home() {
              </ul>
            </div>
          </div>
-         <div className="car-list">
-           <ul className="list-inline">
-             <li><i className="fa fa-registered"></i> 2021</li>
-             <li><i className="fa fa-cog"></i> Manual </li>
-             <li><i className="fa fa-dashboard"></i> 6,000 mi</li>
-           </ul>
-        </div>
+         
          <div className="car-content">
           <div className="star">
            <i className="fa fa-star orange-color"></i>
@@ -387,13 +381,7 @@ function Home() {
              </ul>
            </div>
          </div>
-         <div className="car-list">
-           <ul className="list-inline">
-             <li><i className="fa fa-registered"></i> 2021</li>
-             <li><i className="fa fa-cog"></i> Manual </li>
-             <li><i className="fa fa-dashboard"></i> 6,000 mi</li>
-           </ul>
-        </div>
+         
          <div className="car-content">
           <div className="star">
            <i className="fa fa-star orange-color"></i>
@@ -422,13 +410,7 @@ function Home() {
              </ul>
            </div>
          </div>
-         <div className="car-list">
-           <ul className="list-inline">
-             <li><i className="fa fa-registered"></i> 2021</li>
-             <li><i className="fa fa-cog"></i> Manual </li>
-             <li><i className="fa fa-dashboard"></i> 6,000 mi</li>
-           </ul>
-        </div>
+         
          <div className="car-content">
           <div className="star">
            <i className="fa fa-star orange-color"></i>
@@ -457,13 +439,7 @@ function Home() {
              </ul>
            </div>
          </div>
-         <div className="car-list">
-           <ul className="list-inline">
-             <li><i className="fa fa-registered"></i> 2021</li>
-             <li><i className="fa fa-cog"></i> Manual </li>
-             <li><i className="fa fa-dashboard"></i> 6,000 mi</li>
-           </ul>
-        </div>
+        
          <div className="car-content">
           <div className="star">
            <i className="fa fa-star orange-color"></i>
@@ -492,13 +468,7 @@ function Home() {
              </ul>
            </div>
          </div>
-         <div className="car-list">
-           <ul className="list-inline">
-             <li><i className="fa fa-registered"></i> 2021</li>
-             <li><i className="fa fa-cog"></i> Manual </li>
-             <li><i className="fa fa-dashboard"></i> 6,000 mi</li>
-           </ul>
-        </div>
+         
          <div className="car-content">
           <div className="star">
            <i className="fa fa-star orange-color"></i>
