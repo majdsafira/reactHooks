@@ -74,6 +74,8 @@ const Register = () => {
         </div>
       </section>
 
+      
+
       <section className="register-form page-section-ptb">
         <div className="container">
           <div className="row justify-content-center">

@@ -323,9 +323,8 @@ function Home() {
     <div className="row">
        <div className="col-md-12">
           <div className="halp-call text-center">
-            <img className="img-fluid" src="images/team/01.jpg" alt=""/>
             <span>Have any question ?</span>
-            <h2 className="text-red">(007) 123 456 7890</h2>
+            <h2 className="text-red">(+962) 77 809 1928</h2>
           </div>
        </div>
     </div>
@@ -539,7 +538,7 @@ function Home() {
           <strong className="text-red">$450 </strong>
           <span>per month </span>
           <p>Limited time Offer!</p>
-          <a href="/"> read more </a>
+          
         </div>
       </div>
     </div>
@@ -547,37 +546,6 @@ function Home() {
 </section>
 
 
-<section className="latest-blog objects-car white-bg page page-section-ptb">
- <div className="objects-left"><img className="img-fluid objects-1" src="images/objects/03.jpg" alt=""/></div>
- <div className="objects-right"><img className="img-fluid objects-2" src="images/objects/04.jpg" alt=""/></div>
-  <div className="container">
-    <div className="row">
-      <div className="col-md-12">
-        <div className="section-title">
-         <span>Read our latest news</span>
-         <h2>Latest News </h2>
-         <div className="separator"></div>
-      </div>
-      </div>
-    </div>
-    <div className="blog-1">
-      <div className="row">
-        <div className="col-md-6">
-          <img className="img-fluid" src="images/blog/01.jpg" alt=""/>
-        </div>
-        <div className="col-md-6">
-          <div className="blog-content">
-            <a className="link" href="/">Porsche 911 is text of the printin   a galley of type and bled it to make a type specimen book. </a>
-            <span className="uppercase">November 29, 2021  | <strong className="text-red">post by john doe </strong></span>
-            <p>Sed do eiusmod tempor lorem ipsum dolor sit amet, consectetur adipisicing elit, incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa </p>
-            <a className="button border" href="/">Read more</a>
-           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
  <section className="play-video popup-gallery">
   <div className="play-video-bg bg-3 bg-overlay-black-70">
@@ -608,28 +576,28 @@ function Home() {
        <div className="counter-block">
           <i className="glyph-icon flaticon-beetle"></i>
           <h6 className="text-black">Vehicles In Stock  </h6>
-          <b className="timer" data-to="3968" data-speed="10000"></b>
+          <b className="timer" data-to="3968" data-speed="10000">486</b>
       </div>
      </div>
      <div className="col-lg-3 col-sm-6 text-center">
       <div className="counter-block">
          <i className="glyph-icon flaticon-interface"></i>
           <h6 className="text-black">Dealer Reviews</h6>
-          <b className="timer" data-to="5568" data-speed="10000"></b>
+          <b className="timer" data-to="5568" data-speed="10000">744</b>
        </div>
      </div>
      <div className="col-lg-3 col-sm-6 text-center">
       <div className="counter-block mb-4 mb-sm-0">
           <i className="glyph-icon flaticon-circle"></i>
           <h6 className="text-black">Happy Customer</h6>
-          <b className="timer" data-to="8908" data-speed="10000"></b>
+          <b className="timer" data-to="8908" data-speed="10000">156</b>
        </div>
       </div>
       <div className="col-lg-3 col-sm-6 text-center">
         <div className="counter-block mb-0">
           <i className="glyph-icon flaticon-cup"></i>
           <h6 className="text-black">Awards</h6>
-          <b className="timer" data-to="9968" data-speed="10000"></b>
+          <b className="timer" data-to="9968" data-speed="10000">12</b>
        </div>
      </div>
     </div>
@@ -639,97 +607,6 @@ function Home() {
 <hr className="gray"/>
 
 
-<section className="testimonial-1 white-bg page page-section-ptb">
-  <div className="container">
-    <div className="row">
-      <div className="col-md-12">
-        <div className="section-title">
-         <span>What Our Happy Clients say about us</span>
-         <h2>our Testimonial </h2>
-         <div className="separator"></div>
-      </div>
-      </div>
-    </div>
-   <div className="row">
-    <div className="col-md-12">
-     <div className="owl-carousel" data-items="3" data-md-items="3" data-sm-items="2" data-xs-items="1" data-space="20">
-      <div className="item">
-        <div className="testimonial-block text-center">
-           <div className="testimonial-image">
-             <img className="img-fluid" src="images/testimonial/01.jpg" alt=""/>
-           </div>
-           <div className="testimonial-box">
-             <div className="testimonial-avtar">
-               <img className="img-fluid" src="images/team/01.jpg" alt=""/>
-               <h6>Alice Williams</h6>
-               <span>Auto Dealer</span>
-             </div>
-             <div className="testimonial-content">
-                <p>It has survived not only five centuries. lorem Ipsum is simply dummy text of the printin a galley of type and bled it to make a type specimen book.</p>
-                <i className="fa fa-quote-right"></i>
-             </div>
-           </div>
-        </div>
-      </div>
-     <div className="item">
-        <div className="testimonial-block text-center">
-           <div className="testimonial-image">
-             <img className="img-fluid" src="images/testimonial/02.jpg" alt=""/>
-           </div>
-           <div className="testimonial-box">
-             <div className="testimonial-avtar">
-               <img className="img-fluid" src="images/team/02.jpg" alt=""/>
-               <h6>Michael Bean</h6>
-               <span>Car Dealer</span>
-             </div>
-             <div className="testimonial-content">
-                <p>A galley of type and bled it to make a type specimen book. Ipsum is simply dummy text of the printin It has survived not only five centuries.</p>
-                <i className="fa fa-quote-right"></i>
-             </div>
-           </div>
-        </div>
-      </div>
-      <div className="item">
-        <div className="testimonial-block text-center">
-           <div className="testimonial-image">
-             <img className="img-fluid" src="images/testimonial/03.jpg" alt=""/>
-           </div>
-           <div className="testimonial-box">
-             <div className="testimonial-avtar">
-               <img className="img-fluid" src="images/team/03.jpg" alt=""/>
-               <h6>Felica Queen</h6>
-               <span>Auto Dealer</span>
-             </div>
-             <div className="testimonial-content">
-                <p>Text of the printin a galley of type and bled it to a type specimen book. It has survived not only five centuries make Lorem Ipsum is simply dummy.</p>
-                <i className="fa fa-quote-right"></i>
-             </div>
-           </div>
-        </div>
-      </div>
-      <div className="item">
-        <div className="testimonial-block text-center">
-           <div className="testimonial-image">
-             <img className="img-fluid" src="images/testimonial/04.jpg" alt=""/>
-           </div>
-           <div className="testimonial-box">
-             <div className="testimonial-avtar">
-               <img className="img-fluid" src="images/team/04.jpg" alt=""/>
-               <h6>Sara Lisbon</h6>
-               <span>Customer</span>
-             </div>
-             <div className="testimonial-content">
-                <p>Printin a galley of type and bled It has survived not lorem Ipsum is simply dummy text of the  it to make a type specimen book only five centuries.</p>
-                <i className="fa fa-quote-right"></i>
-             </div>
-           </div>
-        </div>
-      </div>
-      </div>
-     </div>
-    </div>
-   </div>
-  </section>
     </>
   );
 }
