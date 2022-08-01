@@ -112,11 +112,19 @@ const UpdateDataU = () => {
 
       <section className="section about-section gray-bg" id="about">
         <div
-          style={{ border: "1px solid", padding: "50px" }}
+          // style={{ border: "1px solid", padding: "50px" }}
           className="container"
         >
+          <div className="row justify-content-center">
+            <div className="col-md-10">
+              <div className="section-title">
+                <h2>Updated profile</h2>
+                <div className="separator"></div>
+              </div>
+            </div>
+          </div>
           <div className="row align-items-center flex-row-reverse ">
-            <div className="col-lg-6 ">
+            <div className="col-lg-8">
               <div id="uesrInfo" className="about-text go-to ">
                 <form action="" onSubmit={SaveInfo}>
                   <div className="row about-list">
@@ -135,6 +143,7 @@ const UpdateDataU = () => {
                           type="text"
                           placeholder="your name"
                           required
+                          style={{ width: "330px" }}
                         />
                       </div>
                       <br></br>
@@ -154,6 +163,7 @@ const UpdateDataU = () => {
                           placeholder="your phone"
                           type="text"
                           required
+                          style={{ width: "330px" }}
                         />
                       </div>
                       <br></br>
@@ -192,6 +202,7 @@ const UpdateDataU = () => {
                           name="email"
                           type="text"
                           required
+                          style={{ width: "330px" }}
                         />
                       </div>{" "}
                       <br></br>
@@ -208,8 +219,8 @@ const UpdateDataU = () => {
                           name="password"
                           type="password"
                           required
+                          style={{ width: "330px" }}
                         />
-                        
                       </div>
                     </div>
                   </div>
@@ -223,24 +234,29 @@ const UpdateDataU = () => {
                     value={"Save"}
                     required
                   />
+                  <Link type="button" to="/back">
+                    <button
+                      className="button red"
+                      type="button"
+                      style={{ marginLeft: "50px" }}
+                    >
+                      Back
+                    </button>
+                  </Link>
                 </form>
               </div>
             </div>
 
-            <div className="col-lg-6">
-              <div className="d-flex flex-column align-items-center text-center about-avatar">
-                <img
+            {/* <div className="col-lg-6">
+              <div className="d-flex flex-column align-items-center text-center about-avatar"> */}
+            {/* <img
                   style={{ width: "200px" }}
                   src={"http://127.0.0.1:8000/img/" + user.image}
-                />
-                <br></br>
-                <Link type="button" to="/back">
-                  <button className="btn btn-dark" type="button">
-                    Back
-                  </button>
-                </Link>
-              </div>
-            </div>
+                /> */}
+            <br></br>
+
+            {/* </div>
+            </div> */}
           </div>
           <br></br>
         </div>

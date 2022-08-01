@@ -59,7 +59,7 @@ const UserProfile = () => {
           <div style={{}} className="container">
             <div className="row justify-content-center">
               <div className="col-md-10">
-                <div className="section-title" style={{padding:"0px 0px"}}>
+                <div className="section-title" style={{ padding: "0px 0px" }}>
                   <h2>Your Profile</h2>
                   <div className="separator"></div>
                 </div>
@@ -80,6 +80,7 @@ const UserProfile = () => {
                             type="text"
                             value={data.name}
                             disabled
+                            style={{ width: "450px" }}
                           />
                         </div>{" "}
                         <br></br>
@@ -93,6 +94,7 @@ const UserProfile = () => {
                             type="text"
                             value={data.email}
                             disabled
+                            style={{ width: "450px" }}
                           />
                         </div>{" "}
                         <br></br>
@@ -104,6 +106,7 @@ const UserProfile = () => {
                             type="text"
                             value={data.phone}
                             disabled
+                            style={{ width: "450px" }}
                           />
                         </div>
                       </div>
@@ -115,9 +118,16 @@ const UserProfile = () => {
               </div>
 
               <div className="col-lg-6">
-                <div className="d-flex flex-column align-items-center text-center about-avatar" style={{}}>
+                <div
+                  className="d-flex flex-column align-items-center text-center about-avatar"
+                  style={{}}
+                >
                   <img
-                    style={{ width: "210px", height: "210px",borderRadius:"50%" }}
+                    style={{
+                      width: "220px",
+                      height: "220px",
+                      borderRadius: "50%",
+                    }}
                     alt={"photo"}
                     src={"http://127.0.0.1:8000/img/" + data.image}
                   />{" "}
