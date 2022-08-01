@@ -54,6 +54,14 @@ function Posts() {
               </div> */}
               <div className="entry-title">
                 <Link to={`/single_post/${post.id}`}>{post.title}</Link>
+          </div>
+          <div className="entry-meta">
+                <ul>
+                  <li><a href="/"><i className="fa fa-user"></i> By Cardealer </a> /</li>
+                  <li><a href="/"><i className="fa fa-comments-o"></i> { typeof comments[index] !== 'undefined' ? comments[index].count: 0} Comments</a></li>
+                 
+                </ul>
+              </div>
               </div>
               <div className="entry-meta">
                
@@ -65,7 +73,6 @@ function Posts() {
                 <Link className="button red float-start" to={`/single_post/${post.id}`}> View Post </Link>
                 
               </div>
-            </div>
             </div>
         )
     }

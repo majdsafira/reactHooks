@@ -140,9 +140,8 @@ function SinglePost() {
           <div className="entry-meta">
             <ul>
               <li><a href="/"><i className="fa fa-user"></i> By Cardealer </a> /</li>
-              <li><a href="/"><i className="fa fa-comments-o"></i> {count} Comments</a> /</li>
-              <li><a href="/"><i className="fa fa-folder-open"></i> News 2021</a> /</li>
-              <li><a href="/"><i className="fa fa-heart-o"></i>10</a></li>
+              <li><a href="/"><i className="fa fa-comments-o"></i> {count} Comments</a> </li>
+             
             </ul>
           </div>
           <div id="tabs">

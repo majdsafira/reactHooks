@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 const Navbar =()=>{
 
     const user_id = sessionStorage.getItem("user_id");

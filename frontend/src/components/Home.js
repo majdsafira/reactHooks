@@ -271,7 +271,6 @@ function Home() {
            <span>Welcome to our website</span>
            <h2>Dealeractive</h2>
            <div className="separator"></div>
-           <p>Car Dealer is the best premium HTML5 Template. We provide everything you need to build an <strong>Amazing dealership website</strong>  developed especially for car sellers, dealers or auto motor retailers. You can use this template for creating website based on any framework and any language.</p> </div>
       </div>
     </div>
     <div className="row">
@@ -282,7 +281,6 @@ function Home() {
           </div>
           <div className="content">
             <h6>All brands</h6>
-            <p>Galley simply dummy text lorem Ipsum is of the printin  k a of type and</p>
           </div>
         </div>
       </div>
@@ -293,7 +291,6 @@ function Home() {
           </div>
           <div className="content">
             <h6>Free Support</h6>
-            <p>Text of the printin lorem ipsum the is simply k a type text and galley of</p>
           </div>
         </div>
       </div>
@@ -304,7 +301,6 @@ function Home() {
           </div>
           <div className="content">
             <h6>Dealership</h6>
-            <p>Printin k a of type and lorem Ipsum is simply dummy text of the galley </p>
           </div>
         </div>
       </div>
@@ -315,7 +311,6 @@ function Home() {
           </div>
           <div className="content">
             <h6>affordable</h6>
-            <p>The printin k a galley Lorem Ipsum is type and simply dummy text of</p>
           </div>
         </div>
       </div>
@@ -328,6 +323,7 @@ function Home() {
           </div>
        </div>
     </div>
+  </div>
   </div>
 </section>
 
