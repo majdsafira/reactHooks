@@ -15,8 +15,8 @@ import Addcar from './components/Addcar';
 import Dashboard from './admin/Dashboard';
 import UserProfile from './components/UserProfile';
 import UpdateDataU from './components/UpdateDataU';
-
 import Cardetails from './components/Cardetails';
+import About from './components/About';
 
 export const userContext = createContext();
 
@@ -46,7 +46,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
              <Route path="/Contact" element={<Contact />} />
-             {/* <Route path="/Dashboard " element={<Dashboard />} /> */}
+              <Route path="/About" element={<About />} />
             <Route path="*" element={<Error />} />
             <Route path="/Contact" element={<Contact />} />
              <Route path="/Dashboard " element={<Dashboard />} />
