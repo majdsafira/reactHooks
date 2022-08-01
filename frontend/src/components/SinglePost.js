@@ -16,7 +16,7 @@ function SinglePost() {
       post_id: postId.id,
     })
     const [postConformation, setPostConformation] = useState(false)
-    const [commentConformation, setCommentConformation] = useState('false')
+    const [commentConformation, setCommentConformation] = useState(false)
     console.log(formData)
     const handleClick = (event) => {
       setPage(event.target.innerHTML)
@@ -43,7 +43,7 @@ function SinglePost() {
             // console.log(data)
         }
         getComments(page)
-    },[postId.id, page])
+    },[postId.id, page,commentConformation])
     // console.log(comments)
 
 
@@ -55,7 +55,7 @@ function SinglePost() {
           setCount(count)
       }
       getAllComments()
-  },[postId.id])
+  },[postId.id,commentConformation])
   // console.log(count) 
 
     const handleChange = (event) => {
@@ -101,7 +101,7 @@ function SinglePost() {
           const data = await res.json()
         }
         addPost()
-        setCommentConformation('true')
+        setCommentConformation(oldData => !oldData)
         console.log(commentConformation)
       }
   return (
