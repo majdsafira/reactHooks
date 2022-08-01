@@ -13,7 +13,6 @@ function Error() {
            <div class="col-md-6 text-md-end float-end">
              <ul class="page-breadcrumb">
                 <li><a href="#"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-double-right"></i></li>
-                <li><a href="#">pages</a> <i class="fa fa-angle-double-right"></i></li>
                 <li><span>404 Error</span> </li>
              </ul>
            </div>

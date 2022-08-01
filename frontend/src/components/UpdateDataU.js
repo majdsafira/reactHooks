@@ -38,23 +38,23 @@ const UpdateDataU = () => {
     //   }),
     // };
     // console.log(requestOptions);
-        const formData = new FormData();
-        formData.append("name", user.name);
-        formData.append("phone", user.phone);
-        formData.append("email", user.email);
-        formData.append("password", user.password);
-        formData.append("image", user.image);
+    const formData = new FormData();
+    formData.append("name", user.name);
+    formData.append("phone", user.phone);
+    formData.append("email", user.email);
+    formData.append("password", user.password);
+    formData.append("image", user.image);
 
-        // console.log(formData.get("name"));
-        // console.log(formData.get("phone"));
-        // console.log(formData.get("email"));
-        // console.log(formData.get("password"));
-        // console.log(formData.get("image"));
+    // console.log(formData.get("name"));
+    // console.log(formData.get("phone"));
+    // console.log(formData.get("email"));
+    // console.log(formData.get("password"));
+    // console.log(formData.get("image"));
     const response = await axios.post(
       `http://127.0.0.1:8000/api/update/` + user_id,
       formData
     );
-// console.log(response);
+    // console.log(response);
     if (response.status === 200) {
       return alert("Data Updated Successfully");
     } else {
@@ -62,19 +62,19 @@ const UpdateDataU = () => {
     }
   };
 
-      const fetchProfile = async () => {
-        const response = await fetch(
-          "http://127.0.0.1:8000/api/users/" + user_id
-        );
-        const myProfile = await response.json();
-        setUser(myProfile);
-        console.log(myProfile);
-      };
+  const fetchProfile = async () => {
+    const response = await fetch(
+      "http://127.0.0.1:8000/api/users/" + user_id
+    );
+    const myProfile = await response.json();
+    setUser(myProfile);
+    console.log(myProfile);
+  };
 
-      useEffect(() => {
-        fetchProfile();
+  useEffect(() => {
+    fetchProfile();
 
-      }, []);
+  }, []);
 
   useEffect(() => {
     SaveInfo();
@@ -97,10 +97,7 @@ const UpdateDataU = () => {
                   </a>{" "}
                   <i className="fa fa-angle-double-right"></i>
                 </li>
-                <li>
-                  <a href="#">pages</a>{" "}
-                  <i className="fa fa-angle-double-right"></i>
-                </li>
+
                 <li>
                   <span>Updated profile</span>{" "}
                 </li>

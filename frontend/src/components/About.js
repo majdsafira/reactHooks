@@ -15,10 +15,7 @@ const About = () => {
                   </a>{" "}
                   <i className="fa fa-angle-double-right"></i>
                 </li>
-                <li>
-                  <a href="#">pages</a>{" "}
-                  <i className="fa fa-angle-double-right"></i>
-                </li>
+                 
                 <li>
                   <span>about us</span>{" "}
                 </li>
