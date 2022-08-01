@@ -8,7 +8,7 @@ function SinglePost() {
     const postId = useParams()
     const [page, setPage] = useState(1)
     const [count, setCount] = useState(0)
-    const [post, setPost] = useState([{title:'', description:'',}])
+    const [post, setPost] = useState([{title:'', description:'',name:''}])
     const [comments, setComments] = useState([{ comment:'',}])
     const [formData, setFormData] = useState({
       user_id : user_id,
@@ -32,8 +32,8 @@ function SinglePost() {
             // console.log(data)
         }
         getPost()
-    },[postId.id])
-
+    },[postId.id,commentConformation])
+    console.log(post)
     // fetching comments paginated 5 comments per page
     useEffect(() => {
         async function getComments(page){
@@ -147,7 +147,7 @@ function SinglePost() {
           </div>
           <div className="entry-meta">
             <ul>
-              <li><a href="/"><i className="fa fa-user"></i> By Cardealer </a> /</li>
+              <li><a href="/"><i className="fa fa-user"></i> By {post[0].name} </a> /</li>
               <li><a href="/"><i className="fa fa-comments-o"></i> {count} Comments</a> </li>
              
             </ul>
