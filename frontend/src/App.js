@@ -41,6 +41,7 @@ function App() {
             <Route path="/UserProfile" element={<UserProfile />} />
             <Route path="/edit" element={<UpdateDataU />} />
             <Route path="/posts" element={<Posts />} />
+            <Route path="/create_a_post" element={<PostForm />} />
             <Route path="/single_post/:id" element={<SinglePost />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />

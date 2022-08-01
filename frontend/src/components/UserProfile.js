@@ -32,7 +32,7 @@ const UserProfile = () => {
           <div className="container">
             <div className="row text-center intro-title">
               <div className="col-md-6 text-md-start d-inline-block">
-                <h1 className="text-white">Register </h1>
+                <h1 className="text-white">profile </h1>
               </div>
               <div className="col-md-6 text-md-end float-end">
                 <ul className="page-breadcrumb">
@@ -56,10 +56,16 @@ const UserProfile = () => {
         </section>
 
         <section className="section about-section gray-bg" id="about">
-          <div
-            style={{ border: "1px solid", padding: "50px" }}
-            className="container"
-          >
+          <div style={{}} className="container">
+            <div className="row justify-content-center">
+              <div className="col-md-10">
+                <div className="section-title" style={{padding:"0px 0px"}}>
+                  <h2>Your Profile</h2>
+                  <div className="separator"></div>
+                </div>
+              </div>
+            </div>
+
             <div className="row align-items-center flex-row-reverse ">
               <div className="col-lg-6 ">
                 <div id="uesrInfo" className="about-text go-to ">
@@ -109,9 +115,9 @@ const UserProfile = () => {
               </div>
 
               <div className="col-lg-6">
-                <div className="d-flex flex-column align-items-center text-center about-avatar">
+                <div className="d-flex flex-column align-items-center text-center about-avatar" style={{}}>
                   <img
-                    style={{ width: "200px" }}
+                    style={{ width: "210px", height: "210px",borderRadius:"50%" }}
                     alt={"photo"}
                     src={"http://127.0.0.1:8000/img/" + data.image}
                   />{" "}
