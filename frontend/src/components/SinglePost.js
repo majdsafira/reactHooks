@@ -81,8 +81,10 @@ function SinglePost() {
           <div className="recent-post-image rounded-circle">
               <img src={`http://localhost:8000/img/${comment.image}`} alt=""/>
           </div>
-          <h6>{comment.name}</h6>
-          <p>{comment.comment}</p>
+          <div className="comment-content">
+            <h6>{comment.name}</h6>
+            <p>{comment.comment}</p>
+          </div>
           <hr className="gray"/>
         </div>
       )
@@ -103,6 +105,12 @@ function SinglePost() {
         addPost()
         setCommentConformation(oldData => !oldData)
         console.log(commentConformation)
+        setFormData((oldData) => {
+          return {
+            ...oldData,
+            comment: '',
+          }
+        })
       }
   return (
     <React.Fragment>
@@ -171,19 +179,6 @@ function SinglePost() {
                 </ul>
               </div>
             </div>
-            <div className="tab-pane fade" id="vehicle-overview" role="tabpanel" aria-labelledby="vehicle-overview-tab">
-              <h6>consectetur adipisicing elit</h6>
-              <p>Temporibus possimus quasi beatae, consectetur adipisicing elit. Obcaecati unde molestias sunt officiis aliquid sapiente, numquam, porro perspiciatis neque voluptatem sint hic quam eveniet ad adipisci laudantium corporis ipsam ea!
-              <br /><br />
-              Consectetur adipisicing elit. Dicta, amet quia ad debitis fugiat voluptatem neque dolores tempora iste saepe cupiditate, molestiae iure voluptatibus est beatae? Culpa, illo a You will begin to realize why, consectetur adipisicing elit. Commodi, doloribus, earum modi consectetur molestias asperiores sequi ipsam neque error itaque veniam culpa eligendi similique ducimus nulla, blanditiis, perspiciatis atque saepe! veritatis.
-
-              <br /><br />
-              Adipisicing consectetur elit. Dicta, amet quia ad debitis fugiat voluptatem neque dolores tempora iste saepe cupiditate, molestiae iure voluptatibus est beatae? Culpa, illo a You will begin to realize why, consectetur adipisicing elit. Commodi, doloribus, earum modi consectetur molestias asperiores.
-
-              <br /><br />
-              Voluptatem adipisicing elit. Dicta, amet quia ad debitis fugiat neque dolores tempora iste saepe cupiditate, molestiae iure voluptatibus est beatae? Culpa, illo a You will begin to realize why, consectetur adipisicing elit. Commodi, You will begin to realize why, consectetur adipisicing elit. Laudantium nisi eaque maxime totam, iusto accusantium esse placeat rem at temporibus minus architecto ipsum eveniet. Delectus cum sunt, ea cumque quas! doloribus, earum modi consectetur molestias asperiores sequi ipsam neque error itaque veniam culpa eligendi similique ducimus nulla, blanditiis, perspiciatis atque saepe! veritatis.
-              </p>
-            </div>
           </div>
         </div>
           </div>
@@ -191,7 +186,7 @@ function SinglePost() {
           <div className="gray-form row">
             <div className="col-md-12">
              <div className="mb-3">
-               <textarea className="form-control" rows="7" name='comment' placeholder="Comment" onChange={handleChange}/>
+               <textarea className="form-control" rows="7" name='comment' placeholder="Comment" value={formData.comment} onChange={handleChange}/>
               </div>
             </div>
              <div className="col-md-12 d-grid ">
