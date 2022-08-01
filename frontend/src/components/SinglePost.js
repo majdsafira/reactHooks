@@ -77,7 +77,7 @@ function SinglePost() {
     //mapping over comments 
     const allComments = comments.map((comment, index) => {
       return (
-        <div className="tab-pane show" id="vehicle-overview" role="tabpanel" aria-labelledby="vehicle-overview-tab" key={index}>
+        <div  className="tab-pane show" id="vehicle-overview" role="tabpanel" aria-labelledby="vehicle-overview-tab" key={index}>
           <div className="recent-post-image rounded-circle">
               <img src={`http://localhost:8000/img/${comment.image}`} alt=""/>
           </div>
@@ -154,7 +154,6 @@ function SinglePost() {
               <button className="nav-link" id="features-options-tab" data-bs-toggle="tab" data-bs-target="#features-options" type="button" role="tab" aria-controls="features-options" aria-selected="false">Comments ({count})</button>
             </li>
             <li className="nav-item icon-equalizer" role="presentation">
-              <button className="nav-link " id="vehicle-overview-tab" data-bs-toggle="tab" data-bs-target="#vehicle-overview" type="button" role="tab" aria-controls="vehicle-overview" aria-selected="false">Vehicle Overview</button>
             </li>
           </ul>
           <div className="tab-content" id="myTabContent">
@@ -203,87 +202,7 @@ function SinglePost() {
         </div>
        </div>
      </div>
-      <div className="col-md-4">
-        <div className="blog-sidebar">
-          <div className="sidebar-widget">
-            <h6>Search here</h6>
-            <div className="widget-search">
-                <i className="fa fa-search"></i>
-                <input type="search" className="form-control placeholder" placeholder="Search...."/>
-              </div>
-          </div>
-          <div className="sidebar-widget">
-            <h6>categories</h6>
-            <div className="widget-link">
-               <ul>
-                 <li><a href="/"> <i className="fa fa-angle-right"></i> Test Drives </a></li>
-                 <li><a href="/"> <i className="fa fa-angle-right"></i> Video Reviews </a></li>
-                 <li><a href="/"> <i className="fa fa-angle-right"></i> Analysis & Features</a></li>
-                 <li><a href="/"> <i className="fa fa-angle-right"></i> Pre-purchase Car Inspection </a></li>
-                 <li><a href="/"> <i className="fa fa-angle-right"></i> Analysis & Features</a></li>
-               </ul>
-              </div>
-          </div>
-          <div className="sidebar-widget">
-            <h6>Recent Posts</h6>
-            <div className="recent-post">
-             <div className="recent-post-image">
-              <img src="/images/car/01.jpg" alt=""/>
-             </div>
-             <div className="recent-post-info">
-               <a href="/">Time to change your </a>
-              <span><i className="fa fa-calendar"></i> September 30, 2021</span>
-             </div>
-            </div>
-            <div className="recent-post">
-             <div className="recent-post-image">
-              <img src="images/car/02.jpg" alt=""/>
-             </div>
-             <div className="recent-post-info">
-              <a href="/">The best time to</a>
-              <span><i className="fa fa-calendar"></i> September 30, 2021</span>
-             </div>
-            </div>
-            <div className="recent-post">
-             <div className="recent-post-image">
-              <img src="images/car/03.jpg" alt=""/>
-             </div>
-             <div className="recent-post-info">
-              <a href="/">Replacing a timing</a>
-              <span><i className="fa fa-calendar"></i> September 30, 2021</span>
-             </div>
-            </div>
-         </div>
-         <div className="sidebar-widget">
-           <h6>Tags</h6>
-            <div className="tags">
-             <ul>
-              <li><a href="/">Bootstrap</a></li>
-              <li><a href="/">HTML5</a></li>
-              <li><a href="/">Wordpress</a></li>
-              <li><a href="/">CSS3</a></li>
-              <li><a href="/">Creative</a></li>
-              <li><a href="/">Multipurpose</a></li>
-              <li><a href="/">Bootstrap</a></li>
-              <li><a href="/">HTML5</a></li>
-              <li><a href="/">Wordpress</a></li>
-            </ul>
-           </div>
-         </div>
-         <div className="sidebar-widget">
-            <h6>archives</h6>
-            <div className="widget-link">
-               <ul>
-                 <li><a href="/"> <i className="fa fa-angle-right"></i> June <span className="float-end">12</span></a></li>
-                 <li><a href="/"> <i className="fa fa-angle-right"></i> January  <span className="float-end">28</span></a></li>
-                 <li><a href="/"> <i className="fa fa-angle-right"></i> March <span className="float-end">08</span></a></li>
-                 <li><a href="/"> <i className="fa fa-angle-right"></i> November  <span className="float-end">04</span></a></li>
-                 <li><a href="/"> <i className="fa fa-angle-right"></i> December <span className="float-end">13</span></a></li>
-               </ul>
-              </div>
-          </div>
-        </div>
-      </div>
+      
      </div>
    </div>
 </section>
