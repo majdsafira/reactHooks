@@ -42,10 +42,7 @@ const UserProfile = () => {
                     </a>{" "}
                     <i className="fa fa-angle-double-right"></i>
                   </li>
-                  <li>
-                    <a href="#">pages</a>{" "}
-                    <i className="fa fa-angle-double-right"></i>
-                  </li>
+                  
                   <li>
                     <span>profile</span>{" "}
                   </li>

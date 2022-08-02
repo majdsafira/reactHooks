@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 const Navbar =()=>{
 
     const user_id = sessionStorage.getItem("user_id");
@@ -29,9 +29,9 @@ const Navbar =()=>{
             <li> <a href="/">Home</a></li>
            
             <li> <NavLink  to="/Posts">Posts</NavLink></li>
-            <li> <NavLink  to="/">Cars List </NavLink></li>
+            <li> <NavLink  to="/car_list">Cars List </NavLink></li>
             <li className="nav-item"><NavLink  to="/Contact">Contact</NavLink></li>
-            <li className="nav-item"><NavLink  to="/About">About</NavLink></li>
+            <li> <a href="/About">About</a></li>
                 
                
              {user_id ==null?(

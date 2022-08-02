@@ -58,9 +58,7 @@ const Login = () => {
                   </a>{" "}
                   <i className="fa fa-angle-double-right"></i>
                 </li>
-                <li>
-                  <a href="#">pages</a> <i class="fa fa-angle-double-right"></i>
-                </li>
+               
                 <li>
                   <span>Login</span>{" "}
                 </li>
@@ -142,7 +140,7 @@ const Login = () => {
                       {" "}
                       Log in{" "}
                     </a> */}
-                    <button className="btn button red btn-block" type="submit">
+                    <button className=" button red btn-block" type="submit">
                       {" "}
                       Login{" "}
                     </button>

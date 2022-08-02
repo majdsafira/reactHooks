@@ -18,7 +18,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return Post::paginate(5);
+        return Post::join('users', 'users.id','=', 'posts.user_id')->paginate(5);
     }
 
     /**
@@ -48,7 +48,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return Post::where('id',$post->id)->get();
+        return Post::join('users', 'users.id','=', 'posts.user_id')->where('posts.id',$post->id)->get();
     }
 
     /**

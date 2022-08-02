@@ -65,10 +65,7 @@ const Register = () => {
                   </a>{" "}
                   <i className="fa fa-angle-double-right"></i>
                 </li>
-                <li>
-                  <a href="#">pages</a>{" "}
-                  <i className="fa fa-angle-double-right"></i>
-                </li>
+                
                 <li>
                   <span>Register</span>{" "}
                 </li>

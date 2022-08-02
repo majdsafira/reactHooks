@@ -16,6 +16,7 @@ import Dashboard from './admin/Dashboard';
 import UserProfile from './components/UserProfile';
 import UpdateDataU from './components/UpdateDataU';
 import Cardetails from './components/Cardetails';
+import Carlist from './components/Carlist';
 import About from './components/About';
 
 export const userContext = createContext();
@@ -42,6 +43,7 @@ function App() {
             <Route path="/edit" element={<UpdateDataU />} />
             <Route path="/posts" element={<Posts />} />
             <Route path="/create_a_post" element={<PostForm />} />
+            <Route path="/car_list" element={<Carlist />} />
             <Route path="/single_post/:id" element={<SinglePost />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />

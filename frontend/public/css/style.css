@@ -10274,3 +10274,8 @@ label:after {
   color: #db2d2e;
   background: transparent;
 }
+
+.car-list{
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+}
