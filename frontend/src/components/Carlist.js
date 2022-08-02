@@ -94,8 +94,8 @@ class Carlist extends Component {
                                     <div class="section-title">
                                         <span>We’d Love to Help You To Have A New Car</span>
                                         <h2>LET'S GO!</h2>
-                                        <Link style={{ justifyContent: 'center !important' }} className="button red " to={`/add_car`}> Add
-                                            Car </Link> <br />
+                                        {sessionStorage.getItem('user_id') &&<Link style={{ justifyContent: 'center !important' }} className="button red " to={`/add_car`}> Add
+                                            Car </Link>} <br />
 
                                         <div class="separator"></div>
                                     </div>
