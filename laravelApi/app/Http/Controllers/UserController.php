@@ -79,7 +79,7 @@ class UserController extends Controller
             $image->move($destinationPath, $filename);
             $user->image = $filename;
         }
-
+    
         $user->name = $request->name;
         $user->email = $request->email;
         $user->phone = $request->phone;
