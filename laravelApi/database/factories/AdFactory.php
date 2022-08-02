@@ -16,6 +16,7 @@ class AdFactory extends Factory
         return [
             'make' => $this->faker->name(),
             'model' => $this->faker->name(),
+            'price' => $this->faker->randomNumber(3),
             'registration_date' => '2021',
             'milage'=> $this->faker->numberBetween(0,200000),
             'condition' => 'new|used',

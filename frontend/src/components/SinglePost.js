@@ -8,7 +8,7 @@ function SinglePost() {
     const postId = useParams()
     const [page, setPage] = useState(1)
     const [count, setCount] = useState(0)
-    const [post, setPost] = useState([{title:'', description:'',}])
+    const [post, setPost] = useState([{title:'', description:'',name:''}])
     const [comments, setComments] = useState([{ comment:'',}])
     const [formData, setFormData] = useState({
       user_id : user_id,
@@ -16,7 +16,7 @@ function SinglePost() {
       post_id: postId.id,
     })
     const [postConformation, setPostConformation] = useState(false)
-    const [commentConformation, setCommentConformation] = useState('false')
+    const [commentConformation, setCommentConformation] = useState(false)
     console.log(formData)
     const handleClick = (event) => {
       setPage(event.target.innerHTML)
@@ -32,8 +32,8 @@ function SinglePost() {
             // console.log(data)
         }
         getPost()
-    },[postId.id])
-
+    },[postId.id,commentConformation])
+    console.log(post)
     // fetching comments paginated 5 comments per page
     useEffect(() => {
         async function getComments(page){
@@ -43,7 +43,7 @@ function SinglePost() {
             // console.log(data)
         }
         getComments(page)
-    },[postId.id, page])
+    },[postId.id, page,commentConformation])
     // console.log(comments)
 
 
@@ -55,7 +55,7 @@ function SinglePost() {
           setCount(count)
       }
       getAllComments()
-  },[postId.id])
+  },[postId.id,commentConformation])
   // console.log(count) 
 
     const handleChange = (event) => {
@@ -77,12 +77,14 @@ function SinglePost() {
     //mapping over comments 
     const allComments = comments.map((comment, index) => {
       return (
-        <div className="tab-pane show" id="vehicle-overview" role="tabpanel" aria-labelledby="vehicle-overview-tab" key={index}>
+        <div  className="tab-pane show" id="vehicle-overview" role="tabpanel" aria-labelledby="vehicle-overview-tab" key={index}>
           <div className="recent-post-image rounded-circle">
               <img src={`http://localhost:8000/img/${comment.image}`} alt=""/>
           </div>
-          <h6>{comment.name}</h6>
-          <p>{comment.comment}</p>
+          <div className="comment-content">
+            <h6>{comment.name}</h6>
+            <p>{comment.comment}</p>
+          </div>
           <hr className="gray"/>
         </div>
       )
@@ -101,8 +103,14 @@ function SinglePost() {
           const data = await res.json()
         }
         addPost()
-        setCommentConformation('true')
+        setCommentConformation(oldData => !oldData)
         console.log(commentConformation)
+        setFormData((oldData) => {
+          return {
+            ...oldData,
+            comment: '',
+          }
+        })
       }
   return (
     <React.Fragment>
@@ -139,10 +147,9 @@ function SinglePost() {
           </div>
           <div className="entry-meta">
             <ul>
-              <li><a href="/"><i className="fa fa-user"></i> By Cardealer </a> /</li>
-              <li><a href="/"><i className="fa fa-comments-o"></i> {count} Comments</a> /</li>
-              <li><a href="/"><i className="fa fa-folder-open"></i> News 2021</a> /</li>
-              <li><a href="/"><i className="fa fa-heart-o"></i>10</a></li>
+              <li><a href="/"><i className="fa fa-user"></i> By {post[0].name} </a> /</li>
+              <li><a href="/"><i className="fa fa-comments-o"></i> {count} Comments</a> </li>
+             
             </ul>
           </div>
           <div id="tabs">
@@ -154,7 +161,6 @@ function SinglePost() {
               <button className="nav-link" id="features-options-tab" data-bs-toggle="tab" data-bs-target="#features-options" type="button" role="tab" aria-controls="features-options" aria-selected="false">Comments ({count})</button>
             </li>
             <li className="nav-item icon-equalizer" role="presentation">
-              <button className="nav-link " id="vehicle-overview-tab" data-bs-toggle="tab" data-bs-target="#vehicle-overview" type="button" role="tab" aria-controls="vehicle-overview" aria-selected="false">Vehicle Overview</button>
             </li>
           </ul>
           <div className="tab-content" id="myTabContent">
@@ -172,19 +178,6 @@ function SinglePost() {
                 </ul>
               </div>
             </div>
-            <div className="tab-pane fade" id="vehicle-overview" role="tabpanel" aria-labelledby="vehicle-overview-tab">
-              <h6>consectetur adipisicing elit</h6>
-              <p>Temporibus possimus quasi beatae, consectetur adipisicing elit. Obcaecati unde molestias sunt officiis aliquid sapiente, numquam, porro perspiciatis neque voluptatem sint hic quam eveniet ad adipisci laudantium corporis ipsam ea!
-              <br /><br />
-              Consectetur adipisicing elit. Dicta, amet quia ad debitis fugiat voluptatem neque dolores tempora iste saepe cupiditate, molestiae iure voluptatibus est beatae? Culpa, illo a You will begin to realize why, consectetur adipisicing elit. Commodi, doloribus, earum modi consectetur molestias asperiores sequi ipsam neque error itaque veniam culpa eligendi similique ducimus nulla, blanditiis, perspiciatis atque saepe! veritatis.
-
-              <br /><br />
-              Adipisicing consectetur elit. Dicta, amet quia ad debitis fugiat voluptatem neque dolores tempora iste saepe cupiditate, molestiae iure voluptatibus est beatae? Culpa, illo a You will begin to realize why, consectetur adipisicing elit. Commodi, doloribus, earum modi consectetur molestias asperiores.
-
-              <br /><br />
-              Voluptatem adipisicing elit. Dicta, amet quia ad debitis fugiat neque dolores tempora iste saepe cupiditate, molestiae iure voluptatibus est beatae? Culpa, illo a You will begin to realize why, consectetur adipisicing elit. Commodi, You will begin to realize why, consectetur adipisicing elit. Laudantium nisi eaque maxime totam, iusto accusantium esse placeat rem at temporibus minus architecto ipsum eveniet. Delectus cum sunt, ea cumque quas! doloribus, earum modi consectetur molestias asperiores sequi ipsam neque error itaque veniam culpa eligendi similique ducimus nulla, blanditiis, perspiciatis atque saepe! veritatis.
-              </p>
-            </div>
           </div>
         </div>
           </div>
@@ -192,7 +185,7 @@ function SinglePost() {
           <div className="gray-form row">
             <div className="col-md-12">
              <div className="mb-3">
-               <textarea className="form-control" rows="7" name='comment' placeholder="Comment" onChange={handleChange}/>
+               <textarea className="form-control" rows="7" name='comment' placeholder="Comment" value={formData.comment} onChange={handleChange}/>
               </div>
             </div>
              <div className="col-md-12 d-grid ">
@@ -203,87 +196,7 @@ function SinglePost() {
         </div>
        </div>
      </div>
-      <div className="col-md-4">
-        <div className="blog-sidebar">
-          <div className="sidebar-widget">
-            <h6>Search here</h6>
-            <div className="widget-search">
-                <i className="fa fa-search"></i>
-                <input type="search" className="form-control placeholder" placeholder="Search...."/>
-              </div>
-          </div>
-          <div className="sidebar-widget">
-            <h6>categories</h6>
-            <div className="widget-link">
-               <ul>
-                 <li><a href="/"> <i className="fa fa-angle-right"></i> Test Drives </a></li>
-                 <li><a href="/"> <i className="fa fa-angle-right"></i> Video Reviews </a></li>
-                 <li><a href="/"> <i className="fa fa-angle-right"></i> Analysis & Features</a></li>
-                 <li><a href="/"> <i className="fa fa-angle-right"></i> Pre-purchase Car Inspection </a></li>
-                 <li><a href="/"> <i className="fa fa-angle-right"></i> Analysis & Features</a></li>
-               </ul>
-              </div>
-          </div>
-          <div className="sidebar-widget">
-            <h6>Recent Posts</h6>
-            <div className="recent-post">
-             <div className="recent-post-image">
-              <img src="/images/car/01.jpg" alt=""/>
-             </div>
-             <div className="recent-post-info">
-               <a href="/">Time to change your </a>
-              <span><i className="fa fa-calendar"></i> September 30, 2021</span>
-             </div>
-            </div>
-            <div className="recent-post">
-             <div className="recent-post-image">
-              <img src="images/car/02.jpg" alt=""/>
-             </div>
-             <div className="recent-post-info">
-              <a href="/">The best time to</a>
-              <span><i className="fa fa-calendar"></i> September 30, 2021</span>
-             </div>
-            </div>
-            <div className="recent-post">
-             <div className="recent-post-image">
-              <img src="images/car/03.jpg" alt=""/>
-             </div>
-             <div className="recent-post-info">
-              <a href="/">Replacing a timing</a>
-              <span><i className="fa fa-calendar"></i> September 30, 2021</span>
-             </div>
-            </div>
-         </div>
-         <div className="sidebar-widget">
-           <h6>Tags</h6>
-            <div className="tags">
-             <ul>
-              <li><a href="/">Bootstrap</a></li>
-              <li><a href="/">HTML5</a></li>
-              <li><a href="/">Wordpress</a></li>
-              <li><a href="/">CSS3</a></li>
-              <li><a href="/">Creative</a></li>
-              <li><a href="/">Multipurpose</a></li>
-              <li><a href="/">Bootstrap</a></li>
-              <li><a href="/">HTML5</a></li>
-              <li><a href="/">Wordpress</a></li>
-            </ul>
-           </div>
-         </div>
-         <div className="sidebar-widget">
-            <h6>archives</h6>
-            <div className="widget-link">
-               <ul>
-                 <li><a href="/"> <i className="fa fa-angle-right"></i> June <span className="float-end">12</span></a></li>
-                 <li><a href="/"> <i className="fa fa-angle-right"></i> January  <span className="float-end">28</span></a></li>
-                 <li><a href="/"> <i className="fa fa-angle-right"></i> March <span className="float-end">08</span></a></li>
-                 <li><a href="/"> <i className="fa fa-angle-right"></i> November  <span className="float-end">04</span></a></li>
-                 <li><a href="/"> <i className="fa fa-angle-right"></i> December <span className="float-end">13</span></a></li>
-               </ul>
-              </div>
-          </div>
-        </div>
-      </div>
+      
      </div>
    </div>
 </section>

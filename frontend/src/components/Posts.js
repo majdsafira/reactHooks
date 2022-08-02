@@ -54,32 +54,25 @@ function Posts() {
               </div> */}
               <div className="entry-title">
                 <Link to={`/single_post/${post.id}`}>{post.title}</Link>
+          </div>
+          <div className="entry-meta">
+                <ul>
+                  <li><a href="/"><i className="fa fa-user"></i> By {post.name} </a> /</li>
+                  <li><a href="/"><i className="fa fa-comments-o"></i> { typeof comments[index] !== 'undefined' ? comments[index].count: 0} Comments</a></li>
+                 
+                </ul>
+              </div>
               </div>
               <div className="entry-meta">
-                <ul>
-                  <li><a href="/"><i className="fa fa-user"></i> By Cardealer </a> /</li>
-                  <li><a href="/"><i className="fa fa-comments-o"></i> { typeof comments[index] !== 'undefined' ? comments[index].count: 0} Comments</a> /</li>
-                  <li><a href="/"><i className="fa fa-folder-open"></i> News 2016</a> /</li>
-                  <li><a href="/"><i className="fa fa-heart-o"></i>10</a></li>
-                </ul>
+               
               </div>
               <div className="entry-content">
                 <p>{post.description}</p>
               </div>
               <div className="entry-share clearfix">
                 <Link className="button red float-start" to={`/single_post/${post.id}`}> View Post </Link>
-                <div className="share float-end"><a href="/"> <i className="fa fa-share-alt"></i> </a>
-                  <div className="blog-social">
-                    <ul className="list-style-none">
-                      <li> <a href="/"><i className="fa fa-facebook"></i></a> </li>
-                      <li> <a href="/"><i className="fa fa-twitter"></i></a> </li>
-                      <li> <a href="/"><i className="fa fa-instagram"></i></a> </li>
-                      <li> <a href="/"><i className="fa fa-pinterest-p"></i></a> </li>
-                    </ul>
-                  </div>
-                </div>
+                
               </div>
-            </div>
             </div>
         )
     }
@@ -115,8 +108,12 @@ function Posts() {
       <div className="col-md-12">
          <div className="section-title">
            <h2>Explore posts </h2>
-           <div className="separator"></div>
+           <Link style={{justifyContent:'center !important'}} className="button red " to={`/create_a_post`}> Add Post </Link>
+<br/>
+           <div className="separator">  </div>
+
          </div>
+
       </div>
     </div>
     <div className="row">

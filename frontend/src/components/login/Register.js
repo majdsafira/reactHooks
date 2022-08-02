@@ -61,10 +61,7 @@ const Register = () => {
                   </a>{" "}
                   <i className="fa fa-angle-double-right"></i>
                 </li>
-                <li>
-                  <a href="#">pages</a>{" "}
-                  <i className="fa fa-angle-double-right"></i>
-                </li>
+                
                 <li>
                   <span>Register</span>{" "}
                 </li>
@@ -73,6 +70,8 @@ const Register = () => {
           </div>
         </div>
       </section>
+
+      
 
       <section className="register-form page-section-ptb">
         <div className="container">

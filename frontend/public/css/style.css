@@ -399,7 +399,7 @@ Page section margin padding
   Section Title
 ***********************/
 .section-title {
-  margin-bottom: 60px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -10273,4 +10273,9 @@ label:after {
 .footer-3.footer-simple .social ul li a i:hover {
   color: #db2d2e;
   background: transparent;
+}
+
+.car-list{
+  display: grid;
+  grid-template-columns: repeat(3, auto);
 }

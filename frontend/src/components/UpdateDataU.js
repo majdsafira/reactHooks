@@ -38,23 +38,23 @@ const UpdateDataU = () => {
     //   }),
     // };
     // console.log(requestOptions);
-        const formData = new FormData();
-        formData.append("name", user.name);
-        formData.append("phone", user.phone);
-        formData.append("email", user.email);
-        formData.append("password", user.password);
-        formData.append("image", user.image);
+    const formData = new FormData();
+    formData.append("name", user.name);
+    formData.append("phone", user.phone);
+    formData.append("email", user.email);
+    formData.append("password", user.password);
+    formData.append("image", user.image);
 
-        // console.log(formData.get("name"));
-        // console.log(formData.get("phone"));
-        // console.log(formData.get("email"));
-        // console.log(formData.get("password"));
-        // console.log(formData.get("image"));
+    // console.log(formData.get("name"));
+    // console.log(formData.get("phone"));
+    // console.log(formData.get("email"));
+    // console.log(formData.get("password"));
+    // console.log(formData.get("image"));
     const response = await axios.post(
       `http://127.0.0.1:8000/api/update/` + user_id,
       formData
     );
-// console.log(response);
+    // console.log(response);
     if (response.status === 200) {
       return alert("Data Updated Successfully");
     } else {
@@ -62,19 +62,19 @@ const UpdateDataU = () => {
     }
   };
 
-      const fetchProfile = async () => {
-        const response = await fetch(
-          "http://127.0.0.1:8000/api/users/" + user_id
-        );
-        const myProfile = await response.json();
-        setUser(myProfile);
-        console.log(myProfile);
-      };
+  const fetchProfile = async () => {
+    const response = await fetch(
+      "http://127.0.0.1:8000/api/users/" + user_id
+    );
+    const myProfile = await response.json();
+    setUser(myProfile);
+    console.log(myProfile);
+  };
 
-      useEffect(() => {
-        fetchProfile();
+  useEffect(() => {
+    fetchProfile();
 
-      }, []);
+  }, []);
 
   useEffect(() => {
     SaveInfo();
@@ -97,10 +97,7 @@ const UpdateDataU = () => {
                   </a>{" "}
                   <i className="fa fa-angle-double-right"></i>
                 </li>
-                <li>
-                  <a href="#">pages</a>{" "}
-                  <i className="fa fa-angle-double-right"></i>
-                </li>
+
                 <li>
                   <span>Updated profile</span>{" "}
                 </li>
@@ -112,11 +109,19 @@ const UpdateDataU = () => {
 
       <section className="section about-section gray-bg" id="about">
         <div
-          style={{ border: "1px solid", padding: "50px" }}
+          // style={{ border: "1px solid", padding: "50px" }}
           className="container"
         >
+          <div className="row justify-content-center">
+            <div className="col-md-10">
+              <div className="section-title">
+                <h2>Updated profile</h2>
+                <div className="separator"></div>
+              </div>
+            </div>
+          </div>
           <div className="row align-items-center flex-row-reverse ">
-            <div className="col-lg-6 ">
+            <div className="col-lg-8">
               <div id="uesrInfo" className="about-text go-to ">
                 <form action="" onSubmit={SaveInfo}>
                   <div className="row about-list">
@@ -135,6 +140,7 @@ const UpdateDataU = () => {
                           type="text"
                           placeholder="your name"
                           required
+                          style={{ width: "330px" }}
                         />
                       </div>
                       <br></br>
@@ -154,6 +160,7 @@ const UpdateDataU = () => {
                           placeholder="your phone"
                           type="text"
                           required
+                          style={{ width: "330px" }}
                         />
                       </div>
                       <br></br>
@@ -192,6 +199,7 @@ const UpdateDataU = () => {
                           name="email"
                           type="text"
                           required
+                          style={{ width: "330px" }}
                         />
                       </div>{" "}
                       <br></br>
@@ -208,8 +216,8 @@ const UpdateDataU = () => {
                           name="password"
                           type="password"
                           required
+                          style={{ width: "330px" }}
                         />
-                        
                       </div>
                     </div>
                   </div>
@@ -223,24 +231,29 @@ const UpdateDataU = () => {
                     value={"Save"}
                     required
                   />
+                  <Link type="button" to="/back">
+                    <button
+                      className="button red"
+                      type="button"
+                      style={{ marginLeft: "50px" }}
+                    >
+                      Back
+                    </button>
+                  </Link>
                 </form>
               </div>
             </div>
 
-            <div className="col-lg-6">
-              <div className="d-flex flex-column align-items-center text-center about-avatar">
-                <img
+            {/* <div className="col-lg-6">
+              <div className="d-flex flex-column align-items-center text-center about-avatar"> */}
+            {/* <img
                   style={{ width: "200px" }}
                   src={"http://127.0.0.1:8000/img/" + user.image}
-                />
-                <br></br>
-                <Link type="button" to="/back">
-                  <button className="btn btn-dark" type="button">
-                    Back
-                  </button>
-                </Link>
-              </div>
-            </div>
+                /> */}
+            <br></br>
+
+            {/* </div>
+            </div> */}
           </div>
           <br></br>
         </div>
