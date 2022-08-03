@@ -56,7 +56,7 @@ class AdController extends Controller
             $filename = time() . '.' . $image->getClientOriginalExtension();
             // $destinationPath = public_path('/img');
             $image->move('img', $filename);
-            $ad->image = $filename;
+
         }
             $ad->exterior_color = $request->exterior_color;
             $ad->interior_color = $request->interior_color;
@@ -68,6 +68,7 @@ class AdController extends Controller
 
             // Ad::create($request->all());
             return response('created', 201);
+
     }
 
     /**
