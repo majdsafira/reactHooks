@@ -86,4 +86,8 @@ class PostController extends Controller
         return Post::join('comments', 'comments.post_id', '=', 'posts.id')->select([DB::raw('count(comments.id) as count')])->groupBy('comments.post_id')->paginate(5);
     }
 
+    public function getPosts($user){
+        return Post::where('user_id', $user)->get();
+    }
+
 }
