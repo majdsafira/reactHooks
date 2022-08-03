@@ -20,7 +20,7 @@ const Dashboard = () => {
 
     useEffect(() => {
 
-        dispatch(loadAllPost());
+        dispatch(loadPost());
         console.log(posts);
 
     }, []);
@@ -217,66 +217,39 @@ const Dashboard = () => {
                   <i className="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
                 </a>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" href="index.html">
-                  <span className="menu-title">Dashboard</span>
-                  <i className="mdi mdi-home menu-icon"></i>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                  <span className="menu-title">Basic UI Elements</span>
-                  <i className="menu-arrow"></i>
-                  <i className="mdi mdi-crosshairs-gps menu-icon"></i>
-                </a>
-                <div className="collapse" id="ui-basic">
-                  <ul className="nav flex-column sub-menu">
-                    <li className="nav-item"> <a className="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-                    <li className="nav-item"> <a className="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="pages/icons/mdi.html">
-                  <span className="menu-title">Icons</span>
-                  <i className="mdi mdi-contacts menu-icon"></i>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="pages/forms/basic_elements.html">
-                  <span className="menu-title">Forms</span>
-                  <i className="mdi mdi-format-list-bulleted menu-icon"></i>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="pages/charts/chartjs.html">
-                  <span className="menu-title">Charts</span>
-                  <i className="mdi mdi-chart-bar menu-icon"></i>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="pages/tables/basic-table.html">
-                  <span className="menu-title">Tables</span>
-                  <i className="mdi mdi-table-large menu-icon"></i>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" data-bs-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
-                  <span className="menu-title">Sample Pages</span>
-                  <i className="menu-arrow"></i>
-                  <i className="mdi mdi-medical-bag menu-icon"></i>
-                </a>
-                <div className="collapse" id="general-pages">
-                  <ul className="nav flex-column sub-menu">
-                    <li className="nav-item"> <a className="nav-link" href="pages/samples/blank-page.html"> Blank Page </a></li>
-                    <li className="nav-item"> <a className="nav-link" href="pages/samples/login.html"> Login </a></li>
-                    <li className="nav-item"> <a className="nav-link" href="pages/samples/register.html"> Register </a></li>
-                    <li className="nav-item"> <a className="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
-                    <li className="nav-item"> <a className="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
+              
+              <li class="nav-item">
+                                <a class="nav-link" href="../Dashboard">
+                                    <span class="menu-title">Dashboard</span>
+                                    <i class="mdi mdi-home menu-icon"></i>
+                                </a>
+                            </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="../AdminUsers">
+                                    <span  class="menu-title">Users</span>
+                                    <i class="mdi mdi-contacts menu-icon"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../AdminPosts">
+                                    <span class="menu-title">Posts</span>
+                                    <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/AdminComments">
+                                    <span class="menu-title">Comments</span>
+                                    <i class="mdi mdi-comment menu-icon"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/AdminComments">
+                                    <span class="menu-title">Comments</span>
+                                    <i class="mdi mdi-comment menu-icon"></i>
+                                </a>
+                            </li>
+              
+               </ul>
           </nav>
           {/* <!-- partial --> */}
           <div className="main-panel">
@@ -302,7 +275,7 @@ const Dashboard = () => {
                       <img src="assets/images/dashboard/circle.svg" className="card-img-absolute" alt="circle-image" />
                       <h4 className="font-weight-normal mb-3">Total posts <i className="mdi mdi-chart-line mdi-24px float-right"></i>
                       </h4>
-                      <h6 className="card-text"></h6>
+                      <h6 className="card-text">{posts.length}</h6>
                     </div>
                   </div>
                 </div>
@@ -327,41 +300,10 @@ const Dashboard = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-lg-12 grid-margin stretch-card">
-                <div className="card">
-                  <div className="card-body">
-                    <h4 className="card-title">Users</h4>
+              
+              
             
-                    <AdminUsers />
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-12 grid-margin stretch-card">
-                <div className="card">
-                  <div className="card-body">
-                    <h4 className="card-title">Posts</h4>
-                    <AdminPosts />
-                    </div>
-                    </div>
-                    </div>
-                  
-              <div className="col-lg-12 grid-margin stretch-card">
-                <div className="card">
-                  <div className="card-body">
-                    <h4 className="card-title">Comments</h4>
-                    <AdminComments />
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-12 grid-margin stretch-card">
-                <div className="card">
-                  <div className="card-body">
-                    <h4 className="card-title">Products</h4>
-            < Products />
-                  
-                  </div>
-                </div>
-              </div>
+             
 
             </div>
           </div>

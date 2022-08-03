@@ -40,7 +40,7 @@ const productDeleted = () => ({
 export const loadPost= () => {
 
     return function (dispatch) {
-        axios.get('http://127.0.0.1:8000/api/post?page=2').then((resp) => {
+        axios.get('http://127.0.0.1:8000/api/post').then((resp) => {
             dispatch(getPosts(resp.data));
            
         console.log('fetched');
@@ -52,21 +52,7 @@ export const loadPost= () => {
     }
 
 }
-export const loadAllPost= () => {
 
-    return function (dispatch) {
-        axios.get('http://127.0.0.1:8000/api/Allposts').then((resp) => {
-            dispatch(getPosts(resp.data));
-           
-        console.log('fetched');
-            console.log(resp)
-           
-        }).catch((error) =>
-         console.log(error));
-         
-    }
-
-}
 
 export const deletePost= (id) => {
 
