@@ -37,6 +37,7 @@ Route::apiResource('ads', AdController::class);
 
 
 
+Route::get('getPosts/{user}', [PostController::class,'getPosts']);
 
 // ****************************************************************
 

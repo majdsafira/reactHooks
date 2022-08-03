@@ -108,7 +108,7 @@ function Posts() {
       <div className="col-md-12">
          <div className="section-title">
            <h2>Explore posts </h2>
-           <Link style={{justifyContent:'center !important'}} className="button red " to={`/create_a_post`}> Add Post </Link>
+           {sessionStorage.getItem('user_id') && <Link style={{justifyContent:'center !important'}} className="button red " to={`/create_a_post`}> Add Post </Link>}
 <br/>
            <div className="separator">  </div>
 

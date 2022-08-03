@@ -8,8 +8,8 @@ function SinglePost() {
     const postId = useParams()
     const [page, setPage] = useState(1)
     const [count, setCount] = useState(0)
-    const [post, setPost] = useState([{title:'', description:'',name:''}])
-    const [comments, setComments] = useState([{ comment:'',}])
+    const [post, setPost] = useState([{title:'', description:'',name:'',created_at : '00-00-00 00:00:00'}])
+    const [comments, setComments] = useState([{ comment:'',created_at : '00-00-00 00:00:00'}])
     const [formData, setFormData] = useState({
       user_id : user_id,
       comment: '',
@@ -84,6 +84,7 @@ function SinglePost() {
           <div className="comment-content">
             <h6>{comment.name}</h6>
             <p>{comment.comment}</p>
+            <time className='light small'>{comment.created_at !== null ? comment.created_at.slice(0,10) : ''}  {comment.created_at !== 'null' ? comment.created_at.slice(11,19): ''}</time>
           </div>
           <hr className="gray"/>
         </div>
@@ -167,6 +168,7 @@ function SinglePost() {
             <div className="tab-pane fade show active" id="general-information" role="tabpanel" aria-labelledby="general-information-tab">
               <h6>{post[0].title}</h6>
               <p>{post[0].description}</p>
+              <time>posted in {post[0].created_at.slice(0,10)} {post[0].created_at.slice(11,19)}</time>
             </div>
             <div className="tab-pane fade" id="features-options" role="tabpanel" aria-labelledby="features-options-tab">
 
@@ -181,6 +183,7 @@ function SinglePost() {
           </div>
         </div>
           </div>
+          {sessionStorage.getItem('user_id') && (
         <div className="blog-form">
           <div className="gray-form row">
             <div className="col-md-12">
@@ -194,7 +197,8 @@ function SinglePost() {
           <div>
          </div>
         </div>
-       </div>
+       </div> )
+}
      </div>
       
      </div>
