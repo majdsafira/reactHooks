@@ -48,4 +48,8 @@ Route::post('update/{id}', [UserController::class, 'update']);
 //all users
 Route::get('users', [UserController::class, 'getAllUsers']);
 
+Route::delete('delete/{id}', [UserController::class, 'deleteUser']);
+
 // ****************************************************************
+
+

@@ -13,7 +13,7 @@ const Register = () => {
     password: "",
     image: "",
   });
-  // const [picture, setPicture] = useState([]);
+
   const handleImage = (e) => {
     setUser({ ...user ,image: e.target.files[0] });
   }
@@ -21,9 +21,9 @@ const Register = () => {
   const [error, setError] = useState([]);
 
   const handleSubmit = (e) => {
-
+  
     e.preventDefault();
-    
+   
     const formData = new FormData();
     formData.append("name", user.name);
     formData.append("phone", user.phone);

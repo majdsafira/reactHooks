@@ -42,8 +42,34 @@ class AdController extends Controller
             'engine',
             'description',
             ]);
-            Ad::create($request->all());
+            // Ad::create($request->all());
+            // return response('created', 201);
+
+            $ad = new Ad;
+            $ad->user_id = $request->user_id;
+            $ad->make = $request->make;
+            $ad->price = $request->price;
+            $ad->model = $request->model;
+            $ad->registration_date = $request->registration_date;
+            $ad->milage = $request->milage;
+            $ad->condition = $request->condition;
+        if ($request->hasFile('image')) {
+
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/img');
+            $image->move($destinationPath, $filename);
+            $ad->image = $filename;
+        }
+            $ad->exterior_color = $request->exterior_color;
+            $ad->interior_color = $request->interior_color;
+            $ad->transmission = $request->transmission;
+            $ad->engine = $request->engine;
+            $ad->description = $request->description;
+            $ad->save();
+            
             return response('created', 201);
+
     }
 
     /**

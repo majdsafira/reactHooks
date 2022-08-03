@@ -72,6 +72,7 @@ class UserController extends Controller
 
 
         $user = new User();
+
         if($request->hasFile('image')){
             $image = $request->file('image');
             $filename = time().'.'.$image->getClientOriginalExtension();
@@ -79,7 +80,7 @@ class UserController extends Controller
             $image->move($destinationPath, $filename);
             $user->image = $filename;
         }
-    
+
         $user->name = $request->name;
         $user->email = $request->email;
         $user->phone = $request->phone;
@@ -124,5 +125,11 @@ class UserController extends Controller
     {
         $users = User::all();
         return $users;
+    }
+
+    public function deleteUser($id)
+    {
+        $user = User::find($id);
+        $user->delete();
     }
 }
