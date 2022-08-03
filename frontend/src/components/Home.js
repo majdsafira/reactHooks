@@ -9,7 +9,7 @@ function Home() {
     <ul>  
         <li data-index="rs-5" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="default"  data-thumb="revolution/assets/100x50_3176d-road-bg.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
         
-            <img src="/revolution/assets/3176d-road-bg.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" className="rev-slidebg" data-no-retina/>
+            <img src="/revolution/assets/3176d-road-bg.jpg" style={{ height: '200 xp'}} alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" className="rev-slidebg" data-no-retina/>
         
 
         <div className="tp-caption   tp-resizeme"
@@ -274,10 +274,12 @@ function Home() {
       </div>
     </div>
     <div className="row">
-      <div className="col-lg-3 col-md-6">
+    <div className="col-lg-3 col-md-6">
         <div className="feature-box text-center">
           <div className="icon">
-            <i className="glyph-icon flaticon-beetle"></i>
+            <a href="/car_list">
+            <i className="glyph-icon flaticon-key"></i>
+            </a>
           </div>
           <div className="content">
             <h6>All brands</h6>
@@ -286,8 +288,10 @@ function Home() {
       </div>
       <div className="col-lg-3 col-md-6">
         <div className="feature-box text-center">
-          <div className="icon">
-            <i className="glyph-icon flaticon-interface-1"></i>
+          <div className="icon"> 
+          <a href="/Posts"> 
+            <i className="glyph-icon flaticon-interface-1">    </i> 
+            </a>
           </div>
           <div className="content">
             <h6>Free Support</h6>
@@ -297,7 +301,9 @@ function Home() {
       <div className="col-lg-3 col-md-6">
         <div className="feature-box text-center">
           <div className="icon">
+            <a href="/car_list">
             <i className="glyph-icon flaticon-key"></i>
+            </a>
           </div>
           <div className="content">
             <h6>Dealership</h6>
@@ -345,22 +351,11 @@ function Home() {
        <div className="car-item text-center">
          <div className="car-image">
            <img className="img-fluid" src="images/car/01.jpg" alt=""/>
-           <div className="car-overlay-banner">
-            <ul>
-              <li><a href="/"><i className="fa fa-link"></i></a></li>
-              <li><a href="/"><i className="fa fa-dashboard"></i></a></li>
-             </ul>
-           </div>
+           
          </div>
          
          <div className="car-content">
-          <div className="star">
-           <i className="fa fa-star orange-color"></i>
-            <i className="fa fa-star orange-color"></i>
-            <i className="fa fa-star orange-color"></i>
-            <i className="fa fa-star orange-color"></i>
-            <i className="fa fa-star-o orange-color"></i>
-           </div>
+          
            <a href="/">Acura Rsx</a>
            <div className="separator"></div>
            <div className="price">
@@ -374,22 +369,11 @@ function Home() {
        <div className="car-item text-center">
          <div className="car-image">
            <img className="img-fluid" src="images/car/02.jpg" alt=""/>
-           <div className="car-overlay-banner">
-            <ul>
-              <li><a href="/"><i className="fa fa-link"></i></a></li>
-              <li><a href="/"><i className="fa fa-dashboard"></i></a></li>
-             </ul>
-           </div>
+        
          </div>
          
          <div className="car-content">
-          <div className="star">
-           <i className="fa fa-star orange-color"></i>
-            <i className="fa fa-star orange-color"></i>
-            <i className="fa fa-star orange-color"></i>
-            <i className="fa fa-star orange-color"></i>
-            <i className="fa fa-star-o orange-color"></i>
-           </div>
+       
            <a href="/">Lexus GS 450h</a>
            <div className="separator"></div>
            <div className="price">
@@ -403,22 +387,11 @@ function Home() {
        <div className="car-item text-center">
          <div className="car-image">
            <img className="img-fluid" src="images/car/03.jpg" alt=""/>
-           <div className="car-overlay-banner">
-            <ul>
-              <li><a href="/"><i className="fa fa-link"></i></a></li>
-              <li><a href="/"><i className="fa fa-dashboard"></i></a></li>
-             </ul>
-           </div>
+          
          </div>
          
          <div className="car-content">
-          <div className="star">
-           <i className="fa fa-star orange-color"></i>
-            <i className="fa fa-star orange-color"></i>
-            <i className="fa fa-star orange-color"></i>
-            <i className="fa fa-star orange-color"></i>
-            <i className="fa fa-star-o orange-color"></i>
-           </div>
+      
            <a href="/">GTA 5 Lowriders DLC</a>
            <div className="separator"></div>
            <div className="price">
@@ -432,22 +405,11 @@ function Home() {
        <div className="car-item text-center">
          <div className="car-image">
            <img className="img-fluid" src="images/car/04.jpg" alt=""/>
-           <div className="car-overlay-banner">
-            <ul>
-              <li><a href="/"><i className="fa fa-link"></i></a></li>
-              <li><a href="/"><i className="fa fa-dashboard"></i></a></li>
-             </ul>
-           </div>
+           
          </div>
         
          <div className="car-content">
-          <div className="star">
-           <i className="fa fa-star orange-color"></i>
-            <i className="fa fa-star orange-color"></i>
-            <i className="fa fa-star orange-color"></i>
-            <i className="fa fa-star orange-color"></i>
-            <i className="fa fa-star-o orange-color"></i>
-           </div>
+       
            <a href="/">Toyota avalon hybrid </a>
            <div className="separator"></div>
            <div className="price">
@@ -461,22 +423,11 @@ function Home() {
        <div className="car-item text-center">
          <div className="car-image">
            <img className="img-fluid" src="images/car/05.jpg" alt=""/>
-           <div className="car-overlay-banner">
-            <ul>
-              <li><a href="/"><i className="fa fa-link"></i></a></li>
-              <li><a href="/"><i className="fa fa-dashboard"></i></a></li>
-             </ul>
-           </div>
+          
          </div>
          
          <div className="car-content">
-          <div className="star">
-           <i className="fa fa-star orange-color"></i>
-            <i className="fa fa-star orange-color"></i>
-            <i className="fa fa-star orange-color"></i>
-            <i className="fa fa-star orange-color"></i>
-            <i className="fa fa-star-o orange-color"></i>
-           </div>
+         
            <a href="/">Hyundai santa fe sport </a>
            <div className="separator"></div>
            <div className="price">
