@@ -34,7 +34,7 @@ Route::get('allComments/{post}',[CommentController::class,'getComments']);
 Route::get('getAllComments/{post}',[CommentController::class,'getAllComments']);
 
 Route::apiResource('ads', AdController::class);
-Route::delete('deleteProduct/{id}', [AdController::class,'destroy']);
+
 
 
 
@@ -49,5 +49,5 @@ Route::get('users/{id}', [UserController::class, 'getInfo']);
 Route::post('update/{id}', [UserController::class, 'update']);
 //all users
 Route::get('users', [UserController::class, 'getAllUsers']);
-
+Route::delete('delete/{id}', [UserController::class, 'deleteUser']);
 // ****************************************************************

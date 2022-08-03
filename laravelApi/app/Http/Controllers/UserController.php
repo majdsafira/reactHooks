@@ -125,4 +125,9 @@ class UserController extends Controller
         $users = User::all();
         return $users;
     }
+    public function deleteUser($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+    }
 }
