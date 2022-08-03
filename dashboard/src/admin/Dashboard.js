@@ -5,7 +5,7 @@ import Products from './Products';
 import './style.css';
 import AdminUsers from './AdminUsers';
 import { useDispatch, useSelector } from 'react-redux';
-import { deletePost, loadPost,getPosts } from './Redux/Action';
+import { deletePost, loadPost,getPosts,loadAllPost } from './Redux/Action';
 import { useEffect } from 'react';
 import { deleteComment, loadComment } from './Redux/Action';
 import Users from './AdminUsers';
@@ -20,7 +20,7 @@ const Dashboard = () => {
 
     useEffect(() => {
 
-        dispatch(loadPost());
+        dispatch(loadAllPost());
         console.log(posts);
 
     }, []);
@@ -302,7 +302,7 @@ const Dashboard = () => {
                       <img src="assets/images/dashboard/circle.svg" className="card-img-absolute" alt="circle-image" />
                       <h4 className="font-weight-normal mb-3">Total posts <i className="mdi mdi-chart-line mdi-24px float-right"></i>
                       </h4>
-                      <h6 className="card-text">{posts.length}</h6>
+                      <h6 className="card-text"></h6>
                     </div>
                   </div>
                 </div>
