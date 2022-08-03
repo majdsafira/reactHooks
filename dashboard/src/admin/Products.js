@@ -25,9 +25,9 @@ const Products = () => {
   };
 
   return (
-   <>
-   {/* http://localhost:8000/api/ads */}
-   <table class="table table-striped">
+    <>
+      {/* http://localhost:8000/api/ads */}
+      <table class="table table-striped">
         <thead>
           <tr>
             <th> User Name </th>
@@ -35,7 +35,7 @@ const Products = () => {
             <th> Product Image </th>
             <th> Product Description </th>
             <th> Action</th>
-            
+
           </tr>
         </thead>
         <tbody>
@@ -44,9 +44,9 @@ const Products = () => {
             <tr key={product.id}>
               <td>{product.id}</td>
               <td> {product.user_id}</td>
-              <td> {product.image}</td>
+              <td><img src={"http://127.0.0.1:8000/img/" +product.image}alt=""style={{ width: "50px" }}/></td>
               <td> {product.description.substring(0, 30)}
-              <a href={'/product/'+ product.id} >See More</a></td>
+                <a href={'/product/' + product.id} >See More</a></td>
               <td><button type="button" class="btn btn-gradient-danger btn-fw" onClick={() => { handleDelete(product.id) }}>Delete</button>
               </td>
             </tr>
@@ -54,8 +54,8 @@ const Products = () => {
 
         </tbody>
       </table>
-                      
-   </>
+
+    </>
   )
 }
 

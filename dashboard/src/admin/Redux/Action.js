@@ -3,7 +3,7 @@ import axios from 'axios';
 import* as types from './ActionType';
 
 export const getPosts = (posts) => ({
-    type: types.GET_POST,
+    type:'GET_POST',
     payload:posts,
        
     }

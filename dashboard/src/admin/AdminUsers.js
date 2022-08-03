@@ -49,7 +49,7 @@ const Users = () => {
                               user.image
                             }
                             alt=""
-                            style={{ width: "100px" }}
+                            style={{ width: "50px" }}
                           />
                         </td>
                         
