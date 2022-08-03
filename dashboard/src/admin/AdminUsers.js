@@ -45,11 +45,11 @@ const Users = () => {
                           
                           <img
                             src={
-                              "http://127.0.0.1:8000/category_image/" +
+                              "http://127.0.0.1:8000/img/" +
                               user.image
                             }
                             alt=""
-                            style={{ width: "100px" }}
+                            style={{ width: "50px" }}
                           />
                         </td>
                         

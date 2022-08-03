@@ -70,7 +70,7 @@ function Posts() {
                 <p>{post.description}</p>
               </div>
               <div className="entry-share clearfix">
-                <Link className="button red float-start" to={`/single_post/${post.id}`}> View Post </Link>
+              <Link className="button red float-start" to={`/single_post/${post.id}`}> View Post </Link>
                 
               </div>
             </div>

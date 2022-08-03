@@ -22,7 +22,7 @@ const Navbar =()=>{
        <div className="col-md-12 position-relative">
         <ul className="menu-logo">
             <li>
-                <a href="index-2.html"><img id="logo_img" src="images/logo-light.png" alt="logo"/> </a>
+                <a href="index-2.html"><img id="logo_img" src="/images/logo-light.png" alt="logo"/> </a>
             </li>
         </ul>
         <ul className="menu-links">
