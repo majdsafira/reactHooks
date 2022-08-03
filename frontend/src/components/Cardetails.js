@@ -68,7 +68,7 @@ function Cardetails () {
 
                                             <div class="carousel-inner" role="listbox">
                                                 <div class="carousel-item active">
-                                                    <img class="img-fluid" src="/images/detail/big/01.jpg" alt="" />
+                                                    <img class="img-fluid" src={items[0].image} alt="" />
                                                 </div>
                                                 <div class="carousel-item">
                                                     <img class="img-fluid" src="/images/detail/big/02.jpg" alt="" />

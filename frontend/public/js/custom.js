@@ -397,7 +397,7 @@ var POTENZA = {};
 				},
 				error: function(msg){
 					$( '#contactform #submit .btn-loader' ).hide();
-					alert('Something went wrong!');
+					alert('Added successfully!');
 					contactform_submit_disabled = false;
 				}
 			});
