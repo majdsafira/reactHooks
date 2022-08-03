@@ -36,7 +36,7 @@ function App() {
          
             <Route path="/" element={<Home />} />
             <Route path="/add_car" element={<Addcar />} />
-            <Route path="/car_details" element={<Cardetails />} />
+            <Route path="/car_details/:id" element={<Cardetails />} />
             <Route path="/create_a_post" element={<PostForm />} />
             <Route path="/posts" element={<Posts />} />
             {/* <Route path="/back" element={<UserProfile />} />

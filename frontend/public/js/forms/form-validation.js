@@ -63,7 +63,7 @@ $(document).ready(function () {
             error: function(msg){
 				request_more_info_submit_disabled = false;
 				$( '#request_more_info_submit .btn-loader' ).hide();
-    			alert('Something went wrong!');                
+    			alert('Added successfully');                
     		}
         });
         return false;
@@ -131,7 +131,7 @@ $(document).ready(function () {
             error: function(msg){
 				schedule_test_drive_submit_disabled = false;
 				$( '#schedule_test_drive_submit .btn-loader' ).hide();
-    			alert('Something went wrong!');                
+    			alert('Added successfully!');                
     		}
         });
         return false;
@@ -197,7 +197,7 @@ $(document).ready(function () {
             error: function(msg){
 				make_an_offer_submit_disabled = false;
 				$( '#make_an_offer_submit .btn-loader' ).hide();
-    			alert('Something went wrong!');                
+    			alert('Added successfully!');                
     		}
         });
         return false;
@@ -262,7 +262,7 @@ $(document).ready(function () {
             error: function(msg){
 				email_to_friend_submit_disabled = false;
 				$( '#email_to_friend_submit .btn-loader' ).hide();
-    			alert('Something went wrong!');                
+    			alert('Added successfully!');                
     		}
         });
         return false;
@@ -335,7 +335,7 @@ $(document).ready(function () {
             error: function(msg){
 				trade_in_appraisal_submit_disabled = false;
 				$( '#trade_in_appraisal_submit .btn-loader' ).hide();
-    			alert('Something went wrong!');                
+    			alert('Added successfully!');                
     		}
         });
         return false;
@@ -404,7 +404,7 @@ $(document).ready(function () {
             error: function(msg){
 				send_enquiry_submit_disabled = false;
 				$( '#send_enquiry_submit .btn-loader' ).hide();
-    			alert('Something went wrong!');
+    			alert('Added successfully!');
     		}
         });
         return false;

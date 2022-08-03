@@ -18,7 +18,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return Post::join('users', 'users.id','=', 'posts.user_id')->paginate(5);
+        return Post::join('users', 'users.id','=', 'posts.user_id')->select('posts.*','users.name')->paginate(5);
     }
 
     /**

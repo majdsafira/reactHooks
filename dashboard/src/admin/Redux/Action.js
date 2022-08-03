@@ -3,7 +3,7 @@ import axios from 'axios';
 import* as types from './ActionType';
 
 export const getPosts = (posts) => ({
-    type: types.GET_POST,
+    type:'GET_POST',
     payload:posts,
        
     }
@@ -56,7 +56,7 @@ export const loadPost= () => {
 export const deletePost= (id) => {
 
     return function (dispatch) {
-        axios.delete(`http://127.0.0.1:8000/api/deletePost/${id}`).then((resp) => {
+        axios.delete(`http://127.0.0.1:8000/api/post/${id}`).then((resp) => {
             // console.log('fetched');
             dispatch(postDeleted());
             // dispatch(loadUsers());
@@ -79,7 +79,7 @@ export const loadComment= () => {
 export const deleteComment= (id) => {
 
     return function (dispatch) {
-        axios.delete(`http://127.0.0.1:8000/api/deleteComment/${id}`).then((resp) => {
+        axios.delete(`http://127.0.0.1:8000/api/comment/${id}`).then((resp) => {
             // console.log('fetched');
             dispatch(commentDeleted());
             // dispatch(loadUsers());
@@ -102,7 +102,7 @@ export const loadProduct= () => {
 export const deleteProduct= (id) => {
 
     return function (dispatch) {
-        axios.delete(`http://127.0.0.1:8000/api/deleteProduct/${id}`).then((resp) => {
+        axios.delete(`http://127.0.0.1:8000/api/ads/${id}`).then((resp) => {
             // console.log('fetched');
             dispatch(productDeleted());
             // dispatch(loadUsers());

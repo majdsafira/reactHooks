@@ -36,7 +36,6 @@ const AdminPosts = () => {
             <th> User Name </th>
             <th> Post ID </th>
             <th> Post content </th>
-            <th>Post Image</th>
             <th> Action</th>
             <th> </th>
           </tr>
@@ -45,10 +44,9 @@ const AdminPosts = () => {
           {posts && posts.map((post) => (
 
             <tr key={post.id}>
+              <td> {post.name}</td>
               <td>{post.id}</td>
-              <td> {post.user_id}</td>
               <td> {post.title}</td>
-              <td> {post.image}</td>
               <td><button type="button" class="btn btn-gradient-danger btn-fw" onClick={() => { handleDelete(post.id) }}>Delete</button>
               </td>
             </tr>

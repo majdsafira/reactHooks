@@ -86,7 +86,7 @@ const Contact = () => {
                 </div>
                 <div class="content">
                   <h5>Address </h5>
-                  <p>220E Front St. Burlington NC 215 </p>
+                  <p>Irbid-Jordan </p>
                 </div>
               </div>
               <div class="feature-box-3 grey-border">
@@ -95,7 +95,7 @@ const Contact = () => {
                 </div>
                 <div class="content">
                   <h5>Phone </h5>
-                  <p>(007) 123 456 7890 </p>
+                  <p>(007) 7809 1928 </p>
                 </div>
               </div>
               <div class="feature-box-3 grey-border mb-0">
@@ -104,7 +104,7 @@ const Contact = () => {
                 </div>
                 <div class="content">
                   <h5>Email  </h5>
-                  <p> support@website.com </p>
+                  <p> majdsafira@gmail.com </p>
                 </div>
               </div>
               <div class="opening-hours gray-bg">

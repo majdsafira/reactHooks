@@ -24,12 +24,14 @@ function Cardetails () {
             return <div>Loading...</div>
         } else {
             return (
+
+
                 <>
                     <section class="inner-intro bg-1 bg-overlay-black-70">
                         <div class="container">
                             <div class="row text-center intro-title">
                                 <div class="col-md-6 text-md-start d-inline-block">
-                                    <h1 class="text-white">Hyundai Santa Fe </h1>
+                                    <h1 class="text-white">{items[0].make} </h1>
                                 </div>
                                 <div class="col-md-6 text-md-end float-end">
                                     <ul class="page-breadcrumb">
@@ -47,12 +49,12 @@ function Cardetails () {
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-9">
-                                    <h3>Hyundai Santa Fe </h3>
+                                    <h3>{items[0].make}</h3>
 
                                 </div>
                                 <div class="col-md-3">
                                     <div class="car-price text-lg-end">
-                                        <strong>$ 69,995</strong>
+                                        <strong>${items[0].price}</strong>
                                         <span>Plus Taxes & Licensing</span>
                                     </div>
                                 </div>
@@ -62,15 +64,11 @@ function Cardetails () {
                                 <div class="col-md-8">
                                     <div class="slider-slick">
                                         <div id="video-carousel-example" class="carousel slide carousel-fade" data-ride="carousel">
-                                            <ol class="carousel-indicators">
-                                                <li data-target="#video-carousel-example" data-slide-to="0" class="active"></li>
-                                                <li data-target="#video-carousel-example" data-slide-to="1"></li>
-                                                <li data-target="#video-carousel-example" data-slide-to="2"></li>
-                                            </ol>
+                                           
 
                                             <div class="carousel-inner" role="listbox">
                                                 <div class="carousel-item active">
-                                                    <img class="img-fluid" src="/images/detail/big/01.jpg" alt="" />
+                                                    <img class="img-fluid" src={items[0].image} alt="" />
                                                 </div>
                                                 <div class="carousel-item">
                                                     <img class="img-fluid" src="/images/detail/big/02.jpg" alt="" />
@@ -80,18 +78,10 @@ function Cardetails () {
                                                     <img class="img-fluid" src="/images/detail/big/03.jpg" alt="" />
 
                                                 </div>
+                                                
                                             </div>
 
-                                            <a class="carousel-control-prev" href="#video-carousel-example" role="button"
-                                                data-slide="prev">
-                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                <span class="sr-only">Previous</span>
-                                            </a>
-                                            <a class="carousel-control-next" href="#video-carousel-example" role="button"
-                                                data-slide="next">
-                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                <span class="sr-only">Next</span>
-                                            </a>
+                                          
                                         </div>
                                     </div>
 
@@ -118,153 +108,13 @@ function Cardetails () {
                                         <div class="tab-content" id="myTabContent">
                                             <div class="tab-pane fade show active" id="general-information" role="tabpanel"
                                                 aria-labelledby="general-information-tab">
-                                                <h6>consectetur adipisicing elit</h6>
-                                                <p>Temporibus possimus quasi beatae, consectetur adipisicing elit. Obcaecati unde
-                                                    molestias sunt officiis aliquid sapiente, numquam, porro perspiciatis neque
-                                                    voluptatem sint hic quam eveniet ad adipisci laudantium corporis ipsam ea!
-                                                    <br /><br />
-                                                    Consectetur adipisicing elit. Dicta, amet quia ad debitis fugiat voluptatem
-                                                    neque
-                                                    dolores tempora iste saepe cupiditate, molestiae iure voluptatibus est beatae?
-                                                    Culpa, illo a You will begin to realize why, consectetur adipisicing elit.
-                                                    Commodi,
-                                                    doloribus, earum modi consectetur molestias asperiores sequi ipsam neque error
-                                                    itaque veniam culpa eligendi similique ducimus nulla, blanditiis, perspiciatis
-                                                    atque
-                                                    saepe! veritatis.
-
-                                                    <br /><br />
-                                                    Adipisicing consectetur elit. Dicta, amet quia ad debitis fugiat voluptatem
-                                                    neque
-                                                    dolores tempora iste saepe cupiditate, molestiae iure voluptatibus est beatae?
-                                                    Culpa, illo a You will begin to realize why, consectetur adipisicing elit.
-                                                    Commodi,
-                                                    doloribus, earum modi consectetur molestias asperiores.
-
-                                                    <br /><br />
-                                                    Voluptatem adipisicing elit. Dicta, amet quia ad debitis fugiat neque dolores
-                                                    tempora iste saepe cupiditate, molestiae iure voluptatibus est beatae? Culpa,
-                                                    illo a
-                                                    You will begin to realize why, consectetur adipisicing elit. Commodi, You will
-                                                    begin
-                                                    to realize why, consectetur adipisicing elit. Laudantium nisi eaque maxime
-                                                    totam,
-                                                    iusto accusantium esse placeat rem at temporibus minus architecto ipsum eveniet.
-                                                    Delectus cum sunt, ea cumque quas! doloribus, earum modi consectetur molestias
-                                                    asperiores sequi ipsam neque error itaque veniam culpa eligendi similique
-                                                    ducimus
-                                                    nulla, blanditiis, perspiciatis atque saepe! veritatis.
-                                                </p>
+                                                <p>{items[0].description}</p>
                                             </div>
-                                            <div class="tab-pane fade" id="features-options" role="tabpanel"
-                                                aria-labelledby="features-options-tab">
-                                                <h6>consectetur adipisicing elit</h6>
-                                                <table class="table table-bordered">
-                                                    <tbody>
-                                                        <tr>
-                                                            <th scope="row"> Air conditioning</th>
-                                                            <td>Mark</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row"> Alloy Wheels</th>
-                                                            <td>Jacob</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row"> Anti-Lock Brakes (ABS)</th>
-                                                            <td>Larry</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row"> Anti-Theft</th>
-                                                            <td>Larry</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">Anti-Starter</th>
-                                                            <td>Larry</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">Alloy Wheels</th>
-                                                            <td>Larry</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <div class="tab-pane fade" id="vehicle-overview" role="tabpanel"
-                                                aria-labelledby="vehicle-overview-tab">
-                                                <h6>consectetur adipisicing elit</h6>
-                                                <p>Temporibus possimus quasi beatae, consectetur adipisicing elit. Obcaecati unde
-                                                    molestias sunt officiis aliquid sapiente, numquam, porro perspiciatis neque
-                                                    voluptatem sint hic quam eveniet ad adipisci laudantium corporis ipsam ea!
-                                                    <br /><br />
-                                                    Consectetur adipisicing elit. Dicta, amet quia ad debitis fugiat voluptatem
-                                                    neque
-                                                    dolores tempora iste saepe cupiditate, molestiae iure voluptatibus est beatae?
-                                                    Culpa, illo a You will begin to realize why, consectetur adipisicing elit.
-                                                    Commodi,
-                                                    doloribus, earum modi consectetur molestias asperiores sequi ipsam neque error
-                                                    itaque veniam culpa eligendi similique ducimus nulla, blanditiis, perspiciatis
-                                                    atque
-                                                    saepe! veritatis.
-
-                                                    <br /><br />
-                                                    Adipisicing consectetur elit. Dicta, amet quia ad debitis fugiat voluptatem
-                                                    neque
-                                                    dolores tempora iste saepe cupiditate, molestiae iure voluptatibus est beatae?
-                                                    Culpa, illo a You will begin to realize why, consectetur adipisicing elit.
-                                                    Commodi,
-                                                    doloribus, earum modi consectetur molestias asperiores.
-
-                                                    <br /><br />
-                                                    Voluptatem adipisicing elit. Dicta, amet quia ad debitis fugiat neque dolores
-                                                    tempora iste saepe cupiditate, molestiae iure voluptatibus est beatae? Culpa,
-                                                    illo a
-                                                    You will begin to realize why, consectetur adipisicing elit. Commodi, You will
-                                                    begin
-                                                    to realize why, consectetur adipisicing elit. Laudantium nisi eaque maxime
-                                                    totam,
-                                                    iusto accusantium esse placeat rem at temporibus minus architecto ipsum eveniet.
-                                                    Delectus cum sunt, ea cumque quas! doloribus, earum modi consectetur molestias
-                                                    asperiores sequi ipsam neque error itaque veniam culpa eligendi similique
-                                                    ducimus
-                                                    nulla, blanditiis, perspiciatis atque saepe! veritatis.
-                                                </p>
-                                            </div>
+                                            
+                                           
                                         </div>
                                     </div>
-                                    <div class="extra-feature">
-                                        <h6> extra feature</h6>
-                                        <div class="row">
-                                            <div class="col-lg-4 col-sm-4">
-                                                <ul class="list-style-1">
-                                                    <li><i class="fa fa-check"></i> Security System</li>
-                                                    <li><i class="fa fa-check"></i> Air conditioning</li>
-                                                    <li><i class="fa fa-check"></i> Alloy Wheels</li>
-                                                    <li><i class="fa fa-check"></i> Anti-Lock Brakes (ABS)</li>
-                                                    <li><i class="fa fa-check"></i> Anti-Theft</li>
-                                                    <li><i class="fa fa-check"></i> Anti-Starter </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-lg-4 col-sm-4">
-                                                <ul class="list-style-1">
-                                                    <li><i class="fa fa-check"></i> Security System</li>
-                                                    <li><i class="fa fa-check"></i> Air conditioning</li>
-                                                    <li><i class="fa fa-check"></i> Alloy Wheels</li>
-                                                    <li><i class="fa fa-check"></i> Anti-Lock Brakes (ABS)</li>
-                                                    <li><i class="fa fa-check"></i> Anti-Theft</li>
-                                                    <li><i class="fa fa-check"></i> Anti-Starter </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-lg-4 col-sm-4">
-                                                <ul class="list-style-1">
-                                                    <li><i class="fa fa-check"></i> Security System</li>
-                                                    <li><i class="fa fa-check"></i> Air conditioning</li>
-                                                    <li><i class="fa fa-check"></i> Alloy Wheels</li>
-                                                    <li><i class="fa fa-check"></i> Anti-Lock Brakes (ABS)</li>
-                                                    <li><i class="fa fa-check"></i> Anti-Theft</li>
-                                                    <li><i class="fa fa-check"></i> Anti-Starter </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
+                               
 
                                 </div>
                                 <div class="col-md-4">
@@ -272,17 +122,16 @@ function Cardetails () {
                                         <div class="details-block details-weight">
                                             <h5>DESCRIPTION</h5>
                                             <ul>
-                                                <li> <span>Make</span> <strong class="text-end">BMW</strong></li>
-                                                <li> <span>Model</span> <strong class="text-end">7-series</strong></li>
-                                                <li> <span>Registration date </span> <strong class="text-end">2021</strong></li>
-                                                <li> <span>Mileage</span> <strong class="text-end">25,000 mi</strong></li>
+                                                <li> <span>Make</span> <strong class="text-end">{items[0].make}</strong></li>
+                                                <li> <span>Model</span> <strong class="text-end">{items[0].model}</strong></li>
+                                                <li> <span>Registration date </span> <strong class="text-end">{items[0].registration_date}</strong></li>
+                                                <li> <span>Mileage</span> <strong class="text-end">{items[0].milage} mi</strong></li>
                                                 <li> <span>Condition</span> <strong class="text-end">New</strong></li>
-                                                <li> <span>Exterior Color</span> <strong class="text-end">Silver</strong></li>
-                                                <li> <span>Interior Color</span> <strong class="text-end">Brown (Leather)</strong>
+                                                <li> <span>Exterior Color</span> <strong class="text-end">{items[0].exterior_color}</strong></li>
+                                                <li> <span>Interior Color</span> <strong class="text-end">{items[0].interior_color} (Leather)</strong>
                                                 </li>
-                                                <li> <span>Transmission</span> <strong class="text-end">Automatic</strong></li>
-                                                <li> <span>Engine</span> <strong class="text-end">5.1 L</strong></li>
-                                                <li> <span>Drivetrain</span> <strong class="text-end">FWD</strong></li>
+                                                <li> <span>Transmission</span> <strong class="text-end">{items[0].transmission}</strong></li>
+                                                <li> <span>Engine</span> <strong class="text-end">{items[0].Engine}</strong></li>
                                             </ul>
                                         </div>
                                         <div class="details-social details-weight">
