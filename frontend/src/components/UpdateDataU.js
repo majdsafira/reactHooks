@@ -177,7 +177,7 @@ const UpdateDataU = () => {
                           }
                           name="image"
                           type="file"
-                          required
+                          // required
                         />
                       </div>
                       <br></br>

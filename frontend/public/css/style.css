@@ -10278,4 +10278,6 @@ label:after {
 .car-list{
   display: grid;
   grid-template-columns: repeat(3, auto);
+  justify-items: center;
+
 }

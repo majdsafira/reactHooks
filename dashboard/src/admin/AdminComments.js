@@ -1,5 +1,5 @@
 import React from 'react';
-import './dstyle.css';
+import './style.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteComment, loadComment } from './Redux/Action';
 import { useEffect } from 'react';
@@ -38,14 +38,16 @@ const AdminComments = () => {
           </tr>
         </thead>
         <tbody>
-          {comments && comments.map((comment) => (
+          {comments && comments.map((commenta) => (
 
-            <tr key={comment.id}>
-              <td>{comment.id}</td>
-              <td> {comment.user_id}</td>
-              <td> {comment.comment}</td>
+            <tr key={commenta.id}>
+              <td> {commenta.user_id}</td>
+              <td>{commenta.id}</td>
+               <td> {commenta.comment}</td>
+             
               
-              <td><button type="button" class="btn btn-gradient-danger btn-fw" onClick={() => { handleDelete(comment.id) }}>Delete</button>
+              
+              <td><button type="button" class="btn btn-gradient-danger btn-fw" onClick={() => { handleDelete(commenta.id) }}>Delete</button>
               </td>
             </tr>
           ))}

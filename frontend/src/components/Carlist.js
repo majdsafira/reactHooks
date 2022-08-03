@@ -32,9 +32,9 @@ class Carlist extends Component {
                                             <div class="col-lg col-sm">
                                                 <div class="car-item gray-bg text-center">
                                                     <div class="car-image">
-                                                    <img class="img-fluid" src="images/car/02.jpg" alt=""/>
+                                                    {/* <img class="img-fluid" src="images/car/02.jpg" alt=""/> */}
                                                     
-                                                        {/* <img class="img-fluid" src={car.image} alt="" /> */}
+                                                         <img class="img-fluid" src={"http://localhost:8000/img/" + car.image} alt="" /> 
                                                         <div class="car-overlay-banner">
                                                             <ul>
 
@@ -45,7 +45,7 @@ class Carlist extends Component {
                                                         <div class="star">
 
                                                         </div>
-                                                        <a href="#">{car.make}</a>
+                                                        <Link to={`/car_details/${car.id}`}> {car.make} </Link>
                                                         <div class="separator"></div>
     
     
@@ -94,8 +94,8 @@ class Carlist extends Component {
                                     <div class="section-title">
                                         <span>We’d Love to Help You To Have A New Car</span>
                                         <h2>LET'S GO!</h2>
-                                        <Link style={{ justifyContent: 'center !important' }} className="button red " to={`/add_car`}> Add
-                                            Car </Link> <br />
+                                        {sessionStorage.getItem('user_id') &&<Link style={{ justifyContent: 'center !important' }} className="button red " to={`/add_car`}> Add
+                                            Car </Link>} <br />
 
                                         <div class="separator"></div>
                                     </div>

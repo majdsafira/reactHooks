@@ -18,7 +18,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return Post::join('users', 'users.id','=', 'posts.user_id')->paginate(5);
+        return Post::join('users', 'users.id','=', 'posts.user_id')->select('posts.*','users.name')->paginate(5);
     }
 
     /**
@@ -84,6 +84,10 @@ class PostController extends Controller
 
     public function commentsCount(){
         return Post::join('comments', 'comments.post_id', '=', 'posts.id')->select([DB::raw('count(comments.id) as count')])->groupBy('comments.post_id')->paginate(5);
+    }
+
+    public function getPosts($user){
+        return Post::where('user_id', $user)->get();
     }
 
 }

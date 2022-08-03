@@ -1,5 +1,5 @@
 import React from 'react';
-import './dstyle.css';
+import './style.css';
 
 import { useState,useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom";
@@ -12,12 +12,12 @@ const Users = () => {
     fetchData();
   }, []);
   async function getData(){
-    const api = await fetch("http://127.0.0.1:8000/api/alluser");
+    const api = await fetch("http://127.0.0.1:8000/api/users");
     const allData = await api.json();
     setData(allData);
   }
   const deleteUser=(id)=>{
-    fetch(`http://127.0.0.1:8000/api/deleteUser/${id}`)
+    fetch(`http://127.0.0.1:8000/api/delete/${id}`)
     
      getData()
      alert("Delete User successfully")
@@ -31,14 +31,13 @@ const Users = () => {
                           <th> Email </th>
                           <th> Image </th>
                           <th> Phone </th>
-                          <th> Deadline </th>
+                          
                         </tr>
                       </thead>
                       <tbody>
                       {data.map((user) => {
                     return (
                       <tr key={user.id}>
-                        <th scope="row">{user.id}</th>
                         <td>{user.name}</td>
                         <td>{user.email}</td>
 
@@ -46,7 +45,7 @@ const Users = () => {
                           
                           <img
                             src={
-                              "http://127.0.0.1:8000/category_image/" +
+                              "http://127.0.0.1:8000/img/" +
                               user.image
                             }
                             alt=""
@@ -58,7 +57,7 @@ const Users = () => {
                       
                         {/* <td>{user.user_status}</td> */}
                         {/* <Link  to={`/singlecategory/${product.id}`} className="btn btn-primary mt-auto align-self-start" >Edite</Link>*/}
-                        <Link className="btn btn-primary mt-auto align-self-start" onClick={() =>deleteUser(user.id)} to=''> Delete</Link> 
+                        <td><button type="button" class="btn btn-gradient-danger btn-fw" onClick={() => { deleteUser(user.id) }}>Delete</button></td>
                         {/* <td> <Link to={'http://127.0.0.1:8000/api/deletecategory/'+category.id} className="btn btn-primary mt-auto align-self-start">Delete</Link></td>          */}
                                      </tr>
                     );

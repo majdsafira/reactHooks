@@ -1,36 +1,38 @@
-import * as types from './ActionType';
+
 import axios from 'axios';
+import* as types from './ActionType';
 
-
-const getPosts = (posts) => ({
+export const getPosts = (posts) => ({
     type: types.GET_POST,
-    payload: posts,
+    payload:posts,
+       
+    }
 
-});
+);
 
 const postDeleted = () => ({
-    type: types.DELETE_POST
+    type:types.DELETE_POST
    
 
 });
 const getComments = (comments) => ({
-    type: types.GET_COMMENT,
+    type: 'GET_COMMENT',
     payload: comments,
 
 });
 const commentDeleted = () => ({
-    type: types.DELETE_COMMENT
+    type: 'DELETE_COMMENT'
    
 
 });
 
-const getProduct = (comments) => ({
-    type: types.GET_COMMENT,
-    payload: comments,
+const getProduct = (products) => ({
+    type: 'GET_PRODUCT',
+    payload: products,
 
 });
 const productDeleted = () => ({
-    type: types.DELETE_COMMENT
+    type: 'DELETE_PROUDUCT'
    
 
 });
@@ -38,10 +40,15 @@ const productDeleted = () => ({
 export const loadPost= () => {
 
     return function (dispatch) {
-        axios.get('http://127.0.0.1:8000/api/Allposts').then((resp) => {
-            console.log('fetched');
+        axios.get('http://127.0.0.1:8000/api/post').then((resp) => {
             dispatch(getPosts(resp.data));
-        }).catch((error) => console.log(error));
+           
+        console.log('fetched');
+            console.log(resp)
+           
+        }).catch((error) =>
+         console.log(error));
+         
     }
 
 }
@@ -49,7 +56,7 @@ export const loadPost= () => {
 export const deletePost= (id) => {
 
     return function (dispatch) {
-        axios.delete(`http://127.0.0.1:8000/api/deletePost/${id}`).then((resp) => {
+        axios.delete(`http://127.0.0.1:8000/api/post/${id}`).then((resp) => {
             // console.log('fetched');
             dispatch(postDeleted());
             // dispatch(loadUsers());
@@ -62,7 +69,7 @@ export const deletePost= (id) => {
 export const loadComment= () => {
 
     return function (dispatch) {
-        axios.get('http://localhost:8000/api/getAllComments').then((resp) => {
+        axios.get('http://127.0.0.1:8000/api/comment').then((resp) => {
             console.log('fetched');
             dispatch(getComments(resp.data));
         }).catch((error) => console.log(error));
@@ -72,7 +79,7 @@ export const loadComment= () => {
 export const deleteComment= (id) => {
 
     return function (dispatch) {
-        axios.delete(`http://127.0.0.1:8000/api/deleteComment/${id}`).then((resp) => {
+        axios.delete(`http://127.0.0.1:8000/api/comment/${id}`).then((resp) => {
             // console.log('fetched');
             dispatch(commentDeleted());
             // dispatch(loadUsers());
@@ -85,7 +92,7 @@ export const deleteComment= (id) => {
 export const loadProduct= () => {
 
     return function (dispatch) {
-        axios.get('http://localhost:8000/api/ads').then((resp) => {
+        axios.get('http://127.0.0.1:8000/api/ads').then((resp) => {
             console.log('fetched');
             dispatch(getProduct(resp.data));
         }).catch((error) => console.log(error));
@@ -95,7 +102,7 @@ export const loadProduct= () => {
 export const deleteProduct= (id) => {
 
     return function (dispatch) {
-        axios.delete(`http://127.0.0.1:8000/api/deleteProduct/${id}`).then((resp) => {
+        axios.delete(`http://127.0.0.1:8000/api/ads/${id}`).then((resp) => {
             // console.log('fetched');
             dispatch(productDeleted());
             // dispatch(loadUsers());

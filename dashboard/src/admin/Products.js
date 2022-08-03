@@ -1,5 +1,5 @@
 import React from 'react';
-import './dstyle.css';
+import './style.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteProduct, loadProduct } from './Redux/Action';
 import { useEffect } from 'react';
@@ -44,8 +44,9 @@ const Products = () => {
             <tr key={product.id}>
               <td>{product.id}</td>
               <td> {product.user_id}</td>
-              <td> {product.Image}</td>
-              <td> {product.description}</td>
+              <td> {product.image}</td>
+              <td> {product.description.substring(0, 30)}
+              <a href={'/product/'+ product.id} >See More</a></td>
               <td><button type="button" class="btn btn-gradient-danger btn-fw" onClick={() => { handleDelete(product.id) }}>Delete</button>
               </td>
             </tr>

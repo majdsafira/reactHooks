@@ -27,24 +27,21 @@ class AdController extends Controller
      */
     public function store(StoreAdRequest $request)
     {
-        $request->validate([
-            'user_id'=> 'required',
-            'make' => 'required',
-            'price' => 'required',
-            'model',
-            'registration_date',
-            'milage',
-            'condition',
-            'image',
-            'exterior_color',
-            'interior_color',
-            'transmission',
-            'engine',
-            'description',
-            ]);
-            // Ad::create($request->all());
-            // return response('created', 201);
-
+        // $request->validate([
+        //     'user_id'=> 'required',
+        //     'make' => 'required',
+        //     'model' => 'required',
+        //     'model',
+        //     'registration_date',
+        //     'milage',
+        //     'condition',
+        //     'image',
+        //     'exterior_color',
+        //     'interior_color',
+        //     'transmission',
+        //     'engine',
+        //     'description',
+        //     ]);
             $ad = new Ad;
             $ad->user_id = $request->user_id;
             $ad->make = $request->make;
@@ -53,13 +50,13 @@ class AdController extends Controller
             $ad->registration_date = $request->registration_date;
             $ad->milage = $request->milage;
             $ad->condition = $request->condition;
-        if ($request->hasFile('image')) {
+        if ($request->has('image')) {
 
             $image = $request->file('image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('/img');
-            $image->move($destinationPath, $filename);
-            $ad->image = $filename;
+            // $destinationPath = public_path('/img');
+            $image->move('img', $filename);
+
         }
             $ad->exterior_color = $request->exterior_color;
             $ad->interior_color = $request->interior_color;
@@ -67,7 +64,9 @@ class AdController extends Controller
             $ad->engine = $request->engine;
             $ad->description = $request->description;
             $ad->save();
-            
+
+
+            // Ad::create($request->all());
             return response('created', 201);
 
     }
