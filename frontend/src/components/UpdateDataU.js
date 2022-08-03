@@ -139,7 +139,7 @@ const UpdateDataU = () => {
                           name="name"
                           type="text"
                           placeholder="your name"
-                          
+                          // required
                           style={{ width: "330px" }}
                         />
                       </div>
@@ -177,7 +177,7 @@ const UpdateDataU = () => {
                           }
                           name="image"
                           type="file"
-                          
+                          // required
                         />
                       </div>
                       <br></br>
@@ -215,7 +215,7 @@ const UpdateDataU = () => {
                           value={user.password}
                           name="password"
                           type="password"
-                          
+                          // required
                           style={{ width: "330px" }}
                         />
                       </div>

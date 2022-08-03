@@ -72,6 +72,7 @@ class UserController extends Controller
 
 
         $user = new User();
+
         if($request->hasFile('image')){
             $image = $request->file('image');
             $filename = time().'.'.$image->getClientOriginalExtension();
