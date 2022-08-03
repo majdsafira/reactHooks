@@ -4,10 +4,48 @@ import AdminComments from './AdminComments';
 import Products from './Products';
 import './style.css';
 import AdminUsers from './AdminUsers';
-
-
+import { useDispatch, useSelector } from 'react-redux';
+import { deletePost, loadPost,getPosts } from './Redux/Action';
+import { useEffect } from 'react';
+import { deleteComment, loadComment } from './Redux/Action';
+import Users from './AdminUsers';
+import { deleteProduct, loadProduct } from './Redux/Action';
 
 const Dashboard = () => {
+  let dispatch = useDispatch();
+
+    const { posts } = useSelector(state => state.posts);
+
+    // let nav = useNavigate();
+
+    useEffect(() => {
+
+        dispatch(loadPost());
+        console.log(posts);
+
+    }, []);
+    let dispatch1 = useDispatch();
+
+    const { comments } = useSelector(state => state.comments);
+
+    // let nav1 = useNavigate();
+
+
+    useEffect(() => {
+
+        dispatch(loadComment());
+        console.log(comments);
+
+    }, []);
+    let dispatch2 = useDispatch();
+
+  const { products } = useSelector(state => state.products);
+  useEffect(() => {
+
+    dispatch(loadProduct());
+    console.log(products);
+
+}, []);
   return (
     <div>
 
@@ -262,9 +300,9 @@ const Dashboard = () => {
                   <div className="card bg-gradient-danger card-img-holder text-white">
                     <div className="card-body">
                       <img src="assets/images/dashboard/circle.svg" className="card-img-absolute" alt="circle-image" />
-                      <h4 className="font-weight-normal mb-3">Total Users <i className="mdi mdi-chart-line mdi-24px float-right"></i>
+                      <h4 className="font-weight-normal mb-3">Total posts <i className="mdi mdi-chart-line mdi-24px float-right"></i>
                       </h4>
-                      <h6 className="card-text">Increased by 60%</h6>
+                      <h6 className="card-text">{posts.length}</h6>
                     </div>
                   </div>
                 </div>
@@ -272,9 +310,9 @@ const Dashboard = () => {
                   <div className="card bg-gradient-info card-img-holder text-white">
                     <div className="card-body">
                       <img src="assets/images/dashboard/circle.svg" className="card-img-absolute" alt="circle-image" />
-                      <h4 className="font-weight-normal mb-3">Total Posts <i className="mdi mdi-bookmark-outline mdi-24px float-right"></i>
+                      <h4 className="font-weight-normal mb-3">Total Comments <i className="mdi mdi-bookmark-outline mdi-24px float-right"></i>
                       </h4>
-                      <h6 className="card-text">Decreased by 10%</h6>
+                      <h6 className="card-text">{comments.length}</h6>
                     </div>
                   </div>
                 </div>
@@ -282,9 +320,9 @@ const Dashboard = () => {
                   <div className="card bg-gradient-success card-img-holder text-white">
                     <div className="card-body">
                       <img src="assets/images/dashboard/circle.svg" className="card-img-absolute" alt="circle-image" />
-                      <h4 className="font-weight-normal mb-3">Total Product <i className="mdi mdi-diamond mdi-24px float-right"></i>
+                      <h4 className="font-weight-normal mb-3">Total Ads <i className="mdi mdi-diamond mdi-24px float-right"></i>
                       </h4>
-                      <h6 className="card-text">Increased by 5%</h6>
+                      <h6 className="card-text">{products.length}</h6>
                     </div>
                   </div>
                 </div>
