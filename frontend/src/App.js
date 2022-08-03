@@ -12,11 +12,7 @@ import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Posts from './components/Posts';
 import SinglePost from './components/SinglePost';
 import Addcar from './components/Addcar';
-import Dashboard from './admin/Dashboard';
-import UserProfile from './components/UserProfile';
-import UpdateDataU from './components/UpdateDataU';
 
-import Products from './admin/Products';
 import Cardetails from './components/Cardetails';
 
 export const userContext = createContext();
@@ -48,13 +44,11 @@ function App() {
             <Route path="/edit" element={<UpdateDataU />} /> */}
             {/* <Route path="/admin/posts" element={<AdminPosts />} /> */}
             <Route path="/single_post/:id" element={<SinglePost />} />
+            <Route path="/single_car/:id" element={<Cardetails />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
              <Route path="/Contact" element={<Contact />} />
-             
-             <Route path="/AdminPosts " element={<AdminPosts />} />
-             <Route path="/AdminComments " element={<AdminComments />} />
-             <Route path="/Products " element={<Products />} />
+
 
              <Route path="*" element={<Error />} /> 
            

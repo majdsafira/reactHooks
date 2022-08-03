@@ -37,6 +37,7 @@ Route::apiResource('ads', AdController::class);
 Route::delete('deleteProduct/{id}', [AdController::class,'destroy']);
 
 
+Route::get('getPosts/{user}', [PostController::class,'getPosts']);
 
 // ****************************************************************
 
