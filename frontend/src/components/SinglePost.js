@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 
 function SinglePost() {
     const user_id = sessionStorage.getItem('user_id')
-    console.log(typeof(user_id))
     const postId = useParams()
     const [page, setPage] = useState(1)
     const [count, setCount] = useState(0)
@@ -15,13 +14,10 @@ function SinglePost() {
       comment: '',
       post_id: postId.id,
     })
-    const [postConformation, setPostConformation] = useState(false)
     const [commentConformation, setCommentConformation] = useState(false)
-    console.log(formData)
     const handleClick = (event) => {
       setPage(event.target.innerHTML)
     }
-    console.log()
 
     // fetching a single post 
     useEffect(() => {
@@ -33,7 +29,7 @@ function SinglePost() {
         }
         getPost()
     },[postId.id,commentConformation])
-    console.log(post)
+
     // fetching comments paginated 5 comments per page
     useEffect(() => {
         async function getComments(page){
