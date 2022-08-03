@@ -2,23 +2,23 @@ import * as types from './ActionType';
 
 const initialState ={
     
-    comments:[],
-    comment:{},
+    posts:[],
+    post:{},
     loading: true
 }
 
-const ReducerComments=(state=initialState,action)=>{
+const Reducerpost=(state=initialState,action)=>{
     switch(action.type){
-        case types.GET_COMMENT:
+        case 'GET_POST':
         
 
             return {
                 ...state,
-                comments:action.payload,
+                posts:action.payload.data,
                 loading:false
 
             };
-            case types.DELETE_COMMENT:
+            case 'DELETE_POST':
 
             return {
                 ...state,
@@ -33,4 +33,4 @@ const ReducerComments=(state=initialState,action)=>{
 }
 
 
-export default ReducerComments;
+export default Reducerpost;

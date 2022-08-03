@@ -57,7 +57,7 @@ function Posts() {
           </div>
           <div className="entry-meta">
                 <ul>
-                  <li><a href="/"><i className="fa fa-user"></i> By Cardealer </a> /</li>
+                  <li><a href="/"><i className="fa fa-user"></i> By {post.name} </a> /</li>
                   <li><a href="/"><i className="fa fa-comments-o"></i> { typeof comments[index] !== 'undefined' ? comments[index].count: 0} Comments</a></li>
                  
                 </ul>
@@ -108,7 +108,7 @@ function Posts() {
       <div className="col-md-12">
          <div className="section-title">
            <h2>Explore posts </h2>
-           <Link style={{justifyContent:'center !important'}} className="button red " to={`/create_a_post`}> Add Post </Link>
+           {sessionStorage.getItem('user_id') && <Link style={{justifyContent:'center !important'}} className="button red " to={`/create_a_post`}> Add Post </Link>}
 <br/>
            <div className="separator">  </div>
 

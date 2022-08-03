@@ -1,7 +1,7 @@
 import React from 'react';
-import './dstyle.css';
+import './style.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { deletePost, loadPost } from './Redux/Action';
+import { deletePost, loadPost,getPosts } from './Redux/Action';
 import { useEffect } from 'react';
 
 
@@ -16,7 +16,7 @@ const AdminPosts = () => {
   useEffect(() => {
     dispatch(loadPost());
     console.log(posts)
-  }, []);
+  }, [dispatch]);
 
   const handleDelete = (id) => {
 
@@ -45,10 +45,10 @@ const AdminPosts = () => {
           {posts && posts.map((post) => (
 
             <tr key={post.id}>
-              <td>{post.id}</td>
               <td> {post.user_id}</td>
-              <td> {post.content}</td>
-              <td> {post.image}</td>
+              <td>{post.id}</td>
+              <td> {post.title}</td>
+              <td><img src={`http://127.0.0.1:8000/post/${post.image}`} alt="" /></td>
               <td><button type="button" class="btn btn-gradient-danger btn-fw" onClick={() => { handleDelete(post.id) }}>Delete</button>
               </td>
             </tr>

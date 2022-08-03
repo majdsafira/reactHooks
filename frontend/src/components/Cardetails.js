@@ -8,10 +8,10 @@ function Cardetails () {
     const adId = useParams()
     const [items, setItems] = useState()
     const [isLoaded, setIsLoaded] = useState(false)
-    console.log(adId.id)
+
     useEffect(() => {
         async function getPost(){
-            const res = await fetch(`http://localhost:8000/api/ads/${adId.id}`)
+            const res = await fetch(`http://127.0.0.1:8000/api/ads/${adId.id}`)
             const data = await res.json()
             setItems(data)
             data && setIsLoaded(true)
@@ -69,6 +69,14 @@ function Cardetails () {
                                             <div class="carousel-inner" role="listbox">
                                                 <div class="carousel-item active">
                                                     <img class="img-fluid" src="/images/detail/big/01.jpg" alt="" />
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img class="img-fluid" src="/images/detail/big/02.jpg" alt="" />
+
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img class="img-fluid" src="/images/detail/big/03.jpg" alt="" />
+
                                                 </div>
                                                 
                                             </div>

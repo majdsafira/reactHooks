@@ -4,24 +4,20 @@ import { Link } from 'react-router-dom'
 
 function SinglePost() {
     const user_id = sessionStorage.getItem('user_id')
-    console.log(typeof(user_id))
     const postId = useParams()
     const [page, setPage] = useState(1)
     const [count, setCount] = useState(0)
-    const [post, setPost] = useState([{title:'', description:'',}])
-    const [comments, setComments] = useState([{ comment:'',}])
+    const [post, setPost] = useState([{title:'', description:'',name:'',created_at : '00-00-00 00:00:00'}])
+    const [comments, setComments] = useState([{ comment:'',created_at : '00-00-00 00:00:00'}])
     const [formData, setFormData] = useState({
       user_id : user_id,
       comment: '',
       post_id: postId.id,
     })
-    const [postConformation, setPostConformation] = useState(false)
     const [commentConformation, setCommentConformation] = useState(false)
-    console.log(formData)
     const handleClick = (event) => {
       setPage(event.target.innerHTML)
     }
-    console.log()
 
     // fetching a single post 
     useEffect(() => {
@@ -32,7 +28,7 @@ function SinglePost() {
             // console.log(data)
         }
         getPost()
-    },[postId.id])
+    },[postId.id,commentConformation])
 
     // fetching comments paginated 5 comments per page
     useEffect(() => {
@@ -84,6 +80,7 @@ function SinglePost() {
           <div className="comment-content">
             <h6>{comment.name}</h6>
             <p>{comment.comment}</p>
+            <time className='light small'>{comment.created_at !== null ? comment.created_at.slice(0,10) : ''}  {comment.created_at !== 'null' ? comment.created_at.slice(11,19): ''}</time>
           </div>
           <hr className="gray"/>
         </div>
@@ -147,7 +144,7 @@ function SinglePost() {
           </div>
           <div className="entry-meta">
             <ul>
-              <li><a href="/"><i className="fa fa-user"></i> By Cardealer </a> /</li>
+              <li><a href="/"><i className="fa fa-user"></i> By {post[0].name} </a> /</li>
               <li><a href="/"><i className="fa fa-comments-o"></i> {count} Comments</a> </li>
              
             </ul>
@@ -167,6 +164,7 @@ function SinglePost() {
             <div className="tab-pane fade show active" id="general-information" role="tabpanel" aria-labelledby="general-information-tab">
               <h6>{post[0].title}</h6>
               <p>{post[0].description}</p>
+              <time>posted in {post[0].created_at.slice(0,10)} {post[0].created_at.slice(11,19)}</time>
             </div>
             <div className="tab-pane fade" id="features-options" role="tabpanel" aria-labelledby="features-options-tab">
 
@@ -181,6 +179,7 @@ function SinglePost() {
           </div>
         </div>
           </div>
+          {sessionStorage.getItem('user_id') && (
         <div className="blog-form">
           <div className="gray-form row">
             <div className="col-md-12">
@@ -194,7 +193,8 @@ function SinglePost() {
           <div>
          </div>
         </div>
-       </div>
+       </div> )
+}
      </div>
       
      </div>

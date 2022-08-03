@@ -26,8 +26,9 @@ use App\Models\Post;
 
 Route::apiResource('post', PostController::class);
 Route::get('Allposts', [PostController::class, 'Allposts']);
+Route::delete('deletePost/{id}', [PostController::class,'destroy']);
 Route::get('commentsCount', [PostController::class, 'commentsCount']);
-
+Route::delete('deleteComment/{id}', [CommentController::class,'destroy']);
 Route::apiResource('comment', CommentController::class);
 Route::get('allComments/{post}',[CommentController::class,'getComments']);
 Route::get('getAllComments/{post}',[CommentController::class,'getAllComments']);
@@ -35,6 +36,8 @@ Route::get('getAllComments/{post}',[CommentController::class,'getAllComments']);
 Route::apiResource('ads', AdController::class);
 
 
+
+Route::get('getPosts/{user}', [PostController::class,'getPosts']);
 
 // ****************************************************************
 
@@ -47,5 +50,5 @@ Route::get('users/{id}', [UserController::class, 'getInfo']);
 Route::post('update/{id}', [UserController::class, 'update']);
 //all users
 Route::get('users', [UserController::class, 'getAllUsers']);
-
+Route::delete('delete/{id}', [UserController::class, 'deleteUser']);
 // ****************************************************************
