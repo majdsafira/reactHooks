@@ -139,7 +139,7 @@ const UpdateDataU = () => {
                           name="name"
                           type="text"
                           placeholder="your name"
-                          required
+                          
                           style={{ width: "330px" }}
                         />
                       </div>
@@ -159,7 +159,7 @@ const UpdateDataU = () => {
                           name="phone"
                           placeholder="your phone"
                           type="text"
-                          required
+                          
                           style={{ width: "330px" }}
                         />
                       </div>
@@ -177,7 +177,7 @@ const UpdateDataU = () => {
                           }
                           name="image"
                           type="file"
-                          required
+                          
                         />
                       </div>
                       <br></br>
@@ -198,7 +198,7 @@ const UpdateDataU = () => {
                           placeholder="Ex:Sujoud@mail.com"
                           name="email"
                           type="text"
-                          required
+                          
                           style={{ width: "330px" }}
                         />
                       </div>{" "}
@@ -215,7 +215,7 @@ const UpdateDataU = () => {
                           value={user.password}
                           name="password"
                           type="password"
-                          required
+                          
                           style={{ width: "330px" }}
                         />
                       </div>
@@ -229,7 +229,7 @@ const UpdateDataU = () => {
                     type="submit"
                     className="button red"
                     value={"Save"}
-                    required
+                    
                   />
                   <Link type="button" to="/back">
                     <button

@@ -26,15 +26,15 @@ class Carlist extends Component {
             return(
                 <div  key={index}>
                                     
-                                    <div class="col-lg col-md">
+                                    <div class="col-lg col-md" style={{width: '300px', height: '300px'}}>
 
                                         <div class="row">
-                                            <div class="col-lg col-sm">
-                                                <div class="car-item gray-bg text-center">
-                                                    <div class="car-image">
+                                            <div class="col-lg col-sm" style={{width: '100%', height: '100%'}}>
+                                                <div class="car-item gray-bg text-center" style={{width: '100%', height: '100%'}}>
+                                                    <div class="car-image" style={{width: '100%', height: '100%'}}>
                                                     {/* <img class="img-fluid" src="images/car/02.jpg" alt=""/> */}
                                                     
-                                                         <img class="img-fluid" src={"http://localhost:8000/img/" + car.image} alt="" /> 
+                                                         <img class="img-fluid" src={car.image} alt="" style={{width: '100%', height: '100%'}}/> 
                                                         <div class="car-overlay-banner">
                                                             <ul>
 

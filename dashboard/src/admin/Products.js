@@ -30,7 +30,7 @@ const Products = () => {
    <table class="table table-striped">
         <thead>
           <tr>
-            <th> User Name </th>
+            <th> User ID </th>
             <th> Product ID </th>
             <th> Product Image </th>
             <th> Product Description </th>
@@ -42,11 +42,11 @@ const Products = () => {
           {products && products.map((product) => (
 
             <tr key={product.id}>
-              <td>{product.id}</td>
               <td> {product.user_id}</td>
-              <td> {product.image}</td>
-              <td> {product.description.substring(0, 30)}
-              <a href={'/product/'+ product.id} >See More</a></td>
+              <td>{product.id}</td>
+              <td><img src={product.image} alt={product.make} width={300} height={300}/></td>
+              <td> {product.description.substring(0, 30)} ...</td>
+              {/* <a href={'/product/'+ product.id} >See More</a></td> */}
               <td><button type="button" class="btn btn-gradient-danger btn-fw" onClick={() => { handleDelete(product.id) }}>Delete</button>
               </td>
             </tr>

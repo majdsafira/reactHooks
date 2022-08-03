@@ -59,6 +59,9 @@ function Addcar() {
             .then(res => {
                 console.log(res.data)
             })
+
+            window.location.href = 'http://127.0.0.1:3000/car_list'
+
     }
     const handleChange = (event) => {
         const { id, value, name } = event.target
