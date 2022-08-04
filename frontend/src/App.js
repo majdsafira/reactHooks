@@ -12,8 +12,10 @@ import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Posts from './components/Posts';
 import SinglePost from './components/SinglePost';
 import Addcar from './components/Addcar';
-
 import Cardetails from './components/Cardetails';
+import UserProfile from './components/UserProfile';
+import UpdateDataU from './components/UpdateDataU';
+
 
 export const userContext = createContext();
 
@@ -39,9 +41,9 @@ function App() {
             <Route path="/car_details/:id" element={<Cardetails />} />
             <Route path="/create_a_post" element={<PostForm />} />
             <Route path="/posts" element={<Posts />} />
-            {/* <Route path="/back" element={<UserProfile />} />
+            <Route path="/back" element={<UserProfile />} />
             <Route path="/UserProfile" element={<UserProfile />} />
-            <Route path="/edit" element={<UpdateDataU />} /> */}
+            <Route path="/edit" element={<UpdateDataU />} />
             {/* <Route path="/admin/posts" element={<AdminPosts />} /> */}
             <Route path="/single_post/:id" element={<SinglePost />} />
             <Route path="/single_car/:id" element={<Cardetails />} />
